@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --cream: #F7F3EE;
+}
+
+body {
+font-family: 'Poppins', sans-serif;}
+body {
+  background: var(--cream);
+}
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    var(--navy),
+    var(--teal),
+    var(--navy)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.primary-btn {
+  background: linear-gradient(to right, #0D1F3C, #2ABFBF);
+  color: white;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  box-shadow: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(to right, #0B1830, #239E9E);
+}
+.section-heading {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-subheading {
+  font-size: 30px;
+  font-weight: 700;
+font-family: 'Playfair Display', serif;
+background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.section-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0D1F3C;
+  margin-top: 10px;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: #0D1F3C;
+  line-height: 1.7;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

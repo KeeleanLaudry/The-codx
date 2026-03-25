@@ -1,0 +1,177 @@
+import React from 'react'
+import HeroBanner from "../Home/HeroBanner";
+import WebDevelopmentPhases from '../web-development/WebDevelopmentPhases ';
+import TechnologiesSection from '../web-development/technologiesweuse';
+import WebServicesSection from '../web-development/WebServicesSection';
+import PortalCard from '../Home/card';
+import rejuvenation from "../assets/rejuvenation-procedures-300x113.jpg";
+import ecommerce from "../assets/ecommerce.jpg";
+import realestate from "../assets/real-estate.jpg";
+import business from "../assets/business.jpg";
+import health from "../assets/health.jpg"; 
+import BrandsGrid from '../Home/logos';
+import ContactSection from '../Contact/contactForm';
+import VideoSection from  "../mobile-app-development/videosection";
+import Appsection from "../mobile-app-development/appproject";
+import PlatformTypes from '../mobile-app-development/platform';
+import Services from '../web-development/servicecard';
+export default function mobileappdevelopment() {
+  return (
+    <div>
+        <HeroBanner
+       title="Build a Powerful Brand
+Identity Online"
+       lines="We craft memorable digital identities — from visual design to brand voice — ensuring your business stands out, connects with the right audience, and leaves a lasting impression across all digital platforms"
+       animateText={false}
+     containerWidth="max-w-2xl"
+titleSize="text-4xl sm:text-3xl md:text-4xl"
+linesSize="text-lg sm:text-xl md:text-xl"/> 
+     <Services/>
+<WebDevelopmentPhases
+  phaseTitle="Digital Branding Phases"
+  phaseDescription="CODX streamlines healthcare Digital Branding with a proven process: Discovery, UI/UX Design, Secure Development, and Ongoing Support for long-term success."
+  phasesData={[
+    {
+      id: 1,
+      title: "Discovery & Research",
+      description: "We dive deep into your requirements, goals, and target audience. This foundational step ensures alignment and a clear roadmap for success.",
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+           color: "#FF7F50"
+    },
+    {
+      id: 2,
+      title: "Concept Development",
+      description: "Crafting intuitive and engaging experiences. Our designers create wireframes and high-fidelity prototypes that bring your vision to life.",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+       color: "#FAD5A5"
+    },
+    {
+      id: 3,
+      title: "Design & Creation",
+      description: "Secure and scalable coding practices. Our engineers build robust healthcare web solutions with a focus on performance and compliance.",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+             color: "#e1a57d"
+
+    },
+    {
+      id: 4,
+      title: "Finalization & Delivery",
+      description: "Rigorous quality assurance and seamless deployment. We ensure your application is reliable, secure, and ready for users, followed by ongoing support.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+             color: "#FBCEB1"
+
+    }
+  ]}
+  /> 
+          <TechnologiesSection/>
+        <Appsection/>
+<PlatformTypes/>
+<WebServicesSection
+  title="End-to-End Digital Branding Services"
+  description="Revolutionize your digital presence with CODX’s comprehensive web development services. From concept to launch, we deliver tailored solutions that ensure exceptional outcomes. Trust Dubai’s top web development agency to bring your vision to life."
+
+  servicesData={[
+    {
+      title: "Logo Design",
+      desc: "Create timeless, impactful brand marks that represent your business."
+    },
+    {
+      title: "Packaging Design",
+      desc: "Visually stunning and functional packaging that sells your product."
+    },
+    {
+      title: "Corporate Identity Development",
+      desc: "Complete identity systems including colours, fonts, and brand guides."
+    },
+    {
+      title: "Brochure & Catalog Design",
+      desc: "Showcase your offerings with professional, print-ready layouts."
+    },
+    {
+      title: "Stationery & Business Cards",
+      desc: "Professional cards, letterheads, and envelopes that impress."
+    },
+    {
+      title: "Brand Guidelines Creation",
+      desc: "Define how your brand should look and feel across all channels."
+    },
+    {
+      title: "Social Media Branding",
+      desc: "Custom designs for profiles, posts, and campaigns."
+    },
+    {
+      title: "Event & Marketing Collateral",
+      desc: "Banners, flyers, and promotional designs to elevate your presence."
+    },
+     {
+      title: "Brand Refresh & Rebranding",
+      desc: "Modernize and upgrade your existing brand identity."
+    },
+    {
+      title: "Creative Consultation",
+      desc: "Get expert guidance on visual strategy and brand development."
+    }
+  ]}
+/>
+        {/* <VideoSection/> */}
+<div className='text-white justify-center text-center text-5xl p-5 font-semibold'>
+            Industries We Serve
+          </div>
+<div className='text-white justify-center text-center mb-2 font-semibold pb-10'>
+  Serving diverse industries, from retail to healthcare, with tailored digital strategies to meet unique business needs.
+
+</div>
+         <div className="space-y-10">
+          
+  <div className="sticky top-24">
+    <PortalCard
+      title="Beauty & Wellness"
+      description="Creating powerful brand identities that attract and retain customers."
+      image={rejuvenation}
+      reverse
+    />
+  </div>
+
+  <div className="sticky top-28">
+    <PortalCard
+      title="Ecommerce"
+      description="Optimising digital storefronts for maximum sales and customer retention."
+      image={ecommerce}
+      reverse
+    />
+  </div>
+
+  <div className="sticky top-32">
+    <PortalCard
+      title="Real Estate"
+      description="Expanding market reach and driving high-value conversions in real estate."
+      image={realestate}
+      reverse
+    />
+  </div>
+
+  <div className="sticky top-36">
+    <PortalCard
+      title="Business Consultancy"
+      description="Building stronger, more resilient businesses with expert consultancy."
+      image={business}
+      reverse
+    />
+  </div>
+
+  <div className="sticky top-40">
+    <PortalCard
+      title="Health Care"
+      description="Empowering healthier communities with expert healthcare consultancy."
+      image={health}
+      reverse
+    />
+  </div>
+
+</div> 
+
+<BrandsGrid title="Trusted by 350+ Clients Worldwide" />
+<ContactSection/>
+    </div>
+  )
+}
