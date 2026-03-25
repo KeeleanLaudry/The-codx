@@ -62,7 +62,7 @@ const TechnologiesSection = () => {
   const duplicatedRow3 = [...row3, ...row3, ...row3];
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden " >
+    <section ref={sectionRef} className="max-w-6xl mx-auto flex justify-center" >
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -94,7 +94,7 @@ const TechnologiesSection = () => {
           className="text-center mb-10"
         >
         
-          <h2 className="gradient-text leading-tight pb-2 text-4xl md:text-6xl font-bold" >
+          <h2 className="section-heading leading-tight pb-2" >
             Technologies We use
           </h2>
         

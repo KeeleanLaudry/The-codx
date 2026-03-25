@@ -67,42 +67,6 @@ function FloatingImage({ img, cardRef }) {
   }, []);
 
   return (
-    <section className="bg-[#F7F3EE] py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* TITLE */}
-        <motion.h2
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="gradient-text leading-tight pb-2 text-center text-4xl md:text-5xl font-semibold 
-           mb-16"
-        >
-          Strong Collaboration With
-        </motion.h2>
-
-        {/* CARDS */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {data.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
-              className="relative group rounded-3xl overflow-hidden shadow-lg"
-            >
-              {/* IMAGE */}
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-[380px] object-cover transition duration-500 group-hover:scale-110"
-              />
-
-              {/* NAVY OVERLAY */}
-              <div className="absolute inset-0 bg-[#0D1F3C]/60 group-hover:bg-[#0D1F3C]/40 transition duration-300"></div>
-
-              {/* CONTENT */}
-              <div className="absolute bottom-0 p-8 text-white">
-                <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
     <motion.div
       style={{
         width: "100%",
@@ -115,13 +79,19 @@ function FloatingImage({ img, cardRef }) {
       <img
         src={img}
         alt=""
-        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+        }}
       />
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(140deg, rgba(42,191,191,0.12), transparent 55%)",
+          background:
+            "linear-gradient(140deg, rgba(42,191,191,0.12), transparent 55%)",
           pointerEvents: "none",
         }}
       />
@@ -143,7 +113,11 @@ function Card({ item, index }) {
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.55, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{
+          duration: 0.55,
+          delay: index * 0.1,
+          ease: [0.25, 0.46, 0.45, 0.94],
+        }}
         style={{
           position: "relative",
           overflow: "visible",
@@ -201,10 +175,6 @@ function Card({ item, index }) {
               {item.title}
             </h3>
 
-                <p className="text-sm text-[#EDE7DF] opacity-90 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
             {/* Divider */}
             <div
               style={{
@@ -235,7 +205,9 @@ function Card({ item, index }) {
             <motion.div
               animate={{
                 borderColor: hovered ? "#2ABFBF" : "rgba(42,191,191,0.2)",
-                backgroundColor: hovered ? "rgba(42,191,191,0.1)" : "transparent",
+                backgroundColor: hovered
+                  ? "rgba(42,191,191,0.1)"
+                  : "transparent",
               }}
               transition={{ duration: 0.3 }}
               style={{
@@ -261,8 +233,6 @@ function Card({ item, index }) {
             </motion.div>
           </div>
 
-              {/* TEAL GLOW ON HOVER */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#2ABFBF] rounded-3xl transition duration-300"></div>
           {/* Bottom sweep line */}
           <motion.div
             animate={{ width: hovered ? "100%" : "0%" }}
@@ -272,7 +242,8 @@ function Card({ item, index }) {
               bottom: 0,
               left: 0,
               height: 2,
-              background: "linear-gradient(to right, transparent, #2ABFBF, transparent)",
+              background:
+                "linear-gradient(to right, transparent, #2ABFBF, transparent)",
             }}
           />
         </div>
@@ -313,9 +284,9 @@ function Card({ item, index }) {
               }}
               style={{
                 position: "absolute",
-                right: -115,         // hangs off right edge
+                right: -115, // hangs off right edge
                 top: "50%",
-                marginTop: -115,     // vertically centered
+                marginTop: -115, // vertically centered
                 width: 230,
                 height: 230,
                 borderRadius: 14,
@@ -329,10 +300,6 @@ function Card({ item, index }) {
             >
               <FloatingImage img={item.img} cardRef={cardRef} />
             </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
           )}
         </AnimatePresence>
       </motion.div>
@@ -350,7 +317,6 @@ export default function CollaborationSection() {
 
       <section style={{ background: "#F7F3EE", padding: "80px 24px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
-
           <motion.h2
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -371,7 +337,14 @@ export default function CollaborationSection() {
           </motion.h2>
 
           {/* Right padding gives room for the overflowing image */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 140 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 14,
+              paddingRight: 140,
+            }}
+          >
             {data.map((item, i) => (
               <Card key={i} item={item} index={i} />
             ))}
