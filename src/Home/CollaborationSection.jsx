@@ -23,7 +23,6 @@ export default function CollaborationSection() {
   return (
     <section className="bg-[#F7F3EE] py-20 px-6">
       <div className="max-w-7xl mx-auto">
-
         {/* TITLE */}
         <motion.h2
           initial={{ opacity: 0, y: 60 }}
@@ -37,7 +36,6 @@ export default function CollaborationSection() {
 
         {/* CARDS */}
         <div className="grid md:grid-cols-3 gap-8">
-
           {data.map((item, i) => (
             <motion.div
               key={i}
@@ -46,7 +44,6 @@ export default function CollaborationSection() {
               transition={{ delay: i * 0.2 }}
               className="relative group rounded-3xl overflow-hidden shadow-lg"
             >
-
               {/* IMAGE */}
               <img
                 src={item.img}
@@ -59,23 +56,17 @@ export default function CollaborationSection() {
 
               {/* CONTENT */}
               <div className="absolute bottom-0 p-8 text-white">
-
-                <h3 className="text-2xl font-semibold mb-3">
-                  {item.title}
-                </h3>
+                <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
 
                 <p className="text-sm text-[#EDE7DF] opacity-90 leading-relaxed">
                   {item.desc}
                 </p>
-
               </div>
 
               {/* TEAL GLOW ON HOVER */}
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#2ABFBF] rounded-3xl transition duration-300"></div>
-
             </motion.div>
           ))}
-
         </div>
       </div>
     </section>
