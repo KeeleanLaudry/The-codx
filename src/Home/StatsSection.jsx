@@ -35,7 +35,7 @@ const stats = [
 
 const StatsSection = () => {
   const sectionRef = useRef(null);
-const isInView = useInView(sectionRef, { once: true });
+const isInView = useInView(sectionRef, { amount: 0.5 }); 
 const [activeIndex, setActiveIndex] = useState(0);
 const [isHovered, setIsHovered] = useState(false);
 useEffect(() => {
@@ -43,47 +43,49 @@ useEffect(() => {
 
   const interval = setInterval(() => {
     setActiveIndex(prev => (prev + 1) % stats.length);
-  }, 1200); // speed
+  }, 1200);
 
   return () => clearInterval(interval);
-}, [isInView, isHovered]);;
+}, [isInView, isHovered, stats.length]);
   return (
 <div ref={sectionRef} className="relative px-6 py-10 text-center overflow-hidden">        
    <div className="relative z-10 mb-16">
      
-        <h2 className="gradient-text text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="section-heading">
           Proven Track Record: Our Gains
         </h2>
     
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto  z-10 items-start">
         {stats.map((item, index) => (
         <div
   key={index}
   onMouseEnter={() => {
     setIsHovered(true);
-    setActiveIndex(index); // 👈 hover pe wahi open
+    setActiveIndex(index); 
   }}
   onMouseLeave={() => {
-    setIsHovered(false); // 👈 auto resume
+    setIsHovered(false); 
   }}
-  className="group relative bg-white rounded-2xl shadow-lg ..."
->
+className={`group relative bg-white rounded-2xl shadow-lg border transition-all duration-300 ${
+  activeIndex === index
+    ? "border-[#2ABFBF]"
+    : "border-transparent hover:border-[#2ABFBF]"
+}`}>
             {/* Gradient border effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#2ABFBF] to-[#f4a261] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-sm"></div>
+            <div className="absolute inset-0 border-[#2ABFBF] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-sm"></div>
             
             <div className="relative bg-white rounded-2xl p-8 m-[2px] h-full flex flex-col items-center text-center">
               
               {/* Number */}
               <div className="relative z-10">
-                <h3 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#0D1F3C] to-[#2ABFBF] bg-clip-text text-transparent mb-3">
+                <h3 className="section-title">
                   {item.number}
                 </h3>
               </div>
               
-              <p className="text-[#0D1F3C] text-xl font-semibold mb-4">
+              <p className="section-subtitle">
                 {item.text}
               </p>
 <div
@@ -93,7 +95,7 @@ useEffect(() => {
       : "max-h-0 opacity-0"
   }`}
 >
-  <p className="text-gray-600 text-sm leading-relaxed mt-2">
+  <p className="section-desc">
     {item.desc}
   </p>
 </div>

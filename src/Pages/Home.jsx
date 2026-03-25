@@ -27,7 +27,7 @@ export default function Home() {
       <GlobalServices />
 <Logos />
          <div className="space-y-8 p-10 ">
-            <h1 className="gradient-text text-2xl md:text-5xl font-semibold mb-8 text-center">
+            <h1 className="section-heading">
     Industries and Expertise
   </h1>
              <PortalCard

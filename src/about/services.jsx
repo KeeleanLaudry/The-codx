@@ -4,37 +4,37 @@ const services = [
   {
     title: "Development",
     description: "Designed to scale with your business and deliver exceptional user experiences.",
-    details: "We build high-performing websites, mobile apps, and custom platforms.",
-    bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "#FF7F50"
+    details: "We build high-performing websites, mobile apps, and custom platforms that drive results.",
+    icon: "💻",
+    gradient: "linear-gradient(135deg, #2ABFBF20, #0D1F3C20)"
   },
   {
     title: "Digital Marketing",
-    description: "From SEO to social media and paid ads.",
-    details: "We create data-driven marketing strategies that boost visibility, engagement, and conversions.",
-    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "#FAD5A5"
+    description: "From SEO to social media and paid ads, we create data-driven strategies.",
+    details: "Boost visibility, engagement, and conversions with our proven marketing approaches.",
+    icon: "📊",
+    gradient: "linear-gradient(135deg, #2ABFBF20, #0D1F3C20)"
   },
   {
     title: "Emerging Tech",
-    description: "Stay ahead of the curve with AI, AR/VR, Blockchain, and IoT solutions.",
-    details: "That transform how you operate, connect, and innovate.",
-    bgImage: "https://i.pinimg.com/736x/95/47/e5/9547e51db9a80dfe103c9c19ee729dfc.jpg",
-    color: "#e1a57d"
+    description: "Stay ahead with AI, AR/VR, Blockchain, and IoT solutions.",
+    details: "Transform how you operate, connect, and innovate with cutting-edge technology.",
+    icon: "🚀",
+    gradient: "linear-gradient(135deg, #2ABFBF20, #0D1F3C20)"
   },
   {
-    title: "Advertising and Creative",
-    description: "We blend strategy and storytelling to craft bold campaigns, stunning visuals.",
-    details: "compelling brand experiences that leave a lasting impression.",
-    bgImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "#FBCEB1"
+    title: "Advertising & Creative",
+    description: "Blend strategy and storytelling for bold campaigns.",
+    details: "Create stunning visuals and compelling brand experiences that leave lasting impressions.",
+    icon: "🎨",
+    gradient: "linear-gradient(135deg, #2ABFBF20, #0D1F3C20)"
   },
   {
-    title: "IT Services and Solutions",
+    title: "IT Services & Solutions",
     description: "From cloud solutions to cybersecurity and managed IT.",
-    details: "We provide end-to-end support to keep your business secure, connected, and running smoothly.",
-    bgImage: "https://i.pinimg.com/736x/ca/28/17/ca2817d6ae10ef785210ed60a67d8150.jpg",
-    color: "#FF7F50"
+    details: "End-to-end support to keep your business secure, connected, and running smoothly.",
+    icon: "⚙️",
+    gradient: "linear-gradient(135deg, #2ABFBF20, #0D1F3C20)"
   }
 ];
 
@@ -42,47 +42,47 @@ export default function Services() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative   overflow-hidden">
-      {/* Animated background particles */}
-      <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
+    <section className="relative px-6 md:px-16 overflow-hidden" >
+      {/* Animated background particles with new color scheme */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(25)].map((_, i) => (
           <div
             key={i}
             className="absolute rounded-full animate-float"
             style={{
-              width: `${Math.random() * 300 + 50}px`,
-              height: `${Math.random() * 300 + 50}px`,
+              width: `${Math.random() * 200 + 50}px`,
+              height: `${Math.random() * 200 + 50}px`,
               background: `radial-gradient(circle at center, ${
-                ["#FF7F50", "#FAD5A5", "#e1a57d", "#FBCEB1"][i % 4]
-              }15, transparent 70%)`,
+                ["#2ABFBF", "#EDE7DF", "#EADECF", "#0D1F3C"][i % 4]
+              }10, transparent 70%)`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${10 + Math.random() * 10}s`,
-              filter: 'blur(40px)'
+              animationDuration: `${12 + Math.random() * 8}s`,
+              filter: 'blur(50px)'
             }}
           />
         ))}
       </div>
 
       <div className="relative z-10 text-center mb-16">
-        <h2 className="text-5xl md:text-6xl font-bold mb-4">
-          <span className="text-white">Our </span>
-          <span className="text-4xl md:text-5xl font-bold mb-6 gradient-text bg-clip-text text-transparent">
-
-            Services
-          </span>
+     
+        <h2 className=" gradient-text text-5xl md:text-6xl font-bold mb-4" >
+          Our Services
         </h2>
-      
+        
+        <p className="mt-6 text-lg max-w-2xl mx-auto" style={{ color: "#0D1F3C" }}>
+          Comprehensive solutions tailored to your business needs
+        </p>
       </div>
 
       {/* Cards Grid - 5 in a row */}
       <div className="relative z-10 max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group perspective-1000 h-[350px]"
+              className="group perspective-1000 h-[380px]"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -90,72 +90,109 @@ export default function Services() {
                 className={`relative w-full h-full transition-all duration-700 transform-style-3d ${
                   hoveredIndex === index ? 'rotate-y-180' : ''
                 }`}
+                style={{ transformStyle: "preserve-3d" }}
               >
-                {/* Front of card */}
-                <div className="absolute inset-0 w-full h-full backface-hidden">
-                  {/* Background Image with Overlay */}
-                  <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                    <img 
-                      src={service.bgImage} 
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                    <div className="absolute inset-0" style={{
-                      background: `linear-gradient(135deg, ${service.color}40, transparent)`
-                    }}></div>
-                  </div>
-
-                  {/* Content - Front */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                    {/* Animated border */}
-                    <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#FF7F50] transition-all duration-500"></div>
-                    
-                    {/* Title with animated underline */}
-                    <h3 className="text-xl font-bold text-white mb-2 relative">
-                      {service.title}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF7F50] group-hover:w-12 transition-all duration-500"></span>
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-gray-300 text-xs font-medium leading-relaxed">
-                      {service.description}
-                    </p>
+                <div className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden">
+                  <div 
+                    className="absolute inset-0"
+                    style={{
+                      background: service.gradient,
+                      backgroundColor: "#EDE7DF"
+                    }}
+                  />
+                  <div 
+                    className="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-10"
+                    style={{ backgroundColor: "#2ABFBF" }}
+                  />
+                  <div 
+                    className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full opacity-10"
+                    style={{ backgroundColor: "#2ABFBF" }}
+                  />
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                    <div className="mt-4">
+                      <div 
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+                        style={{ 
+                          backgroundColor: `${"#2ABFBF"}20`,
+                          color: "#2ABFBF"
+                        }}
+                      >
+                        {service.icon}
+                      </div>
+                        <h3 className="text-xl font-bold mb-3" style={{ color: "#0D1F3C" }}>
+                        {service.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-sm leading-relaxed" style={{ color: "#0D1F3C" }}>
+                        {service.description}
+                      </p>
+                    </div>
                     
                     {/* Hover indicator */}
-                    <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <span className="text-[#FBCEB1] text-lg">↻</span>
+                    <div className="flex justify-end">
+                      <div 
+                        className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 group-hover:translate-x-1"
+                        style={{ backgroundColor: `${"#2ABFBF"}20` }}
+                      >
+                        <span style={{ color: "#2ABFBF" }}>→</span>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Border effect on hover */}
+                  <div 
+                    className="absolute inset-0 rounded-2xl border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ borderColor: "#2ABFBF" }}
+                  />
                 </div>
 
                 {/* Back of card */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-                  <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                    {/* Same background but different overlay */}
-                    <img 
-                      src={service.bgImage} 
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0" style={{
-                      background: `linear-gradient(135deg, ${service.color}CC, #000000)`
-                    }}></div>
-                  </div>
+                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl overflow-hidden">
+                  {/* Background */}
+                  <div 
+                    className="absolute inset-0"
+                    style={{ 
+                      background: `linear-gradient(135deg, ${"#2ABFBF"}20, ${"#0D1F3C"}20)`,
+                      backgroundColor: "#EDE7DF"
+                    }}
+                  />
+                  
+                  {/* Pattern overlay */}
+                  <div 
+                    className="absolute inset-0 opacity-5"
+                    style={{
+                      backgroundImage: `radial-gradient(circle at 2px 2px, ${"#2ABFBF"} 1px, transparent 1px)`,
+                      backgroundSize: "24px 24px"
+                    }}
+                  />
 
                   {/* Content - Back */}
                   <div className="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
                     <div className="animate-slide-up">
-                     
+                      {/* Icon */}
+                      <div 
+                        className="w-14 h-14 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"
+                        style={{ backgroundColor: `${"#2ABFBF"}20` }}
+                      >
+                        {service.icon}
+                      </div>
+                      
                       {/* Title */}
-                      <h3 className="text-lg font-bold text-white mb-3">
+                      <h3 className="text-lg font-bold mb-3" style={{ color: "#0D1F3C" }}>
                         {service.title}
                       </h3>
                       
                       {/* Details */}
-                      <p className="text-gray-200  font-medium text-sm leading-relaxed">
+                      <p className="text-sm leading-relaxed" style={{ color: "#0D1F3C" }}>
                         {service.details}
                       </p>
+
+                      {/* Decorative dot */}
+                      <div 
+                        className="w-8 h-8 rounded-full mx-auto mt-4 opacity-20"
+                        style={{ backgroundColor: "#EADECF" }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -165,7 +202,7 @@ export default function Services() {
         </div>
       </div>
 
-
+    
       <style jsx>{`
         .perspective-1000 {
           perspective: 2000px;
@@ -173,6 +210,7 @@ export default function Services() {
         
         .transform-style-3d {
           transform-style: preserve-3d;
+          transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .backface-hidden {
@@ -189,10 +227,10 @@ export default function Services() {
             transform: translate(0, 0) scale(1);
           }
           33% {
-            transform: translate(30px, -30px) scale(1.1);
+            transform: translate(20px, -20px) scale(1.05);
           }
           66% {
-            transform: translate(-20px, 20px) scale(0.9);
+            transform: translate(-15px, 15px) scale(0.95);
           }
         }
         
@@ -207,6 +245,17 @@ export default function Services() {
           }
         }
         
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.3;
+            transform: scale(1.05);
+          }
+        }
+        
         .animate-float {
           animation: float 15s ease-in-out infinite;
         }
@@ -216,16 +265,7 @@ export default function Services() {
         }
         
         .animate-pulse {
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.5;
-          }
+          animation: pulse 3s ease-in-out infinite;
         }
       `}</style>
     </section>

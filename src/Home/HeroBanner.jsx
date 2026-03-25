@@ -38,7 +38,7 @@ export default function Hero({
       </video> */}
       <div className="absolute inset-0 bg-[#F7F3EE]"></div>
    <div className={`relative z-10 flex flex-col items-center justify-center h-full text-center px-6 mx-auto ${containerWidth}`}>
-       <h1 className={`gradient-text bg-clip-text text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
+       <h1 className={`gradient-text bg-clip-text font-inria  text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
   {title}
 </h1>
   
@@ -52,7 +52,7 @@ export default function Hero({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.6 }}
                 transition={{ duration: 0.8 }}
-className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF] bg-clip-text text-transparent text-4xl md:text-6xl font-semibold leading-tight pb-2"              >
+className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF]  font-inria bg-clip-text text-transparent text-4xl md:text-6xl font-semibold leading-tight pb-2"              >
                 {lines[index]}
               </motion.p>
             </AnimatePresence>
@@ -60,7 +60,7 @@ className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF] bg-clip-te
 
         ) : (
 
-        <p className={`text-[#2ABFBF] font-semibold mt-6 ${linesSize}`}>
+        <p className={`text-[#2ABFBF]  font-semibold mt-6 ${linesSize}`}>
   {lines}
 </p>
 

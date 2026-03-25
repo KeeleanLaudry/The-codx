@@ -84,7 +84,7 @@ useEffect(() => {
       {/* BACKGROUND GLOW */}
    
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative ">
 
         {/* TOP TABS */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
@@ -96,15 +96,15 @@ useEffect(() => {
               <motion.div
                 key={service.id}
                 whileHover={{ scale: 1.05 }}
-onClick={() => {
-  setActive(service.id);
-  setIsPaused(true);
+              onClick={() => {
+                setActive(service.id);
+                setIsPaused(true);
 
-  setTimeout(() => {
-    setIsPaused(false);
-  }, 5000);
-}}
-                
+                setTimeout(() => {
+                  setIsPaused(false);
+                }, 5000);
+              }}
+                              
                 className="cursor-pointer"
               >
                 <div
@@ -144,11 +144,11 @@ onClick={() => {
             <div className="rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border" style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}>
 
               <div className="flex-1">
-                <h2 className="text-3xl md:text-2xl font-semibold mb-6" style={{ color: "#0D1F3C" }}>
-                  {activeService.title}
+    <h2 className="section-subheading  font-inria text-[20px]">
+                    {activeService.title}
                 </h2>
 
-                <p className="mb-6 font-medium" style={{ color: "#0D1F3CCC" }}>
+                <p className="section-desc font-medium mb-6 " style={{ color: "#0D1F3CCC" }}>
                   {activeService.desc}
                 </p>
 

@@ -37,78 +37,68 @@ const timeline = [
     desc: "CODX continues to pioneer scalable and impactful digital solutions."
   },
   {
-  year: "2026",
-  title: "Scaling Innovation Worldwide",
-  desc: "CODX continues to expand globally by delivering advanced AI solutions, automation systems, and next-generation digital platforms for businesses."
-}
+    year: "2026",
+    title: "Scaling Innovation Worldwide",
+    desc: "CODX continues to expand globally by delivering advanced AI solutions, automation systems, and next-generation digital platforms for businesses."
+  }
 ];
 
 export default function OurStory() {
   return (
-    <section className="relative  py-24 text-white overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-purple-500/5"></div>
+    <section className="relative py-24 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: "#F7F3EE" }}>
       
-      {/* Floating particles effect */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+      {/* Floating decorative circles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(25)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-orange-500/20 rounded-full animate-pulse"
+            className="absolute rounded-full animate-float"
             style={{
+              width: `${Math.random() * 200 + 50}px`,
+              height: `${Math.random() * 200 + 50}px`,
+              background: `radial-gradient(circle at center, ${
+                ["#2ABFBF", "#EDE7DF", "#EADECF", "#0D1F3C"][i % 4]
+              }08, transparent 70%)`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 5}s`
+              animationDuration: `${12 + Math.random() * 8}s`,
+              filter: 'blur(40px)'
             }}
           />
         ))}
       </div>
 
-      {/* Heading with creative typography */}
+      {/* Header Section */}
       <div className="relative text-center mb-20">
-        <h2 className="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 opacity-10">
-          JOURNEY
-        </h2>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-4xl md:text-5xl font-bold">
-            <span className="text-white">OUR </span>
-            <span className="gradient-text relative">
-              STORY
-              <span className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-transparent"></span>
-            </span>
+        {/* Decorative Circle */}
+        <div 
+          className="w-24 h-24 rounded-full mx-auto mb-6 opacity-20 animate-pulse"
+          style={{ backgroundColor: "#EADECF" }}
+        />
+        
+        <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "#0D1F3C" }}>
+          Our{" "}
+          <span style={{ color: "#2ABFBF" }}>
+            Story
           </span>
-        </div>
+        </h2>
+        
+        {/* Underline */}
+        <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: "#2ABFBF" }} />
+        
+        <p className="mt-6 text-lg max-w-2xl mx-auto" style={{ color: "#0D1F3C" }}>
+          A journey of innovation, growth, and digital transformation
+        </p>
       </div>
 
       {/* Main timeline */}
-      <div className="relative max-w-6xl mx-auto px-4">
-        {/* Curved connecting line */}
-        <svg
-          className="absolute left-1/2 top-0 -translate-x-1/2 w-full h-full pointer-events-none"
-          style={{ minHeight: '800px' }}
-        >
-          <path
-            d="M 400,50 
-               C 600,200 200,350 400,500 
-               C 600,650 200,800 400,950
-               C 600,1100 200,1250 400,1400"
-            stroke="url(#gradient)"
-            strokeWidth="2"
-            strokeDasharray="8 8"
-            fill="none"
-            opacity="0.3"
-          />
-          <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FF7F50" />
-              <stop offset="100%" stopColor="#FF7F50" stopOpacity="0.3" />
-            </linearGradient>
-          </defs>
-        </svg>
-
+      <div className="relative max-w-6xl mx-auto">
+        {/* Timeline center line */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full" style={{ backgroundColor: `${"#2ABFBF"}30` }} />
+        
         {/* Timeline items */}
-        <div className="relative space-y-32">
+        <div className="relative space-y-24">
           {timeline.map((item, index) => {
             const isEven = index % 2 === 0;
             
@@ -122,37 +112,52 @@ export default function OurStory() {
                 {/* Content side */}
                 <div className={`w-1/2 ${isEven ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
                   <div
-                    className="transform transition-all duration-500 hover:scale-105"
+                    className="transform transition-all duration-500 hover:scale-105 group"
                     style={{
-                      animation: `fadeInUp 0.6s ease-out ${index * 0.2}s both`
+                      animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
                     }}
                   >
                     {/* Year tag */}
                     <div
-                        className={`inline-block mb-4 mr-4 px-4 py-2 bg-gradient-to-r from-[#2ABFBF] to-transparent border border-orange-500/30 rounded-full ${
-                          isEven ? '' : 'flex-row-reverse'
-                        }`}
-                      >
-                      <span className="text-[#0D1F3C] font-mono text-lg">{item.year}</span>
+                      className={`inline-block mb-4 px-5 py-2 rounded-full ${
+                        isEven ? 'mr-0' : 'ml-0'
+                      }`}
+                      style={{ 
+                        backgroundColor: `${"#2ABFBF"}15`,
+                        border: `1px solid ${"#2ABFBF"}30`
+                      }}
+                    >
+                      <span className="font-mono text-sm font-bold" style={{ color: "#2ABFBF" }}>
+                        {item.year}
+                      </span>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-white mb-3 relative inline-block">
+                    <h3 
+                      className="text-xl md:text-2xl font-bold mb-3 relative inline-block"
+                      style={{ color: "#0D1F3C" }}
+                    >
                       {item.title}
                       <span
-                        className={`absolute bottom-0 h-0.5 bg-[#0D1F3C] transition-all duration-300 w-0 group-hover:w-full ${
+                        className={`absolute bottom-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full ${
                           isEven ? 'right-0' : 'left-0'
                         }`}
+                        style={{ backgroundColor: "#2ABFBF" }}
                       />
                     </h3>
                     
-                    <p className="text-[#2ABFBF] font-medium text-base leading-relaxed max-w-md ml-auto mr-auto">
+                    <p className="text-base leading-relaxed max-w-md mx-auto" style={{ color: "#0D1F3C" }}>
                       "{item.desc}"
                     </p>
                     
                     {/* Decorative quote mark */}
-                    <span className="text-6xl font-serif text-[#2abfbf5d] absolute opacity-50 -z-10">
+                    <div 
+                      className={`text-6xl font-serif absolute opacity-10 -z-10 ${
+                        isEven ? '-left-8 top-0' : '-right-8 top-0'
+                      }`}
+                      style={{ color: "#2ABFBF" }}
+                    >
                       "
-                    </span>
+                    </div>
                   </div>
                 </div>
 
@@ -160,13 +165,27 @@ export default function OurStory() {
                 <div className="relative flex items-center justify-center w-16">
                   {/* Glowing dot */}
                   <div className="relative">
-                    <div className="w-4 h-4 bg-[#2ABFBF] rounded-full shadow-[0_0_20px_rgba(255,127,80,0.5)] animate-pulse"></div>
-                    <div className="absolute inset-0 w-4 h-4 bg-[#2ABFBF] rounded-full animate-ping opacity-20"></div>
+                    <div 
+                      className="w-4 h-4 rounded-full shadow-lg animate-pulse"
+                      style={{ 
+                        backgroundColor: "#2ABFBF",
+                        boxShadow: `0 0 15px ${"#2ABFBF"}80`
+                      }}
+                    />
+                    <div 
+                      className="absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-20"
+                      style={{ backgroundColor: "#2ABFBF" }}
+                    />
                   </div>
                   
-                  {index !== timeline.length - 1 && (
-                    <div className="absolute top-6 w-0.5 h-24 bg-gradient-to-b from-[#2ABFBF] to-transparent"></div>
-                  )}
+                  {/* Decorative circle around dot */}
+                  <div 
+                    className="absolute w-12 h-12 rounded-full -z-10 animate-spin-slow"
+                    style={{ 
+                      border: `1px dashed ${"#2ABFBF"}40`,
+                      animation: "spin 20s linear infinite"
+                    }}
+                  />
                 </div>
 
                 <div className="w-1/2"></div>
@@ -176,7 +195,17 @@ export default function OurStory() {
         </div>
       </div>
 
-      {/* Add keyframes for animations */}
+      {/* Bottom decorative element */}
+      <div className="relative z-10 mt-20 text-center">
+        <div 
+          className="w-12 h-12 rounded-full mx-auto mb-4 opacity-30"
+          style={{ backgroundColor: "#EADECF" }}
+        />
+        <p className="text-sm" style={{ color: "#2ABFBF" }}>
+          Building the future, one milestone at a time
+        </p>
+      </div>
+
       <style jsx>{`
         @keyframes fadeInUp {
           from {
@@ -191,15 +220,64 @@ export default function OurStory() {
         
         @keyframes float {
           0%, 100% {
-            transform: translateY(0);
+            transform: translateY(0) translateX(0);
+          }
+          33% {
+            transform: translateY(-15px) translateX(10px);
+          }
+          66% {
+            transform: translateY(10px) translateX(-10px);
+          }
+        }
+        
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(1);
           }
           50% {
-            transform: translateY(-10px);
+            opacity: 0.3;
+            transform: scale(1.05);
           }
         }
         
         .animate-float {
-          animation: float 3s ease-in-out infinite;
+          animation: float 15s ease-in-out infinite;
+        }
+        
+        .animate-pulse {
+          animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .animate-spin-slow {
+          animation: spin 20s linear infinite;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: #EDE7DF;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: #2ABFBF;
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: #0D1F3C;
         }
       `}</style>
     </section>
