@@ -11,6 +11,8 @@ import Health from "../assets/health care.png";
 import Logos from '../Home/logos';
 import StatsSection from '../Home/StatsSection';
 import Collabrator from"../Home/CollaborationSection";
+import TechnologiesSection from '../web-development/technologiesweuse';
+import TestimonialSection from '../Home/Testimonial';
 export default function Home() {
   return (
     <div>
@@ -69,8 +71,11 @@ export default function Home() {
         image={Health}
         reverse
       />
+      {/* <TestimonialSection/> */}
 <StatsSection />
+<TechnologiesSection/>
 <Collabrator/>
+
     </div>
     </div>
   )
