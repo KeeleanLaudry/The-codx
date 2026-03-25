@@ -45,7 +45,7 @@ const timeline = [
 
 export default function OurStory() {
   return (
-    <section className="relative bg-black py-24 text-white overflow-hidden">
+    <section className="relative  py-24 text-white overflow-hidden">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-purple-500/5"></div>
       
@@ -73,7 +73,7 @@ export default function OurStory() {
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-4xl md:text-5xl font-bold">
             <span className="text-white">OUR </span>
-            <span className="text-orange-500 relative">
+            <span className="gradient-text relative">
               STORY
               <span className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-transparent"></span>
             </span>
@@ -129,28 +129,28 @@ export default function OurStory() {
                   >
                     {/* Year tag */}
                     <div
-                        className={`inline-block mb-4 mr-4 px-4 py-2 bg-gradient-to-r from-orange-500/20 to-transparent border border-orange-500/30 rounded-full ${
+                        className={`inline-block mb-4 mr-4 px-4 py-2 bg-gradient-to-r from-[#2ABFBF] to-transparent border border-orange-500/30 rounded-full ${
                           isEven ? '' : 'flex-row-reverse'
                         }`}
                       >
-                      <span className="text-orange-500 font-mono text-lg">{item.year}</span>
+                      <span className="text-[#0D1F3C] font-mono text-lg">{item.year}</span>
                     </div>
                     
                     <h3 className="text-xl font-bold text-white mb-3 relative inline-block">
                       {item.title}
                       <span
-                        className={`absolute bottom-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full ${
+                        className={`absolute bottom-0 h-0.5 bg-[#0D1F3C] transition-all duration-300 w-0 group-hover:w-full ${
                           isEven ? 'right-0' : 'left-0'
                         }`}
                       />
                     </h3>
                     
-                    <p className="text-gray-400 text-base leading-relaxed max-w-md ml-auto mr-auto">
+                    <p className="text-[#2ABFBF] font-medium text-base leading-relaxed max-w-md ml-auto mr-auto">
                       "{item.desc}"
                     </p>
                     
                     {/* Decorative quote mark */}
-                    <span className="text-6xl font-serif text-orange-500/20 absolute opacity-50 -z-10">
+                    <span className="text-6xl font-serif text-[#2abfbf5d] absolute opacity-50 -z-10">
                       "
                     </span>
                   </div>
@@ -160,17 +160,15 @@ export default function OurStory() {
                 <div className="relative flex items-center justify-center w-16">
                   {/* Glowing dot */}
                   <div className="relative">
-                    <div className="w-4 h-4 bg-orange-500 rounded-full shadow-[0_0_20px_rgba(255,127,80,0.5)] animate-pulse"></div>
-                    <div className="absolute inset-0 w-4 h-4 bg-orange-500 rounded-full animate-ping opacity-20"></div>
+                    <div className="w-4 h-4 bg-[#2ABFBF] rounded-full shadow-[0_0_20px_rgba(255,127,80,0.5)] animate-pulse"></div>
+                    <div className="absolute inset-0 w-4 h-4 bg-[#2ABFBF] rounded-full animate-ping opacity-20"></div>
                   </div>
                   
-                  {/* Vertical connector line */}
                   {index !== timeline.length - 1 && (
-                    <div className="absolute top-6 w-0.5 h-24 bg-gradient-to-b from-orange-500 to-transparent"></div>
+                    <div className="absolute top-6 w-0.5 h-24 bg-gradient-to-b from-[#2ABFBF] to-transparent"></div>
                   )}
                 </div>
 
-                {/* Empty space for other side */}
                 <div className="w-1/2"></div>
               </div>
             );

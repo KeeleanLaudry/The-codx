@@ -30,19 +30,18 @@ export default function BrandsGrid({ title = "Trusted by 80+ Clients Worldwide" 
   const logos = [...brands, ...brands];
 
   return (
-    <section className="bg-black py-20 px-6 overflow-hidden">
+    <section className=" py-20 px-6 overflow-hidden">
 
       <div className="max-w-8xl mx-auto">
 
         {/* Header */}
         <div className="text-center mb-16">
-        <h2 className="hero-gradient text-4xl md:text-5xl font-bold">
+        <h2 className="gradient-text text-4xl md:text-5xl font-bold">
   {title}
 </h2>
         </div>
         <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-10"/>
-          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-10"/>
+         
 
           <motion.div
             className="flex gap-12"

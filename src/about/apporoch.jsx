@@ -23,9 +23,9 @@ const data = [
 
 export default function OurApproach() {
   return (
-    <section className="bg-black text-white py-24">
+    <section className=" text-whit">
       <h2 className="text-center text-5xl font-semibold mb-16 
-      bg-gradient-to-r from-[#FAD5A5] via-[#FBCEB1] to-[#FF7F50] 
+     gradient-text
       bg-clip-text text-transparent">
         Our Approach
       </h2>
@@ -48,10 +48,10 @@ export default function OurApproach() {
 
       {/* BACK */}
       <div className="absolute inset-0 rotate-y-180 backface-hidden 
-      bg-gradient-to-br from-[#FAD5A5] via-[#FBCEB1] to-[#FF7F50]
-      text-black flex items-center justify-center text-center p-6 rounded-xl">
+      bg-gradient-to-r from-[#EADECF] via-[#d6c3b3c6] to-[#EADECF]
+      text-[#0D1F3C] flex items-center justify-center text-center p-6 rounded-xl">
 
-        <p className="text-lg font-medium">
+        <p className="text-lg font-medium     text-[#0D1F3C]">
           {item.desc}
         </p>
 
@@ -60,7 +60,7 @@ export default function OurApproach() {
     </div>
 
     {/* TITLE BELOW CARD */}
-    <h3 className="mt-5 text-xl font-semibold text-white">
+    <h3 className=" gradient-text mt-5 text-xl font-semibold text-white">
       {item.title}
     </h3>
 

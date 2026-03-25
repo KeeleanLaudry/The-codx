@@ -1,7 +1,15 @@
-#root {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+:root {
+  --cream: #F7F3EE;
+  --parchment: #EDE7DF;
+  --navy: #0D1F3C;
+  --teal: #2ABFBF;
+}
+
+/* Body background */
+body {
+  background-color: var(--cream);
+  color: var(--navy);
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .logo {

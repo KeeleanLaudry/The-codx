@@ -27,7 +27,7 @@ export default function Hero({
     <div className="relative w-full h-screen overflow-hidden">
 
       {/* Background Video */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -35,13 +35,13 @@ export default function Hero({
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={bgVideo} type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+      </video> */}
+      <div className="absolute inset-0 bg-[#F7F3EE]"></div>
    <div className={`relative z-10 flex flex-col items-center justify-center h-full text-center px-6 mx-auto ${containerWidth}`}>
-       <h1 className={`bg-gradient-to-r from-[#FAD5A5] via-[#FBCEB1] via-[#e1a57d] to-[#FF7F50] 
-bg-clip-text text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
+       <h1 className={`gradient-text bg-clip-text text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
   {title}
 </h1>
+  
         {animateText ? (
 
           <div className="min-h-[120px] flex items-center justify-center">
@@ -52,8 +52,7 @@ bg-clip-text text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.6 }}
                 transition={{ duration: 0.8 }}
-                className="bg-gradient-to-r from-[#FAD5A5] via-[#FBCEB1] via-[#e1a57d] to-[#FF7F50] bg-clip-text text-transparent text-4xl md:text-6xl font-semibold leading-tight pb-2"
-              >
+className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF] bg-clip-text text-transparent text-4xl md:text-6xl font-semibold leading-tight pb-2"              >
                 {lines[index]}
               </motion.p>
             </AnimatePresence>
@@ -61,7 +60,7 @@ bg-clip-text text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
 
         ) : (
 
-        <p className={`text-gray-200 mt-6 ${linesSize}`}>
+        <p className={`text-[#2ABFBF] font-semibold mt-6 ${linesSize}`}>
   {lines}
 </p>
 

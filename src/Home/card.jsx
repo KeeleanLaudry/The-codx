@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const PortalCard = ({
   title,
@@ -8,42 +9,57 @@ const PortalCard = ({
   reverse = false
 }) => {
   return (
-    <div className="flex justify-center w-full">
-      
-      <div
+    <div className="flex justify-center w-full ">
+
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
         className={`max-w-6xl w-full rounded-2xl overflow-hidden
-        bg-gradient-to-r from-[#2c2724] via-[#e2b78c] to-[#f57c4c]
-        py-6 px-12 flex items-center gap-10
+        bg-[#EDE7DF] border border-[#0D1F3C]/10
+        py-8 px-10 flex items-center gap-10 shadow-xl
         ${reverse ? "flex-row-reverse" : "flex-row"}
         `}
       >
+
         {/* IMAGE */}
-        <div className="flex justify-center w-1/2">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center w-1/2"
+        >
           <img
             src={image}
             alt={title}
-  className="w-[480px] h-[320px] object-contain"
-       />
-        </div>
+            className="w-[420px] h-[280px] object-contain rounded-xl hover:scale-105 transition duration-500"
+          />
+        </motion.div>
 
         {/* TEXT */}
-        <div className="text-white w-1/2">
-          <h2 className="text-5xl uppercase font-bold mb-4">
+        <div className="w-1/2 text-[#0D1F3C]">
+
+          {/* Title */}
+          <h2 className="gradient-text text-4xl md:text-5xl uppercase font-bold mb-4">
             {title}
           </h2>
 
-          <p className="text-lg opacity-90 mb-6">
+          {/* Description */}
+          <p className="text-lg opacity-80 mb-6">
             {description}
           </p>
 
-          <button
-            className="bg-white text-black font-semibold px-6 py-3
-            rounded-full shadow-md hover:scale-105 transition"
-          >
-            {buttonText}
-          </button>
+          {/* Button */}
+        <motion.button
+  whileHover={{ scale: 1.08 }}
+  whileTap={{ scale: 0.95 }}
+  className="primary-btn .primary-btn:hover"
+>
+  {buttonText}
+</motion.button>
+
         </div>
-      </div>
+      </motion.div>
 
     </div>
   );

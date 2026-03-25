@@ -42,7 +42,7 @@ export default function Services() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="relative bg-black  overflow-hidden">
+    <section className="relative   overflow-hidden">
       {/* Animated background particles */}
       <div className="absolute inset-0">
         {[...Array(30)].map((_, i) => (
@@ -68,7 +68,7 @@ export default function Services() {
       <div className="relative z-10 text-center mb-16">
         <h2 className="text-5xl md:text-6xl font-bold mb-4">
           <span className="text-white">Our </span>
-          <span className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-200 to-orange-400 bg-clip-text text-transparent">
+          <span className="text-4xl md:text-5xl font-bold mb-6 gradient-text bg-clip-text text-transparent">
 
             Services
           </span>

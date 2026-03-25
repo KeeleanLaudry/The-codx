@@ -3,5 +3,34 @@
 @tailwind utilities;
 body {
   font-family: 'Poppins', sans-serif;
-  background: black;
+:root {
+  --cream: #F7F3EE;
+}
+
+body {
+  background: var(--cream);
+}}
+.gradient-text {
+  background: linear-gradient(
+    to right,
+    var(--navy),
+    var(--teal),
+    var(--navy)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.primary-btn {
+  background: linear-gradient(to right, #0D1F3C, #2ABFBF, #0D1F3C);
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(to right, #2ABFBF, #0D1F3C, #2ABFBF);
+  opacity: 0.95;
 }

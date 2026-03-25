@@ -1,10 +1,11 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight, ChevronRight } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight, ChevronRight, Send } from "lucide-react";
 import logo from "../assets/codx logo.png";
 import React, { useState } from "react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [scrolled] = useState(false);
+  const [email, setEmail] = useState("");
 
   const companyInfo = {
     name: "CODX",
@@ -40,29 +41,40 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", name: "Facebook" },
-    { icon: Twitter, href: "#", name: "Twitter" },
-    { icon: Linkedin, href: "#", name: "LinkedIn" },
-    { icon: Instagram, href: "#", name: "Instagram" },
+    { icon: Facebook, href: "#", name: "Facebook", color: "hover:bg-[#1877f2]" },
+    { icon: Twitter, href: "#", name: "Twitter", color: "hover:bg-[#1da1f2]" },
+    { icon: Linkedin, href: "#", name: "LinkedIn", color: "hover:bg-[#0a66c2]" },
+    { icon: Instagram, href: "#", name: "Instagram", color: "hover:bg-gradient-to-r from-[#f58529] via-[#dd2a7b] to-[#8134af]" },
   ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle newsletter subscription
+    console.log("Email submitted:", email);
+    setEmail("");
+  };
 
   const FooterSection = ({ title, children }) => (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-white border-b border-white pb-1 inline-block">
+      <h3 className="text-lg font-semibold text-[#0D1F3C] relative inline-block pb-2">
         {title}
+        <span className="absolute bottom-0 left-0 w-8 h-0.5 bg-[#2ABFBF] rounded-full"></span>
       </h3>
       <div className="pt-3">{children}</div>
     </div>
   );
 
   return (
-    <footer className="bg-black text-white">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+    <footer className="relative bg-[#EDE7DF] overflow-hidden">
+    
+      
+      {/* Main Footer Content */}
+      <div className="relative container mx-auto px-6 py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center">
+            <div className="flex items-center space-x-2">
               <img
                 src={logo}
                 alt="Logo"
@@ -72,27 +84,37 @@ const Footer = () => {
               />
             </div>
 
-            <div className="space-y-4 text-gray-300">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 mt-1 text-white" />
+            <p className="text-[#0D1F3C]/70 text-sm leading-relaxed">
+              We transform ideas into digital realities. With expertise across industries, we deliver innovative solutions that drive growth and success.
+            </p>
+
+            <div className="space-y-4 text-[#0D1F3C]/80">
+              <div className="flex items-start space-x-3 group">
+                <div className="w-8 h-8 rounded-lg bg-[#2ABFBF]/10 flex items-center justify-center group-hover:bg-[#2ABFBF] transition-colors">
+                  <MapPin className="w-4 h-4 text-[#2ABFBF] group-hover:text-white transition-colors" />
+                </div>
                 <p className="text-sm">{companyInfo.address}</p>
               </div>
 
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-white" />
+              <div className="flex items-center space-x-3 group">
+                <div className="w-8 h-8 rounded-lg bg-[#2ABFBF]/10 flex items-center justify-center group-hover:bg-[#2ABFBF] transition-colors">
+                  <Phone className="w-4 h-4 text-[#2ABFBF] group-hover:text-white transition-colors" />
+                </div>
                 <a
                   href={`tel:${companyInfo.phone}`}
-                  className="text-sm hover:text-gray-400"
+                  className="text-sm hover:text-[#2ABFBF] transition-colors"
                 >
                   {companyInfo.phone}
                 </a>
               </div>
 
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-white" />
+              <div className="flex items-center space-x-3 group">
+                <div className="w-8 h-8 rounded-lg bg-[#2ABFBF]/10 flex items-center justify-center group-hover:bg-[#2ABFBF] transition-colors">
+                  <Mail className="w-4 h-4 text-[#2ABFBF] group-hover:text-white transition-colors" />
+                </div>
                 <a
                   href={`mailto:${companyInfo.email}`}
-                  className="text-sm hover:text-gray-400"
+                  className="text-sm hover:text-[#2ABFBF] transition-colors"
                 >
                   {companyInfo.email}
                 </a>
@@ -100,34 +122,39 @@ const Footer = () => {
             </div>
 
             <div className="pt-4">
-              <h4 className="font-medium mb-3 text-white">Stay Updated</h4>
-              <div className="flex">
+              <h4 className="font-semibold mb-3 text-[#0D1F3C]">Stay Updated</h4>
+              <form onSubmit={handleSubmit} className="relative">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 rounded-l-lg bg-black border border-white text-white text-sm focus:outline-none"
+                  className="w-full px-5 py-3 rounded-xl bg-white border border-[#EADECF] text-[#0D1F3C] text-sm focus:outline-none focus:ring-2 focus:ring-[#2ABFBF] focus:border-transparent transition-all"
+                  required
                 />
-                <button className="px-4 py-2 rounded-r-lg bg-white text-black hover:bg-gray-200 transition">
-                  <ArrowRight className="w-5 h-5" />
+                <button
+                  type="submit"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#2ABFBF] to-[#f4a261] text-white hover:shadow-lg hover:shadow-[#2ABFBF]/30 transition-all"
+                >
+                  <Send className="w-4 h-4" />
                 </button>
-              </div>
+              </form>
             </div>
 
-            <div className="flex space-x-4 pt-2">
+            <div className="flex space-x-3 pt-2">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
                   aria-label={social.name}
-                  className="w-10 h-10 border border-white rounded-lg flex items-center justify-center hover:bg-white hover:text-black transition"
+                  className="w-10 h-10 rounded-xl bg-white border border-[#EADECF] flex items-center justify-center hover:scale-110 hover:shadow-lg transition-all duration-300 group"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-5 h-5 text-[#0D1F3C] group-hover:text-[#2ABFBF] transition-colors" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <FooterSection title="Quick Links">
               <ul className="space-y-3">
@@ -135,10 +162,10 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={link.href}
-                      className="group flex items-center space-x-2 text-gray-300 hover:text-white"
+                      className="group flex items-center space-x-2 text-[#0D1F3C]/70 hover:text-[#2ABFBF] transition-colors"
                     >
-                      <ChevronRight className="w-4 h-4" />
-                      <span>{link.name}</span>
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span className="text-sm">{link.name}</span>
                     </a>
                   </li>
                 ))}
@@ -146,7 +173,6 @@ const Footer = () => {
             </FooterSection>
           </div>
 
-          {/* Services */}
           <div>
             <FooterSection title="Our Services">
               <ul className="space-y-3">
@@ -154,10 +180,10 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={service.href}
-                      className="group flex items-center space-x-2 text-gray-300 hover:text-white"
+                      className="group flex items-center space-x-2 text-[#0D1F3C]/70 hover:text-[#2ABFBF] transition-colors"
                     >
-                      <ChevronRight className="w-4 h-4" />
-                      <span>{service.name}</span>
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span className="text-sm">{service.name}</span>
                     </a>
                   </li>
                 ))}
@@ -165,7 +191,6 @@ const Footer = () => {
             </FooterSection>
           </div>
 
-          {/* Industries */}
           <div>
             <FooterSection title="Our Industries">
               <ul className="space-y-3">
@@ -173,10 +198,10 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={industry.href}
-                      className="group flex items-center space-x-2 text-gray-300 hover:text-white"
+                      className="group flex items-center space-x-2 text-[#0D1F3C]/70 hover:text-[#2ABFBF] transition-colors"
                     >
-                      <ChevronRight className="w-4 h-4" />
-                      <span>{industry.name}</span>
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span className="text-sm">{industry.name}</span>
                     </a>
                   </li>
                 ))}
@@ -186,21 +211,20 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-sm text-gray-400">
+      <div className="relative border-t border-[#EADECF] bg-[#EDE7DF]/50">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-sm text-[#0D1F3C]/60">
               © {currentYear} {companyInfo.name}. All rights reserved.
             </p>
 
-            <div className="flex space-x-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
               {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
                 (item, index) => (
                   <a
                     key={index}
                     href="#"
-                    className="text-gray-400 hover:text-white"
+                    className="text-[#0D1F3C]/60 hover:text-[#2ABFBF] transition-colors"
                   >
                     {item}
                   </a>
@@ -210,6 +234,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
     </footer>
   );
 };
