@@ -21,16 +21,15 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .primary-btn {
-  background: linear-gradient(to right, #0D1F3C, #2ABFBF, #0D1F3C);
+  background: linear-gradient(to right, #0D1F3C, #2ABFBF);
   color: white;
-  font-weight: 600;
+  font-weight: 500;
   padding: 12px 24px;
   border-radius: 9999px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  box-shadow: none;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .primary-btn:hover {
-  background: linear-gradient(to right, #2ABFBF, #0D1F3C, #2ABFBF);
-  opacity: 0.95;
+  background: linear-gradient(to right, #0B1830, #239E9E);
 }

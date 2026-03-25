@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState, useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
 const stats = [
   { 
     number: "80%", 
@@ -34,9 +34,22 @@ const stats = [
 ];
 
 const StatsSection = () => {
+  const sectionRef = useRef(null);
+const isInView = useInView(sectionRef, { once: true });
+const [activeIndex, setActiveIndex] = useState(0);
+const [isHovered, setIsHovered] = useState(false);
+useEffect(() => {
+  if (!isInView || isHovered) return;
+
+  const interval = setInterval(() => {
+    setActiveIndex(prev => (prev + 1) % stats.length);
+  }, 1200); // speed
+
+  return () => clearInterval(interval);
+}, [isInView, isHovered]);;
   return (
-    <div className="relative px-6 py-10 text-center overflow-hidden">
-         <div className="relative z-10 mb-16">
+<div ref={sectionRef} className="relative px-6 py-10 text-center overflow-hidden">        
+   <div className="relative z-10 mb-16">
      
         <h2 className="gradient-text text-4xl md:text-5xl font-bold mb-4">
           Proven Track Record: Our Gains
@@ -47,10 +60,17 @@ const StatsSection = () => {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto relative z-10">
         {stats.map((item, index) => (
-          <div
-            key={index}
-            className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden"
-          >
+        <div
+  key={index}
+  onMouseEnter={() => {
+    setIsHovered(true);
+    setActiveIndex(index); // 👈 hover pe wahi open
+  }}
+  onMouseLeave={() => {
+    setIsHovered(false); // 👈 auto resume
+  }}
+  className="group relative bg-white rounded-2xl shadow-lg ..."
+>
             {/* Gradient border effect on hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#2ABFBF] to-[#f4a261] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-sm"></div>
             
@@ -61,25 +81,24 @@ const StatsSection = () => {
                 <h3 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#0D1F3C] to-[#2ABFBF] bg-clip-text text-transparent mb-3">
                   {item.number}
                 </h3>
-                <div className="w-12 h-0.5 bg-[#2ABFBF] mx-auto my-4 rounded-full"></div>
               </div>
               
               <p className="text-[#0D1F3C] text-xl font-semibold mb-4">
                 {item.text}
               </p>
+<div
+  className={`overflow-hidden transition-all duration-500 ${
+    activeIndex === index
+      ? "max-h-40 opacity-100"
+      : "max-h-0 opacity-0"
+  }`}
+>
+  <p className="text-gray-600 text-sm leading-relaxed mt-2">
+    {item.desc}
+  </p>
+</div>
               
-              <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-500 ease-in-out">
-                <p className="text-gray-600 text-sm leading-relaxed mt-2">
-                  {item.desc}
-                </p>
-              </div>
-              
-              <div className="mt-4 text-[#2ABFBF] text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center gap-1">
-                <span>Hover to learn more</span>
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
+             
             </div>
           </div>
         ))}

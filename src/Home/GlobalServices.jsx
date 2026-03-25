@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code,
@@ -26,7 +26,7 @@ export default function GlobalServices() {
       name: "Development",
       icon: Code,
       title: "Professional Development, With Speed & Exceptional Standards.",
-      desc: "We craft customized web solutions aligned with your business goals.",
+      desc: "At Codx, we craft customized web solutions that align perfectly with your business objectives. Using industry leading technologies, we develop responsive, high performing websites that deliver seamless experiences to users.",
       image: development,
     },
     {
@@ -34,7 +34,7 @@ export default function GlobalServices() {
       name: "Digital Marketing",
       icon: Megaphone,
       title: "Strategic Marketing, With Agility & Results.",
-      desc: "Boost visibility, engagement, and conversions with smart strategies.",
+      desc: "CODX Software delivers strategic digital marketing solutions that enhance online visibility, drive engagement, and maximise conversions.",
       image: Social,
     },
     {
@@ -42,7 +42,7 @@ export default function GlobalServices() {
       name: "Emerging Tech",
       icon: Rocket,
       title: "Next-Gen Solutions With Innovation.",
-      desc: "Leverage cutting-edge technologies for growth and transformation.",
+      desc: "CODX Software empowers businesses with next-generation technology solutions that drive innovation, operational efficiency, and immersive digital experiences.",
       image: innovation,
     },
     {
@@ -50,7 +50,7 @@ export default function GlobalServices() {
       name: "Creative",
       icon: PenTool,
       title: "Impactful Branding With Creativity.",
-      desc: "We design experiences that align with your brand vision.",
+      desc: "Many can offer a marketing strategy, but CODX Software delivers one that is crafted specifically for you. We assess your limitations, objectives, and aspirations to develop solutions that align perfectly with your vision.",
       image: advertising,
     },
     {
@@ -58,11 +58,24 @@ export default function GlobalServices() {
       name: "IT Solutions",
       icon: Lightbulb,
       title: "Reliable IT With Efficiency.",
-      desc: "Optimize operations with scalable IT solutions.",
+      desc: "CODX Software provides comprehensive IT solutions designed to optimize business operations, enhance digital transformation, and ensure seamless technology integration.",
       image: service,
     }
   ];
+  const [isPaused, setIsPaused] = useState(false);
+useEffect(() => {
+  if (isPaused) return;
 
+  const interval = setInterval(() => {
+    setActive(prev => {
+      const currentIndex = services.findIndex(s => s.id === prev);
+      const nextIndex = (currentIndex + 1) % services.length;
+      return services[nextIndex].id;
+    });
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, [isPaused]);
   const activeService = services.find(s => s.id === active);
 
   return (
@@ -83,7 +96,15 @@ export default function GlobalServices() {
               <motion.div
                 key={service.id}
                 whileHover={{ scale: 1.05 }}
-                onClick={() => setActive(service.id)}
+onClick={() => {
+  setActive(service.id);
+  setIsPaused(true);
+
+  setTimeout(() => {
+    setIsPaused(false);
+  }, 5000);
+}}
+                
                 className="cursor-pointer"
               >
                 <div
@@ -99,11 +120,10 @@ export default function GlobalServices() {
                   onMouseEnter={() => setHoveredId(service.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
-                  <Icon
-                    className={`w-10 h-10 mb-3`}
-                    style={{ color: isActive ? "#2ABFBF" : "#0D1F3C" }}
-                  />
-
+                    <Icon
+                      className="w-10 h-10 mb-3"
+                      style={{ color: isActive ? "#2ABFBF" : "#0D1F3C" }}
+                    />
                   <p className="font-semibold text-sm relative" style={{ color: "#0D1F3C" }}>
                     {service.name}
                   </p>
@@ -113,7 +133,6 @@ export default function GlobalServices() {
           })}
         </div>
 
-        {/* CONTENT */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
@@ -125,11 +144,11 @@ export default function GlobalServices() {
             <div className="rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border" style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}>
 
               <div className="flex-1">
-                <h2 className="text-3xl md:text-2xl font-bold mb-6" style={{ color: "#0D1F3C" }}>
+                <h2 className="text-3xl md:text-2xl font-semibold mb-6" style={{ color: "#0D1F3C" }}>
                   {activeService.title}
                 </h2>
 
-                <p className="mb-6" style={{ color: "#0D1F3CCC" }}>
+                <p className="mb-6 font-medium" style={{ color: "#0D1F3CCC" }}>
                   {activeService.desc}
                 </p>
 
