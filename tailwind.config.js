@@ -3,7 +3,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  theme: {
+  theme: {  
     extend: {
        fontFamily: {
         poppins: ["Poppins", "sans-serif"],

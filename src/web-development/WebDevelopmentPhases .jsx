@@ -2,72 +2,76 @@ import React, { useState } from 'react';
 
 const WebDevelopmentPhases = ({
   phaseTitle = "Web Development Phases",
-  phaseDescription = "",
+  phaseDescription = "CODx streamlines healthcare web development with a proven process: Discovery, UI/UX Design, Secure Development, and Ongoing Support for long-term success.",
   phasesData = [],
   colors = {
-    cream: "#FAD5A5",
-    peach: "#e1a57d",
-    blush: "#FBCEB1",
-    coral: "#FF7F50"
+    cream: "#F7F3EE",
+    parchment: "#EDE7DF",
+    navy: "#0D1F3C",
+    teal: "#2ABFBF",
+    circle: "#EADECF"
   }
-}) => {  const [hoveredIndex, setHoveredIndex] = useState(null);
+}) => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-
-  
-
   return (
-    <section className="relative bg-black min-h-screen py-20 overflow-hidden">
-      {/* Modern geometric background */}
+    <section className="relative py-10 max-w-5xl mx-auto  overflow-hidden" >
       <div className="absolute inset-0">
-     
-        
-        {/* Floating orbs */}
+        {/* Floating orbs with new color scheme */}
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full mix-blend-screen"
+            className="absolute rounded-full"
             style={{
               width: `${300 + i * 100}px`,
               height: `${300 + i * 100}px`,
-              background: `radial-gradient(circle at 30% 30%, ${[colors.coral, colors.cream, colors.peach, colors.blush][i % 4]}15, transparent 70%)`,
+              background: `radial-gradient(circle at 30% 30%, ${[colors.teal, colors.navy, colors.circle, colors.teal][i % 4]}10, transparent 70%)`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               animation: `float-${i % 3} ${15 + i * 2}s ease-in-out infinite`,
-              opacity: 0.4,
+              opacity: 0.3,
             }}
           />
         ))}
+        
+        {/* Pattern overlay */}
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, ${colors.teal} 1px, transparent 1px)`,
+            backgroundSize: "32px 32px"
+          }}
+        />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-     <h2 className="text-5xl md:text-5xl font-semibold mb-6">
-  <span className="bg-gradient-to-r from-[#FAD5A5] via-[#FBCEB1] via-[#e1a57d] to-[#FF7F50] bg-clip-text text-transparent">
-    {phaseTitle}
-  </span>
-</h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            CODx streamlines healthcare web development with a proven process: Discovery, UI/UX Design, Secure Development, and 
-            Ongoing Support for long-term success.
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="section-heading" >
+            {phaseTitle}
+          </h2>          
+          <p className="section-subtitle" >
+            {phaseDescription}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-{phasesData.map((phase, index) => (
-              <div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {phasesData.map((phase, index) => (
+            <div
               key={phase.id}
-              className="group relative"
+              className="group relative cursor-pointer"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               onClick={() => setActiveIndex(index)}
             >
               {/* Card */}
-              <div className={`relative h-[400px] rounded-2xl overflow-hidden transition-all duration-500 ${
-                hoveredIndex === index ? 'scale-105 shadow-2xl' : 'scale-100'
-              }`}
+              <div 
+                className={`relative h-[350px] rounded-2xl overflow-hidden transition-all duration-500 ${
+                  hoveredIndex === index ? 'scale-105 shadow-2xl' : 'scale-100'
+                }`}
                 style={{
-                  boxShadow: hoveredIndex === index ? `0 20px 40px -10px ${phase.color}80` : 'none'
+                  boxShadow: hoveredIndex === index ? `0 20px 40px -10px ${colors.teal}80` : 'none',
+                  backgroundColor: colors.parchment
                 }}
               >
                 <div className="absolute inset-0">
@@ -78,65 +82,69 @@ const WebDevelopmentPhases = ({
                       hoveredIndex === index ? 'scale-110' : 'scale-100'
                     }`}
                   />
-                  <div className={`absolute inset-0 transition-all duration-500 ${
-                    hoveredIndex === index 
-                      ? 'bg-gradient-to-t from-black via-black/70 to-black/40' 
-                      : 'bg-gradient-to-t from-black via-black/80 to-black/60'
-                  }`}></div>
+                  <div 
+                    className={`absolute inset-0 transition-all duration-500 ${
+                      hoveredIndex === index 
+                        ? 'bg-gradient-to-t from-[#0D1F3C] via-[#0D1F3C]/80 to-[#0D1F3C]/40' 
+                        : 'bg-gradient-to-t from-[#0D1F3C] via-[#0D1F3C]/90 to-[#0D1F3C]/60'
+                    }`}
+                  />
                 </div>
 
                 {/* Content */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                  <div className="flex justify-between items-start">
-                    <span 
-                      className="text-8xl font-bold transition-all duration-500"
+                  <div className="flex justify-end">
+                    <div 
+                      className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold transition-all duration-500 backdrop-blur-sm ${
+                        hoveredIndex === index ? 'scale-110' : 'scale-100'
+                      }`}
                       style={{ 
-                        color: phase.color,
-                        opacity: hoveredIndex === index ? 0.8 : 0.4,
-                        transform: hoveredIndex === index ? 'scale(1.1)' : 'scale(1)'
+                        backgroundColor: `${colors.teal}20`,
+                        color: colors.teal,
+                        border: `1px solid ${colors.teal}40`
                       }}
                     >
                       {phase.id}
-                    </span>
-                    
+                    </div>
                   </div>
 
-                  <div className="space-y-3 transform transition-all duration-500"
-                    style={{
-                      transform: hoveredIndex === index ? 'translateY(-5px)' : 'translateY(0)'
-                    }}
-                  >
+                  {/* Title and Description */}
+                  <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                      <div className={`w-8 h-[2px] bg-gradient-to-r from-[#FF7F50] to-[#FAD5A5] transition-all duration-500 ${
-                        hoveredIndex === index ? 'w-12' : 'w-8'
-                      }`}></div>
-                      <h3 className="text-xl font-bold text-white">
+                      <div 
+                        className={`h-[2px] bg-gradient-to-r from-[#2ABFBF] to-[#2ABFBF] transition-all duration-500 ${
+                          hoveredIndex === index ? 'w-12' : 'w-8'
+                        }`}
+                      />
+                      <h3 className="text-lg font-bold text-white">
                         {phase.title}
                       </h3>
                     </div>
-                    <p className={`text-sm leading-relaxed transition-colors duration-500 ${
-                      hoveredIndex === index ? 'text-gray-200' : 'text-gray-400'
+                    
+                    <p className={`text-xs font-medium leading-relaxed transition-all duration-500 ${
+                      hoveredIndex === index ? 'text-[#EADECF]' : 'text-[#EDE7DF]'
                     }`}>
                       {phase.description}
                     </p>
                   </div>
                 </div>
+
+                {/* Border Effect on Hover */}
                 <div 
-                  className={`absolute inset-0 rounded-2xl transition-opacity duration-500 pointer-events-none ${
+                  className={`absolute inset-0 rounded-2xl transition-all duration-500 pointer-events-none ${
                     hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                   }`}
                   style={{
-                    border: `2px solid ${phase.color}`,
-                    boxShadow: `inset 0 0 30px ${phase.color}40`
+                    border: `2px solid ${colors.teal}`,
+                    boxShadow: `inset 0 0 30px ${colors.teal}40`
                   }}
-                ></div>
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-    
       <style jsx>{`
         @keyframes float-0 {
           0%, 100% { transform: translate(0, 0) rotate(0deg); }
@@ -154,6 +162,21 @@ const WebDevelopmentPhases = ({
           0%, 100% { transform: translate(0, 0) rotate(0deg); }
           33% { transform: translate(30px, 40px) rotate(15deg); }
           66% { transform: translate(-40px, -30px) rotate(-10deg); }
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.5;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.2);
+          }
+        }
+        
+        .animate-pulse {
+          animation: pulse 1.5s ease-in-out infinite;
         }
       `}</style>
     </section>

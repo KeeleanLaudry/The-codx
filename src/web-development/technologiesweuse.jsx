@@ -62,7 +62,7 @@ const TechnologiesSection = () => {
   const duplicatedRow3 = [...row3, ...row3, ...row3];
 
   return (
-    <section ref={sectionRef} className="max-w-6xl mx-auto flex justify-center" >
+    <section ref={sectionRef} className="max-w-6xl mx-auto flex justify-center py-10" >
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -91,7 +91,7 @@ const TechnologiesSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className=" mb-10"
         >
         
           <h2 className="section-heading leading-tight pb-2" >

@@ -31,18 +31,11 @@ export default function BrandsGrid({ title = "Trusted by 80+ Clients Worldwide" 
 
   return (
     <section className="  px-6 overflow-hidden">
-
-      <div className="max-w-6xl mx-auto">
-
-        {/* Header */}
-        <div className="text-center mb-16">
+      <div className="max-w-5xl mx-auto">
         <h2 className="section-heading">
-  {title}
-</h2>
-        </div>
+          {title}
+        </h2>
         <div className="relative overflow-hidden">
-         
-
           <motion.div
             className="flex gap-12"
             animate={{ x: ["0%", "-50%"] }}
@@ -66,7 +59,6 @@ export default function BrandsGrid({ title = "Trusted by 80+ Clients Worldwide" 
               </div>
             ))}
           </motion.div>
-
         </div>
 
       </div>

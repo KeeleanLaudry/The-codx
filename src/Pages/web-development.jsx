@@ -103,17 +103,15 @@ linesSize="text-lg sm:text-xl md:text-xl"
     }
   ]}
 />
-<div className="text-center mb-16">
+<div className="max-w-5xl mx-auto mb-16">
 
-<h2 className="text-4xl md:text-5xl font-semibold
-bg-gradient-to-r from-[#FAD5A5] via-[#FBCEB1] via-[#e1a57d] to-[#FF7F50]
-bg-clip-text text-transparent">
+<h2 className="section-heading">
 
 Industries We Serve
 
 </h2>
 
-<p className="text-gray-200 text-base md:text-base mt-4  mx-auto leading-relaxed">
+<p className="section-subtitle">
 
 Serving diverse industries, from retail to healthcare, with tailored digital strategies to meet unique business needs.
 

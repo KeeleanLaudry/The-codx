@@ -8,7 +8,7 @@ export default function GlimpseSection({
   reverse = false
 }) {
   return (
-    <section className=" text-white py-20 px-6">
+    <section className=" max-w-5xl mx-auto py-20 px-6">
       <div
         className={`max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center ${
           reverse ? "md:flex-row-reverse" : ""
@@ -16,15 +16,15 @@ export default function GlimpseSection({
       >
         {/* Left Content */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text bg-clip-text text-transparent">
+          <h2 className="section-heading">
             {title}
           </h2>
 
-          <p className="text-[#0D1F3C] leading-relaxed mb-6 text-base font-medium">
+          <p className="section-desc font-medium">
             {paragraph1}
           </p>
 
-          <p className="text-[#0D1F3C] leading-relaxed text-base font-medium">
+          <p className="section-desc font-medium">
             {paragraph2}
           </p>
         </div>

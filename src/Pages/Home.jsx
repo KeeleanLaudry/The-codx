@@ -26,8 +26,8 @@ export default function Home() {
 />
       <GlobalServices />
 <Logos />
-         <div className="space-y-8 p-10 ">
-            <h1 className="section-heading">
+         <div className="space-y-8 p-10  max-w-5xl mx-auto relative ">
+            <h1 className=" section-heading">
     Industries and Expertise
   </h1>
              <PortalCard

@@ -48,8 +48,8 @@ useEffect(() => {
   return () => clearInterval(interval);
 }, [isInView, isHovered, stats.length]);
   return (
-<div ref={sectionRef} className="relative px-6 py-10 text-center overflow-hidden">        
-   <div className="relative z-10 mb-16">
+<div ref={sectionRef} className="relative px-6 py-10  overflow-hidden">        
+   <div className="relative z-10 mb-10">
      
         <h2 className="section-heading">
           Proven Track Record: Our Gains

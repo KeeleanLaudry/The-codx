@@ -175,8 +175,6 @@ function Card({ item, index }) {
                   "linear-gradient(to bottom, transparent, rgba(42,191,191,0.28), transparent)",
               }}
             />
-
-            {/* Description */}
             <p
               style={{
                 fontFamily: "'DM Sans', sans-serif",
@@ -302,8 +300,8 @@ export default function CollaborationSection() {
         * { box-sizing: border-box; }
       `}</style>
 
-      <section style={{ background: "#F7F3EE", padding: "80px 24px" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <section style={{ background: "#F7F3EE", padding: "50px 0px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
 
           <motion.h2
             initial={{ opacity: 0, y: 36 }}
@@ -311,7 +309,6 @@ export default function CollaborationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.75 }}
             style={{
-              textAlign: "center",
               fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
               fontWeight: 600,
               fontFamily: "'Playfair Display', serif",
@@ -324,7 +321,6 @@ export default function CollaborationSection() {
             Strong Collaboration With
           </motion.h2>
 
-          {/* Right padding gives room for the overflowing image */}
           <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 140 }}>
             {data.map((item, i) => (
               <Card key={i} item={item} index={i} />

@@ -23,16 +23,14 @@ const data = [
 
 export default function OurApproach() {
   return (
-    <section className=" text-whit">
+    <section className="max-w-5xl mx-auto">
       <h2
-        className="text-center text-5xl font-semibold mb-16 
-     gradient-text
-      bg-clip-text text-transparent"
+        className="section-heading"
       >
         Our Approach
       </h2>
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 px-6">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 px-6 py-10">
         {data.map((item, i) => (
           <div key={i} className="group perspective text-center">
             {/* CARD */}
@@ -52,7 +50,7 @@ export default function OurApproach() {
       bg-gradient-to-r from-[#EADECF] via-[#d6c3b3c6] to-[#EADECF]
       text-[#0D1F3C] flex items-center justify-center text-center p-6 rounded-xl"
               >
-                <p className="text-lg font-medium     text-[#0D1F3C]">
+                <p className="section-subtitle">
                   {item.desc}
                 </p>
               </div>

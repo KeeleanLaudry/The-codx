@@ -34,14 +34,12 @@ body {
   background: linear-gradient(to right, #0B1830, #239E9E);
 }
 .section-heading {
-  text-align: center;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 600;
   font-family: 'Playfair Display', serif;
   background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 40px;
 }
 
 .section-title {
@@ -67,6 +65,7 @@ background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   font-weight: 600;
   color: #0D1F3C;
   margin-top: 10px;
+  line-height: 1.5;
 }
 
 .section-desc {
@@ -75,4 +74,13 @@ background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   line-height: 1.7;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.section-webtitle {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

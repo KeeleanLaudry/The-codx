@@ -224,12 +224,11 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-16 px-6">
+    <section className=" px-6">
 
  <div className="flex justify-center mb-12">
 
-  {/* background container */}
-  <div className="w-full max-w-7xl bg-[#90550c]  rounded-full shadow-lg flex flex-wrap justify-center gap-5">
+  <div className="w-full max-w-5xl bg-[#90550c]  rounded-full shadow-lg flex flex-wrap justify-center gap-5">
 
     {buttons.map((btn) => (
       <button
@@ -253,7 +252,7 @@ export default function ServicesSection() {
 </div>
 
       {/* Cards Grid */}
-      <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
 
         {data[active].map((item, index) => (
           <FlipCard key={index} {...item} />

@@ -89,9 +89,9 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="w-full   ">
+    <div className="max-w-5xl mx-auto relative">
 
-      <h2 className="text-4xl font-bold text-center text-white mb-10 ">
+      <h2 className="section-heading">
         Our Services
       </h2>
 
