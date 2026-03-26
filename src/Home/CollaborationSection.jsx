@@ -163,13 +163,14 @@ function Card({ item, index }) {
             <h3
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(1.1rem, 1.8vw, 1.5rem)",
+                fontSize: "clamp(1rem, 1.5vw, 1.3rem)",
                 fontWeight: 600,
                 color: "#fff",
                 margin: 0,
-                minWidth: 185,
+                minWidth: 200,
+
                 flexShrink: 0,
-                whiteSpace: "nowrap",
+                whiteSpace: "normal",
               }}
             >
               {item.title}
@@ -191,7 +192,8 @@ function Card({ item, index }) {
                 fontSize: 14,
                 color: "rgba(237,231,223,0.72)",
                 lineHeight: 1.7,
-                maxWidth: 360,
+width: 360,
+flexShrink: 0,
                 margin: 0,
                 flex: 1,
               }}
@@ -314,7 +316,7 @@ export default function CollaborationSection() {
       `}</style>
 
       <section style={{ background: "#F7F3EE", padding: "50px 0px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1500, margin: "0 auto" }}>
 
           <motion.h2
             initial={{ opacity: 0, y: 36 }}
@@ -334,7 +336,7 @@ export default function CollaborationSection() {
             Strong Collaboration With
           </motion.h2>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 140 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 150 }}>
             {data.map((item, i) => (
               <Card key={i} item={item} index={i} />
             ))}

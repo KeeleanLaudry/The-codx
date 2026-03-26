@@ -32,18 +32,18 @@ const platforms = [
   { title: "Custom Business Apps", icon: <FaCube /> },
 ];
 
-export default function PlatformTypes() {
+export default function PlatformTypes({ title, items }) {
   return (
-    <section className="max-w-5xl mx-auto ">
+    <section className="max-w-5xl mx-auto">
 
       {/* Heading */}
-      <h2 className="section-heading ">
-        Platform Types We Can Develop
+      <h2 className="section-heading">
+        {title}
       </h2>
 
       <div className="max-w-5xl mx-auto px-6 py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        {platforms.map((item, index) => (
+        {items.map((item, index) => (
           <div
             key={index}
             className="bg-gray-200 rounded-3xl py-5 flex flex-col items-center justify-center text-center hover:bg-gray-300 transition"
@@ -57,7 +57,6 @@ export default function PlatformTypes() {
         ))}
 
       </div>
-
     </section>
   );
 }

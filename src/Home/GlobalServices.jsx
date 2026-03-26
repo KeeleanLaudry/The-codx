@@ -86,7 +86,6 @@ useEffect(() => {
 
       <div className="max-w-5xl mx-auto relative ">
 
-        {/* TOP TABS */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
           {services.map(service => {
             const Icon = service.icon;

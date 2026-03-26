@@ -14,6 +14,38 @@ import Collabrator from"../Home/CollaborationSection";
 import TechnologiesSection from '../web-development/technologiesweuse';
 import TestimonialSection from '../Home/Testimonial';
 export default function Home() {
+   const portalData = [
+  {
+    title: "Web Portal",
+    description: "Optimising digital storefronts for maximum sales and customer retention.",
+    image: web
+  },
+  {
+    title: "Ecommerce",
+    description: "Optimising digital storefronts for maximum sales and customer retention.",
+    image: eccomerce
+  },
+  {
+    title: "Real Estate",
+    description: "Expanding market reach and driving high-value conversions in real estate.",
+    image: realestate
+  },
+  {
+    title: "Beauty & Wellness",
+    description: "Creating powerful brand identities that attract and retain customers.",
+    image: BeautyWellness
+  },
+  {
+    title: "Business Consultancy",
+    description: "Building stronger, more resilient businesses with expert consultancy and strategic insights.",
+    image: BusinessConsultancy
+  },
+  {
+    title: "Health Care",
+    description: "Empowering healthier, more resilient communities with expert healthcare consultancy and strategic insights.",
+    image: Health
+  }
+];
   return (
     <div>
    <HeroBanner
@@ -27,51 +59,19 @@ export default function Home() {
       <GlobalServices />
 <Logos />
          <div className="space-y-8 p-10  max-w-5xl mx-auto relative ">
-            <h1 className=" section-heading">
+        <div className="space-y-12  max-w-5xl mx-auto">
+  <h1 className="section-heading">
     Industries and Expertise
   </h1>
-             <PortalCard
-          title="Web Portal"
-          description="Optimising digital storefronts for maximum sales and customer retention."
-          image={web}   
-        />
 
-
-      <PortalCard
-        title="Ecommerce"
-        description="Optimising digital storefronts for maximum sales and customer retention."
-        image={eccomerce}
-        reverse
-      />
-
-      <PortalCard
-        title="Real Estate"
-        description="Expanding market reach and driving high-value conversions in real estate."
-        image={realestate}
-        
-      />
-       <PortalCard
-          title="Beauty & Wellness"
-          description="Creating powerful brand identities that attract and retain customers."
-          image={BeautyWellness}
-          reverse   
-        />
-
-
-      <PortalCard
-        title="Business Consultancy"
-        description="Building stronger, more resilient businesses with the guidance of expert consultancy and strategic insights."
-        image={BusinessConsultancy}
-        
-      />
-
-      <PortalCard
-        title="Health Care"
-        description="Empowering healthier, more resilient communities with expert healthcare consultancy and strategic insights."
-        image={Health}
-        reverse
-      />
-      {/* <TestimonialSection/> */}
+  {portalData.map((item, index) => (
+    <PortalCard
+      key={index}
+      {...item}
+      reverse={index % 2 !== 0} // 🔥 alternating layout
+    />
+  ))}
+</div>
 <StatsSection />
 <TechnologiesSection/>
 <Collabrator/>

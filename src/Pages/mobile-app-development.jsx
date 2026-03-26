@@ -14,7 +14,71 @@ import ContactSection from '../Contact/contactForm';
 import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
+import {
+  FaChartPie,
+  FaBuilding,
+  FaShoppingCart,
+  FaPlane,
+  FaHeartbeat,
+  FaChartLine,
+  FaCity,
+  FaTicketAlt,
+  FaGlobe,
+  FaUsers,
+  FaGraduationCap,
+  FaBriefcase,
+  FaMoneyBillWave,
+  FaProjectDiagram,
+  FaCube
+} from "react-icons/fa";
 export default function mobileappdevelopment() {
+   const industries = [
+    {
+      title: "Beauty & Wellness",
+      description: "Creating powerful brand identities that attract and retain customers.",
+      image: rejuvenation
+    },
+    {
+      title: "Ecommerce",
+      description: "Optimising digital storefronts for maximum sales and customer retention.",
+      image: ecommerce
+    },
+    {
+      title: "Real Estate",
+      description: "Expanding market reach and driving high-value conversions in real estate.",
+      image: realestate
+    },
+    {
+      title: "Business Consultancy",
+      description: "Building stronger, more resilient businesses with expert consultancy.",
+      image: business
+    },
+    {
+      title: "Health Care",
+      description: "Empowering healthier communities with expert healthcare consultancy.",
+      image: health
+    }
+  ];
+  const platformTypesData = [
+  { title: "SaaS Applications", icon: <FaChartPie /> },
+  { title: "Real Estate Apps", icon: <FaBuilding /> },
+  { title: "MarketplaceE-Commerce Apps", icon: <FaShoppingCart /> },
+
+  { title: "Travel and Booking Platforms", icon: <FaPlane /> },
+  { title: "Health & Wellness Apps", icon: <FaHeartbeat /> },
+  { title: "Analytics & Dashboard Apps", icon: <FaChartLine /> },
+
+  { title: "Property Management Systems", icon: <FaCity /> },
+  { title: "Event & Ticketing Apps", icon: <FaTicketAlt /> },
+  { title: "Community Forums", icon: <FaGlobe /> },
+
+  { title: "CRM and ERP Solutions", icon: <FaProjectDiagram /> },
+  { title: "Financial Services Apps", icon: <FaMoneyBillWave /> },
+  { title: "Learning & Education Apps", icon: <FaGraduationCap /> },
+
+  { title: "Job Portals", icon: <FaBriefcase /> },
+  { title: "Custom Business Apps", icon: <FaCube /> },
+];
   return (
     <div>
         <HeroBanner
@@ -61,8 +125,11 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   />
         <TechnologiesSection/>
-                        <Appsection/>
-<PlatformTypes/>
+<Appsection/>
+<PlatformTypes
+  title="Platform Types We Can Develop"
+  items={platformTypesData}
+/>
 <WebServicesSection
   title="End-to-End Web App Development Services"
   description="Revolutionize your digital presence with CODX’s comprehensive web development services. From concept to launch, we deliver tailored solutions that ensure exceptional outcomes. Trust Dubai’s top web development agency to bring your vision to life."
@@ -111,61 +178,31 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
 />
         <VideoSection/>
-<div className='text-white justify-center text-center text-5xl p-5 font-semibold'>
+<div className='max-w-5xl mx-auto mb-10'>
+<div className='section-heading '>
             Industries We Serve
           </div>
-<div className='text-white justify-center text-center mb-2 font-semibold pb-10'>
+<div className='section-subtitle '>
   Serving diverse industries, from retail to healthcare, with tailored digital strategies to meet unique business needs.
 
 </div>
-         <div className="space-y-10">
-          
-  <div className="sticky top-24">
-    <PortalCard
-      title="Beauty & Wellness"
-      description="Creating powerful brand identities that attract and retain customers."
-      image={rejuvenation}
-      reverse
-    />
-  </div>
+</div>
+<div className="relative max-w-5xl mx-auto">
 
-  <div className="sticky top-28">
-    <PortalCard
-      title="Ecommerce"
-      description="Optimising digital storefronts for maximum sales and customer retention."
-      image={ecommerce}
-      reverse
-    />
-  </div>
+  {industries.map((item, index) => (
+    <div
+      key={index}
+      className="sticky top-24 mb-20"
+    >
+      <PortalCard
+        {...item}
+        reverse={index % 2 !== 0}
+      />
+    </div>
+  ))}
 
-  <div className="sticky top-32">
-    <PortalCard
-      title="Real Estate"
-      description="Expanding market reach and driving high-value conversions in real estate."
-      image={realestate}
-      reverse
-    />
-  </div>
-
-  <div className="sticky top-36">
-    <PortalCard
-      title="Business Consultancy"
-      description="Building stronger, more resilient businesses with expert consultancy."
-      image={business}
-      reverse
-    />
-  </div>
-
-  <div className="sticky top-40">
-    <PortalCard
-      title="Health Care"
-      description="Empowering healthier communities with expert healthcare consultancy."
-      image={health}
-      reverse
-    />
-  </div>
-
-</div> 
+</div>
+ 
 
 <BrandsGrid title="Trusted by 350+ Clients Worldwide" />
 <ContactSection/>

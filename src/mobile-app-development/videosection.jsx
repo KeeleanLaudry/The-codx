@@ -36,8 +36,8 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="  bg-gradient-to-r from-[#2c2724] via-[#e2b78c] to-[#f57c4c]  w-full py-20 ">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+    <section className="  w-full py-20 ">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
 
         {/* LEFT SIDE VIDEO */}
 <div className="sticky top-20">
@@ -53,25 +53,25 @@ export default function ProcessSection() {
 
         {/* RIGHT SIDE CONTENT */}
         <div className="flex flex-col gap-8 text-white">
-            <div className=" text-4xl font-semibold">
+            <div className="section-heading">
 Our Process: The Project Handling Journey
             </div>
-            <div className="">
+            <div className="section-subtitle">
 Embark on your digital transformation with CODX’s comprehensive mobile application development solutions, tailored to meet your unique needs. From Android to cross-platform app development, our expert developers in UAE leverage state-of-the-art technologies to deliver seamless experiences both locally and globally. Whether building new apps or enhancing existing ones, CODX ensures excellence at every step.
 </div>
           {steps.map((step, index) => (
             <div key={index} className="flex gap-4">
 
-        <div className="min-w-[40px] h-[40px] flex items-center justify-center bg-orange-100 text-black rounded-full">
-  <FaCheck className="text-lg text-orange-500" />
+        <div className="min-w-[40px] h-[40px] flex items-center justify-center bg-[#E6ECF5] text-black rounded-full">
+  <FaCheck className="text-lg text-[#1A2F4E]" />
 </div>
 
               <div>
-                <h3 className="text-xl font-semibold ">
+                <h3 className="section-webtitle">
                   {step.title}
                 </h3>
 
-                <p className=" mt-2 leading-relaxed">
+                <p className="section-desc font-medium">
                   {step.description}
                 </p>
               </div>

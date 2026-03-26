@@ -9,31 +9,34 @@ const PortalCard = ({
   reverse = false
 }) => {
   return (
-    
-<div className="max-w-7xl mx-auto flex justify-center">
-
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className={`max-w-5xl w-full rounded-2xl overflow-hidden justify-center
-        bg-[#EDE7DF] border border-[#0D1F3C]/10
-        py-4 px-10 flex items-center gap-10 shadow-xl
-        ${reverse ? "flex-row-reverse" : "flex-row"}
-        `}
-      >
+<div
+  className={`w-full flex ${
+    reverse ? "justify-end translate-x-20" : "-translate-x-20"
+  } mb-10`}
+>
+  <motion.div
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className={`max-w-2xl w-full rounded-2xl overflow-hidden
+    bg-[#EDE7DF] border border-[#0D1F3C]/10
+    px-8 flex items-center gap-8 shadow-xl
+    ${reverse ? "flex-row-reverse" : "flex-row"}
+    `}
+  >
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
       className="flex justify-center "        >
+        
           <img
             src={image}
             alt={title}
-            className="w-full max-w-[520px] h-[300px] object-contain rounded-xl hover:scale-105 transition duration-500"
+            className="w-full max-w-[620px] h-[300px] object-contain rounded-xl hover:scale-105 transition duration-500"
           />
         </motion.div>
-        <div className="w-1/2 text-[#0D1F3C] px-6">
+        <div className="w-1/2 text-[#0D1F3C]">
           <h2 className="section-title">
             {title}
           </h2>
