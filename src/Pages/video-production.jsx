@@ -15,7 +15,62 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import {
+  FaUsers,
+  FaShareAlt,
+  FaBullhorn,
+  FaUserTie,
+  FaDesktop,
+  FaCommentDots,
+  FaMagic,
+  FaGraduationCap,
+  FaYoutube
+} from "react-icons/fa";
+
+import { SiTiktok } from "react-icons/si";
 export default function mobileappdevelopment() {
+  const videoContentData = [
+  { title: "Brand & Corporate Films", icon: <FaUsers /> },
+  { title: "Social Media Video Ads", icon: <FaShareAlt /> },
+  { title: "Promotional & Marketing Videos", icon: <FaBullhorn /> },
+
+  { title: "Product Demos & Explainers", icon: <FaUserTie /> },
+  { title: "Event Coverage & Recaps", icon: <FaDesktop /> },
+  { title: "Testimonial & Case Study Videos", icon: <FaCommentDots /> },
+
+  { title: "Animated & Motion Graphics Videos", icon: <FaMagic /> },
+  { title: "Training & Educational Content", icon: <FaGraduationCap /> },
+  { title: "YouTube Channel Content", icon: <FaYoutube /> },
+
+  { title: "Short-Form Reels & TikToks", icon: <SiTiktok /> },
+];
+   const industries = [
+      {
+        title: "Beauty & Wellness",
+        description: "Creating powerful brand identities that attract and retain customers.",
+        image: rejuvenation
+      },
+      {
+        title: "Ecommerce",
+        description: "Optimising digital storefronts for maximum sales and customer retention.",
+        image: ecommerce
+      },
+      {
+        title: "Real Estate",
+        description: "Expanding market reach and driving high-value conversions in real estate.",
+        image: realestate
+      },
+      {
+        title: "Business Consultancy",
+        description: "Building stronger, more resilient businesses with expert consultancy.",
+        image: business
+      },
+      {
+        title: "Health Care",
+        description: "Empowering healthier communities with expert healthcare consultancy.",
+        image: health
+      }
+    ];
   return (
     <div>
         <HeroBanner
@@ -63,7 +118,10 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   /> 
           <TechnologiesSection/>
         <Appsection/>
-<PlatformTypes/>
+<PlatformTypes
+  title="Platform Types We Can Develop"
+  items={videoContentData}
+/>
 <WebServicesSection
   title="End-to-End Video Production Development Services"
   description="Revolutionize your digital presence with CODX’s comprehensive web development services. From concept to launch, we deliver tailored solutions that ensure exceptional outcomes. Trust Dubai’s top web development agency to bring your vision to life."
@@ -111,63 +169,31 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
     }
   ]}
 />
-        {/* <VideoSection/> */}
-<div className='text-white justify-center text-center text-5xl p-5 font-semibold'>
+
+<div className='max-w-5xl mx-auto mb-10'>
+<div className='section-heading '>
             Industries We Serve
           </div>
-<div className='text-white justify-center text-center mb-2 font-semibold pb-10'>
+<div className='section-subtitle '>
   Serving diverse industries, from retail to healthcare, with tailored digital strategies to meet unique business needs.
 
 </div>
-         <div className="space-y-10">
-          
-  <div className="sticky top-24">
-    <PortalCard
-      title="Beauty & Wellness"
-      description="Creating powerful brand identities that attract and retain customers."
-      image={rejuvenation}
-      reverse
-    />
-  </div>
+</div>
+<div className="relative max-w-5xl mx-auto">
 
-  <div className="sticky top-28">
-    <PortalCard
-      title="Ecommerce"
-      description="Optimising digital storefronts for maximum sales and customer retention."
-      image={ecommerce}
-      reverse
-    />
-  </div>
+  {industries.map((item, index) => (
+    <div
+      key={index}
+      className="sticky top-24 mb-20"
+    >
+      <PortalCard
+        {...item}
+        reverse={index % 2 !== 0}
+      />
+    </div>
+  ))}
 
-  <div className="sticky top-32">
-    <PortalCard
-      title="Real Estate"
-      description="Expanding market reach and driving high-value conversions in real estate."
-      image={realestate}
-      reverse
-    />
-  </div>
-
-  <div className="sticky top-36">
-    <PortalCard
-      title="Business Consultancy"
-      description="Building stronger, more resilient businesses with expert consultancy."
-      image={business}
-      reverse
-    />
-  </div>
-
-  <div className="sticky top-40">
-    <PortalCard
-      title="Health Care"
-      description="Empowering healthier communities with expert healthcare consultancy."
-      image={health}
-      reverse
-    />
-  </div>
-
-</div> 
-
+</div>
 <BrandsGrid title="Trusted by 350+ Clients Worldwide" />
 <ContactSection/>
     </div>

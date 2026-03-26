@@ -58,7 +58,7 @@ export default function Home() {
 />
       <GlobalServices />
 <Logos />
-         <div className="space-y-8 p-10  max-w-5xl mx-auto relative ">
+         <div className="space-y-8  max-w-5xl mx-auto relative ">
         <div className="space-y-12  max-w-5xl mx-auto">
   <h1 className="section-heading">
     Industries and Expertise
@@ -72,6 +72,7 @@ export default function Home() {
     />
   ))}
 </div>
+<TestimonialSection/>
 <StatsSection />
 <TechnologiesSection/>
 <Collabrator/>

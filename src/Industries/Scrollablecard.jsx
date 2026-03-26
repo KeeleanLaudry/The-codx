@@ -41,7 +41,7 @@ const ScrollCards = ({ items = [] }) => {
   }, []);
 
   return (
-    <section className="bg-black py-16 px-6 relative">
+    <section className=" py-16 px-6 relative">
 
       {/* PREV BUTTON */}
       {activeIndex > 0 && (

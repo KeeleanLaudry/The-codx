@@ -22,19 +22,19 @@ const BeautyHeroSection = ({
 
         {/* Content */}
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          <h1 className="bg-gradient-to-r from-[#FAD5A5] via-[#FBCEB1] via-[#e1a57d] to-[#FF7F50] 
+          <h1 className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF] 
   font-semibold leading-tight pb-2text-4xl md:text-5xl  text-transparent bg-clip-text ">
             {title}
           </h1>
 
-          <p className="mt-4 text-gray-200 text-lg">
+          <p className="mt-4 text-[#2ABFBF]  font-semibold  text-lg">
             {description}
           </p>
         </div>
       </div>
 
       {/* CARDS SECTION */}
-      <div className="bg-black py-10 px-6 md:px-16">
+      <div className=" py-10 px-6 md:px-16 max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {cards.map((item, index) => (

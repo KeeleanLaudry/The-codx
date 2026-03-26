@@ -1,223 +1,295 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-// Testimonial data - 5 testimonials
 const testimonials = [
   {
-    id: 1,
     name: "Kostas Karatzas",
-    role: "CEO, TechStart",
-    content:
-      "We have been collaborating with Codx Software the last months and they offering high quality services. They offer tailor-made services based on our needs and they are doing their best to improve our Business. They are the Digital Partner every Business needs.",
+    role: "CEO, KK Ventures",
+    text: "We have been collaborating with Codx Software the last months and they offering high quality services. They offer tailor-made services based on our needs and they are doing their best to improve our Business. They are the Digital Partner every Business needs.",
+    initials: "KK",
   },
   {
-    id: 2,
-    name: "Emily Rodriguez",
-    role: "Marketing Director, InnovateLabs",
-    content:
-      "The team at CODX transformed our digital presence completely. Their strategic approach and creative execution resulted in a 150% increase in engagement. Truly a game-changer for our brand.",
-  },
-  {
-    id: 3,
-    name: "David Chen",
-    role: "Founder, Nexus Solutions",
-    content:
-      "Working with CODX feels like having an in-house team that actually cares. Their attention to detail and commitment to excellence is unmatched. I highly recommend them to any business looking to scale.",
-  },
-  {
-    id: 4,
     name: "Sarah Mitchell",
-    role: "CTO, CloudScale",
-    content:
-      "From strategy to implementation, CODX delivered beyond expectations. Their technical expertise combined with creative marketing strategies gave us a competitive edge we desperately needed.",
+    role: "Founder, Bloom Studio",
+    text: "CODX transformed our entire digital presence from the ground up. Their team understood our vision instantly and delivered beyond what we imagined. The attention to detail and commitment to quality is unmatched in the region.",
+    initials: "SM",
   },
   {
-    id: 5,
-    name: "Michael Anderson",
-    role: "Product Manager, InnovateHub",
-    content:
-      "CODX has been instrumental in our digital transformation journey. Their innovative solutions and dedicated support team made all the difference. We've seen remarkable growth since partnering with them.",
+    name: "Ahmed Al Rashid",
+    role: "Director, Horizon Group",
+    text: "Working with CODX has been a game-changer for our business. Their expertise in digital marketing and web development helped us triple our online leads within just three months of launching.",
+    initials: "AR",
+  },
+  {
+    name: "Priya Nair",
+    role: "CMO, NovaTech",
+    text: "The team at CODX is exceptional — responsive, creative, and deeply professional. They built our e-commerce platform from scratch and the results speak for themselves. Revenue up 180% in the first quarter.",
+    initials: "PN",
+  },
+  {
+    name: "James Whitfield",
+    role: "Managing Partner, Whitfield & Co",
+    text: "I've worked with many agencies globally but CODX stands out for their genuine commitment to client success. They don't just deliver projects — they become true partners in your growth journey.",
+    initials: "JW",
   },
 ];
 
-const TestimonialSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isLastCard, setIsLastCard] = useState(false);
+export default function TestimonialsSection() {
   const sectionRef = useRef(null);
-  const containerRef = useRef(null);
-  const scrollTimeout = useRef(null);
-  const initialScrollY = useRef(0);
-
-  // Card colors based on index (even/odd)
-  const getCardColors = (index) => {
-    const isEven = index % 2 === 0;
-    return {
-      cardBg: isEven ? "#EDE7DF" : "#FFFFFF",
-      backShape1: isEven ? "#2ABFBF" : "#FF6B6B",
-      backShape2: isEven ? "#2ABFBF" : "#FF6B6B",
-      accentColor: isEven ? "#2ABFBF" : "#FF6B6B",
-      textColor: "#0D1F3C",
-    };
-  };
-
-  const currentColors = getCardColors(currentIndex);
-  const nextColors = getCardColors((currentIndex + 1) % testimonials.length);
+  const stickyRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleWheel = (e) => {
-      if (!sectionRef.current || isAnimating) return;
+    const handleScroll = () => {
+      const section = sectionRef.current;
+      if (!section) return;
 
-      // Check if section is in view
-      const sectionRect = sectionRef.current.getBoundingClientRect();
-      const isInView = sectionRect.top <= 100 && sectionRect.bottom >= 100;
-      
-      if (!isInView) return;
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
 
-      // Clear previous timeout
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
+      // How far we've scrolled into the section
+      const scrolled = -rect.top;
+      const scrollable = sectionHeight - windowHeight;
+      const raw = scrolled / scrollable;
+      const clamped = Math.max(0, Math.min(1, raw));
 
-      scrollTimeout.current = setTimeout(() => {
-        if (e.deltaY > 0) {
-          // Scrolling down
-          if (currentIndex < testimonials.length - 1) {
-            // Not at last card, show next card
-            e.preventDefault();
-            setIsAnimating(true);
-            setCurrentIndex((prev) => prev + 1);
-            setTimeout(() => setIsAnimating(false), 500);
-          } else {
-            // At last card, allow normal scroll
-            setIsLastCard(true);
-            // Reset after scrolling past
-            setTimeout(() => {
-              setIsLastCard(false);
-            }, 100);
-          }
-        } else if (e.deltaY < 0) {
-          // Scrolling up
-          if (currentIndex > 0) {
-            // Not at first card, show previous card
-            e.preventDefault();
-            setIsAnimating(true);
-            setCurrentIndex((prev) => prev - 1);
-            setTimeout(() => setIsAnimating(false), 500);
-          }
-        }
-      }, 80);
+      setProgress(clamped);
+
+      // Each card occupies equal portion
+      const cardProgress = clamped * (testimonials.length - 1);
+const idx = Math.min(Math.round(cardProgress), testimonials.length - 1);
+      setActiveIndex(idx);
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-    };
-  }, [currentIndex, isAnimating]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const currentTestimonial = testimonials[currentIndex];
+  // Per-card local progress (0→1 as this card transitions out)
+  const cardProgress = progress * (testimonials.length - 1);
+
+  // Color palette
+  const colors = {
+    cream: "#F7F3EE",
+    parchment: "#EDE7DF",
+    navy: "#0D1F3C",
+    teal: "#2ABFBF",
+    circleBg: "#EADECF",
+  };
 
   return (
-    <section
-      ref={sectionRef}
-      className=" px-6 md:px-16 min-h-screen flex items-center"
-      style={{ backgroundColor: "#F7F3EE" }}
-    >
-      <div ref={containerRef} className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center w-full">
-        
-        {/* LEFT CONTENT */}
-        <div>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight" style={{ color: "#0D1F3C" }}>
-            Our Clients <span style={{ color: currentColors.accentColor }}>And Testimonials</span>
-          </h2>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
-          <p className="mt-6 text-lg leading-relaxed max-w-lg" style={{ color: "#0D1F3C" }}>
-            Listen to what our clients have to say about making us their
-            digital marketing partner. At CODX, we embrace better, and we're at
-            our proudest when we help other companies and organizations embrace
-            better, too.
-          </p>
-        </div>
+        .testi-section {
+          font-family: 'Inter', sans-serif;
+          background: ${colors.cream};
+        }
+        .testi-heading {
+          font-family: 'Playfair Display', serif;
+        }
+        .blob-shape {
+          border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        .card-blob {
+          clip-path: polygon(
+            50% 0%, 63% 5%, 74% 3%, 83% 10%, 90% 20%,
+            97% 30%, 100% 42%, 97% 55%, 92% 65%, 85% 74%,
+            75% 82%, 64% 88%, 50% 92%, 36% 88%, 25% 82%,
+            15% 74%, 8% 65%, 3% 55%, 0% 42%, 3% 30%,
+            10% 20%, 17% 10%, 26% 3%, 37% 5%
+          );
+        }
+        .progress-dot {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-effect {
+          background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42, 191, 191, 0.08) 0%, transparent 70%);
+        }
+      `}</style>
 
-        {/* RIGHT STACKED CARDS */}
-        <div className="relative flex justify-center items-center min-h-[500px]">
-          
-          <div 
-            className="absolute w-[320px] h-[320px] rounded-[40px] rotate-12 transition-all duration-500"
-            style={{ 
-              backgroundColor: currentColors.backShape1,
-              opacity: 0.8,
-              transform: isAnimating ? "rotate(12deg) scale(0.9)" : "rotate(12deg) scale(1)",
-              transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-            }}
-          ></div>
-          <div 
-            className="absolute w-[320px] h-[320px] rounded-[40px] -rotate-12 transition-all duration-500"
-            style={{ 
-              backgroundColor: currentColors.backShape2,
-              opacity: 0.8,
-              transform: isAnimating ? "rotate(-12deg) scale(0.9)" : "rotate(-12deg) scale(1)",
-              transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-            }}
-          ></div>
-
-          <div 
-            className="absolute w-[280px] h-[280px] rounded-[30px] rotate-6 transition-all duration-500"
-            style={{ 
-              backgroundColor: "#EDE7DF",
-              transform: isAnimating ? "rotate(6deg) scale(0.9)" : "rotate(6deg) scale(1)",
-              transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-            }}
-          ></div>
-          <div 
-            className="absolute w-[280px] h-[280px] rounded-[30px] -rotate-6 transition-all duration-500"
-            style={{ 
-              backgroundColor: "#EDE7DF",
-              transform: isAnimating ? "rotate(-6deg) scale(0.9)" : "rotate(-6deg) scale(1)",
-              transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
-            }}
-          ></div>
-
+      {/* Tall section to drive scroll */}
+      <div
+        ref={sectionRef}
+        className="testi-section relative"
+        style={{ height: `${testimonials.length * 100 + 100}vh` }}
+      >
+        {/* Sticky viewport */}
+        <div
+          ref={stickyRef}
+          className="sticky top-0 h-screen flex items-center overflow-hidden"
+          style={{ background: colors.cream }}
+        >
+          {/* Background ambient glow with teal accent */}
           <div
-            key={currentTestimonial.id}
-            className="relative rounded-2xl p-8 w-[320px] shadow-xl z-10 transition-all duration-500"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundColor: currentColors.cardBg,
-              color: currentColors.textColor,
-              transform: isAnimating ? "scale(0.95)" : "scale(1)",
-              opacity: isAnimating ? 0 : 1,
-              transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)"
+              background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42, 191, 191, 0.08) 0%, transparent 70%)",
             }}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div 
-                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg transition-all duration-300"
-                style={{ backgroundColor: currentColors.accentColor }}
-              >
-                {currentTestimonial.name.charAt(0)}
-              </div>
+          />
+
+          <div className="w-full max-w-7xl mx-auto px-10 grid grid-cols-2 gap-16 items-center">
+            {/* LEFT — Static text */}
+            <div className="space-y-8">
               <div>
-                <h3 className="text-xl font-semibold" style={{ color: currentColors.textColor }}>
-                  {currentTestimonial.name}
-                </h3>
-             
+               
+                <h2
+                  className="testi-heading text-5xl leading-tight"
+                  style={{ color: colors.navy }}
+                >
+                  Our Clients{" "}
+                  <span className="italic" style={{ color: colors.teal }}>
+                    And
+                  </span>
+                  <br />
+                  Testimonials
+                </h2>
               </div>
+
+              <p
+                className="text-lg leading-relaxed max-w-md"
+                style={{ color: colors.navy + "cc", fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
+              >
+                Listen to what one of our clients have to say about making us
+                their digital marketing partner. At CODX, we embrace better,
+                and we're at our proudest when we help other companies and
+                organizations embrace better, too.
+              </p>
+
+           
             </div>
 
-            <p className="leading-relaxed text-base" style={{ color: currentColors.textColor }}>
-              "{currentTestimonial.content}"
-            </p>
+            {/* RIGHT — Stacked cards */}
+            <div className="relative flex items-center justify-center" style={{ height: 520 }}>
+              {testimonials.map((t, i) => {
+                // How far this card has been "consumed" by scroll
+                const localP = Math.max(0, Math.min(1, cardProgress - i));
+                // Cards behind active: fanned out slightly
+                const isBehind = i > activeIndex;
+                const isActive = i === activeIndex;
+                const isPast = i < activeIndex;
 
-            <div className="mt-4 text-right text-3xl opacity-40" style={{ color: currentColors.accentColor }}>
-              ❝
+                // Stacking offset for behind cards
+                const behindOffset = isBehind ? (i - activeIndex) * 18 : 0;
+                const behindScale = isBehind ? 1 - (i - activeIndex) * 0.05 : 1;
+                const behindRotate = isBehind ? (i - activeIndex) * 3 : 0;
+
+                // Slide-off to left for past cards
+                const pastX = isPast ? -120 : 0;
+                const pastOpacity = isPast ? 0 : 1;
+
+                // Active card: start sliding left as localP increases past 0
+                const activeSlide = isActive ? localP * -120 : 0;
+                const activeOpacity = isActive ? 1 - localP * 1.5 : 1;
+                const activeRotate = isActive ? localP * -8 : 0;
+
+                const translateX = isPast
+                  ? pastX
+                  : isActive
+                  ? activeSlide
+                  : behindOffset;
+
+                const translateY = isBehind ? behindOffset * -0.5 : 0;
+                const scale = isBehind ? behindScale : 1;
+                const rotate = isActive
+                  ? activeRotate
+                  : isBehind
+                  ? behindRotate
+                  : 0;
+                const opacity = isPast ? pastOpacity : isActive ? Math.max(0, activeOpacity) : 1;
+                const zIndex = testimonials.length - i;
+
+                return (
+                  <div
+                    key={i}
+                    className="absolute"
+                    style={{
+                      width: 420,
+                      zIndex,
+                      transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
+                      opacity,
+                      transition: "transform 0.05s linear, opacity 0.05s linear",
+                      willChange: "transform, opacity",
+                    }}
+                  >
+                    {/* Circle blob behind card using #EADECF */}
+                    <div
+                      className="absolute"
+                      style={{
+                        width: 440,
+                        height: 440,
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        background: colors.circleBg,
+                        borderRadius: "40% 60% 45% 55% / 50% 40% 60% 50%",
+                        zIndex: -1,
+                        opacity: isActive ? 0.8 : 0.5 - (i - activeIndex) * 0.1,
+                        transition: "opacity 0.2s ease",
+                      }}
+                    />
+
+                    {/* Card */}
+                    <div
+                      className="relative rounded-3xl p-8 shadow-xl"
+                      style={{
+                        minHeight: 340,
+                        background: "white",
+                        border: "1px solid rgba(13, 31, 60, 0.08)",
+                        boxShadow: "0 20px 35px -12px rgba(13, 31, 60, 0.12)",
+                      }}
+                    >
+                      {/* Quote mark with teal accent */}
+                      <div
+                        className="mb-4"
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: 72,
+                          lineHeight: 1,
+                          marginTop: -16,
+                          color: colors.teal,
+                          opacity: 0.3,
+                        }}
+                      >
+                        "
+                      </div>
+
+                      <p
+                        className="leading-relaxed mb-8 text-base"
+                        style={{ color: colors.navy + "dd", fontWeight: 400, lineHeight: 1.6 }}
+                      >
+                        {t.text}
+                      </p>
+
+                      {/* Author */}
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-11 h-11 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                          style={{
+                            background: `linear-gradient(135deg, ${colors.teal}, ${colors.teal}dd)`,
+                          }}
+                        >
+                          {t.initials}
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm" style={{ color: colors.navy }}>
+                            {t.name}
+                          </p>
+                          <p className="text-xs" style={{ color: colors.navy + "99" }}>
+                            {t.role}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
-};
-
-export default TestimonialSection;
+}

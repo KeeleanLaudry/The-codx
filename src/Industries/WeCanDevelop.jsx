@@ -2,7 +2,7 @@ import React from "react";
 
 const FeaturesSection = ({ title, features = [], customText }) => {
   return (
-    <section className="bg-black py-16 px-6 text-center">
+    <section className="py-16 px-6 text-center">
       
       {/* Title */}
       <h2 className="text-3xl md:text-4xl font-semibold text-[#e7c7a1] mb-12">
@@ -21,7 +21,6 @@ const FeaturesSection = ({ title, features = [], customText }) => {
         ))}
       </div>
 
-      {/* Custom Requirement Box */}
       {customText && (
         <div className="mt-10 max-w-2xl mx-auto">
           <div className="bg-gray-200 text-black rounded-2xl py-6 px-6 shadow-md">

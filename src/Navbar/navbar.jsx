@@ -26,7 +26,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/codx logo.png";
+import logo from "../assets/blue complete logo.png";
 
 export default function CodxNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -298,32 +298,62 @@ export default function CodxNavbar() {
     "IT Services & Solutions": Database,
   };
 
-  // ─── SCROLLED: Split pill layout (Oval AI style) ───────────────────────────
+  // Premium glass effect style
+  const glassStyle = {
+    background: "rgba(247, 243, 238, 0.85)", // Cream #F7F3EE with opacity
+    backdropFilter: "blur(12px)",
+  };
+
+  const pillGlassStyle = {
+    background: "rgba(247, 243, 238, 0.92)",
+    backdropFilter: "blur(16px)",
+    border: "1px solid rgba(13, 31, 60, 0.1)",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.04)",
+  };
+
+  const dropdownGlassStyle = {
+    background: "rgba(247, 243, 238, 0.98)",
+    backdropFilter: "blur(20px)",
+    border: "1px solid rgba(13, 31, 60, 0.1)",
+    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.08)",
+  };
+
   if (scrolled) {
     return (
       <div
         className="fixed top-0 left-0 w-full font-poppins z-50 flex items-start justify-between px-8 pt-5"
         ref={navbarRef}
+       style={{
+  ...glassStyle,
+  background: "transparent",
+  backdropFilter: "none",
+  boxShadow: "none",
+}}
       >
-        {/* LEFT — Logo (no pill, no border) */}
+        {/* LEFT — Logo */}
         <Link to="/">
           <img
             src={logo}
             alt="Logo"
-            className="h-9 drop-shadow-lg cursor-pointer"
+       className="w-40 h-auto drop-shadow-sm cursor-pointer"
           />
         </Link>
 
-        {/* RIGHT — Nav pill + CTA pill grouped together */}
         <div className="flex items-center gap-3">
           {/* NAV PILL */}
           <div className="relative">
-            <nav className="flex items-center gap-8 bg-black/70 backdrop-blur-2xl border border-white/15 rounded-full px-8 py-3 shadow-2xl shadow-black/20 text-sm font-medium text-white/85 transition-all duration-500">
-              <Link to="/about" className="relative group py-0.5">
-                <span className="hover:text-white transition-colors">
+            <nav
+              className="flex items-center gap-8 rounded-full px-8 py-3 transition-all duration-500"
+              style={pillGlassStyle}
+            >
+              <Link
+                to="/about"
+                className="relative group py-0.5 text-[#0D1F3C] font-medium"
+              >
+                <span className="hover:text-[#2ABFBF] transition-colors">
                   About Codx
                 </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-500 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ABFBF] group-hover:w-full transition-all duration-300"></span>
               </Link>
 
               {/* SERVICES DROPDOWN */}
@@ -334,14 +364,14 @@ export default function CodxNavbar() {
                     setServicesOpen(!servicesOpen);
                     setIndustriesOpen(false);
                   }}
-                  className="flex items-center gap-1.5 cursor-pointer group py-0.5"
+                  className="flex items-center gap-1.5 cursor-pointer group py-0.5 text-[#0D1F3C] font-medium"
                 >
-                  <span className="group-hover:text-white transition-colors">
+                  <span className="group-hover:text-[#2ABFBF] transition-colors">
                     Services
                   </span>
                   <ChevronDown
                     size={13}
-                    className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
+                    className={`transition-transform duration-300 text-[#0D1F3C] ${servicesOpen ? "rotate-180" : ""}`}
                   />
                 </div>
 
@@ -349,9 +379,10 @@ export default function CodxNavbar() {
                   <div
                     ref={servicesRef}
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1200px] bg-black/90 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl animate-fadeIn"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1200px] rounded-2xl shadow-2xl animate-fadeIn"
+                    style={dropdownGlassStyle}
                   >
-                    <div className="grid grid-cols-4 gap-1 p-4 bg-white/5 border-b border-white/10">
+                    <div className="grid grid-cols-4 gap-1 p-4 border-b border-[#0D1F3C]/10 bg-[#EADECF]/30">
                       {Object.keys(services).map((category) => {
                         const CategoryIcon = categoryIcons[category];
                         return (
@@ -364,8 +395,8 @@ export default function CodxNavbar() {
                             className={`cursor-pointer p-3 rounded-xl text-center transition-all duration-200 flex items-center justify-center gap-2
                           ${
                             activeCategory === category
-                              ? "bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 text-white"
-                              : "hover:bg-white/10 text-gray-300 hover:text-white"
+                              ? "bg-[#2ABFBF]/10 border border-[#2ABFBF]/30 text-[#0D1F3C]"
+                              : "hover:bg-[#0D1F3C]/5 text-[#0D1F3C]/70 hover:text-[#0D1F3C]"
                           }`}
                           >
                             {CategoryIcon && (
@@ -373,8 +404,8 @@ export default function CodxNavbar() {
                                 size={16}
                                 className={
                                   activeCategory === category
-                                    ? "text-orange-400"
-                                    : ""
+                                    ? "text-[#2ABFBF]"
+                                    : "text-[#0D1F3C]/50"
                                 }
                               />
                             )}
@@ -387,7 +418,7 @@ export default function CodxNavbar() {
                     </div>
 
                     <div className="grid grid-cols-[280px_1fr_340px] gap-8 p-6">
-                      <div className="space-y-1 border-r border-white/10 pr-4">
+                      <div className="space-y-1 border-r border-[#0D1F3C]/10 pr-4">
                         {services[activeCategory].map((service) => {
                           const ServiceIcon = serviceDetails[service]?.icon;
                           return (
@@ -397,8 +428,8 @@ export default function CodxNavbar() {
                               className={`flex items-center gap-3 px-4 py-2.5 rounded-xl cursor-pointer transition-all duration-200 group
                             ${
                               activeService === service
-                                ? "bg-gradient-to-r from-orange-500/20 to-transparent border-l-2 border-orange-500"
-                                : "hover:bg-white/5"
+                                ? "bg-[#2ABFBF]/10 border-l-2 border-[#2ABFBF]"
+                                : "hover:bg-[#0D1F3C]/5"
                             }`}
                             >
                               {ServiceIcon && (
@@ -406,16 +437,16 @@ export default function CodxNavbar() {
                                   size={16}
                                   className={
                                     activeService === service
-                                      ? "text-orange-400"
-                                      : "text-gray-500 group-hover:text-gray-300"
+                                      ? "text-[#2ABFBF]"
+                                      : "text-[#0D1F3C]/50 group-hover:text-[#0D1F3C]/70"
                                   }
                                 />
                               )}
                               <span
                                 className={`text-sm ${
                                   activeService === service
-                                    ? "text-white font-medium"
-                                    : "text-gray-400 group-hover:text-gray-200"
+                                    ? "text-[#0D1F3C] font-medium"
+                                    : "text-[#0D1F3C]/60 group-hover:text-[#0D1F3C]/80"
                                 }`}
                               >
                                 {service}
@@ -428,7 +459,7 @@ export default function CodxNavbar() {
                       <div className="space-y-4">
                         <Link
                           to={servicePageLinks[activeService] || "#"}
-                          className="inline-flex items-center gap-2 text-lg font-semibold text-white hover:text-orange-400 transition-colors group"
+                          className="inline-flex items-center gap-2 text-lg font-semibold text-[#0D1F3C] hover:text-[#2ABFBF] transition-colors group"
                         >
                           {activeService}
                           <ArrowRight
@@ -441,9 +472,9 @@ export default function CodxNavbar() {
                             (item, i) => (
                               <div
                                 key={i}
-                                className="flex items-center gap-2 text-sm text-gray-300 px-2 py-1.5 rounded-lg hover:bg-white/5 transition-colors"
+                                className="flex items-center gap-2 text-sm text-[#0D1F3C]/70 px-2 py-1.5 rounded-lg hover:bg-[#0D1F3C]/5 transition-colors"
                               >
-                                <div className="w-1.5 h-1.5 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full"></div>
+                                <div className="w-1.5 h-1.5 bg-[#2ABFBF] rounded-full"></div>
                                 <span className="truncate">{item}</span>
                               </div>
                             ),
@@ -451,10 +482,10 @@ export default function CodxNavbar() {
                         </div>
                       </div>
 
-                      <div className="border-l border-white/10 pl-6">
+                      <div className="border-l border-[#0D1F3C]/10 pl-6">
                         <div className="flex items-center gap-2 mb-4">
-                          <Sparkles size={14} className="text-orange-400" />
-                          <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                          <Sparkles size={14} className="text-[#2ABFBF]" />
+                          <h3 className="text-sm font-semibold uppercase tracking-wider text-[#0D1F3C]/50">
                             Featured Insight
                           </h3>
                         </div>
@@ -462,16 +493,16 @@ export default function CodxNavbar() {
                           (article, i) => (
                             <div
                               key={i}
-                              className="group relative bg-gradient-to-br from-white/5 to-transparent p-5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-white/20"
+                              className="group relative bg-[#EADECF]/30 p-5 rounded-xl hover:bg-[#EADECF]/60 transition-all duration-300 cursor-pointer border border-[#0D1F3C]/5 hover:border-[#2ABFBF]/20"
                             >
-                              <p className="text-sm text-gray-200 leading-relaxed mb-3">
+                              <p className="text-sm text-[#0D1F3C]/80 leading-relaxed mb-3">
                                 {article}
                               </p>
-                              <div className="flex items-center gap-1 text-orange-400 text-xs font-medium group-hover:gap-2 transition-all">
+                              <div className="flex items-center gap-1 text-[#2ABFBF] text-xs font-medium group-hover:gap-2 transition-all">
                                 Read more <ChevronRight size={12} />
                               </div>
-                              <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
-                                <Star size={12} className="text-orange-400" />
+                              <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#2ABFBF]/10 flex items-center justify-center">
+                                <Star size={12} className="text-[#2ABFBF]" />
                               </div>
                             </div>
                           ),
@@ -490,14 +521,14 @@ export default function CodxNavbar() {
                     setIndustriesOpen(!industriesOpen);
                     setServicesOpen(false);
                   }}
-                  className="flex items-center gap-1.5 cursor-pointer group py-0.5"
+                  className="flex items-center gap-1.5 cursor-pointer group py-0.5 text-[#0D1F3C] font-medium"
                 >
-                  <span className="group-hover:text-white transition-colors">
+                  <span className="group-hover:text-[#2ABFBF] transition-colors">
                     Industries
                   </span>
                   <ChevronDown
                     size={13}
-                    className={`transition-transform duration-300 ${industriesOpen ? "rotate-180" : ""}`}
+                    className={`transition-transform duration-300 text-[#0D1F3C] ${industriesOpen ? "rotate-180" : ""}`}
                   />
                 </div>
 
@@ -505,17 +536,18 @@ export default function CodxNavbar() {
                   <div
                     ref={industriesRef}
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[1200px] bg-black/90 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl animate-fadeIn"
+                    className="absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[1200px] rounded-2xl shadow-2xl animate-fadeIn"
+                    style={dropdownGlassStyle}
                   >
                     <div className="grid grid-cols-3 gap-8 p-8">
                       <div className="col-span-1">
                         <div className="flex items-center gap-2 mb-3">
-                          <Globe size={18} className="text-orange-400" />
-                          <h3 className="text-lg font-semibold text-white">
+                          <Globe size={18} className="text-[#2ABFBF]" />
+                          <h3 className="text-lg font-semibold text-[#0D1F3C]">
                             Industries We Serve
                           </h3>
                         </div>
-                        <p className="text-gray-300 text-sm leading-relaxed">
+                        <p className="text-[#0D1F3C]/70 text-sm leading-relaxed">
                           Empowering diverse industries with exclusive IT
                           solutions that drive innovation and business success.
                         </p>
@@ -528,13 +560,13 @@ export default function CodxNavbar() {
                               <Link
                                 to={item.link}
                                 key={i}
-                                className="group flex items-start gap-4 p-2 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10"
+                                className="group flex items-start gap-4 p-2 rounded-xl hover:bg-[#0D1F3C]/5 transition-all duration-300 border border-transparent hover:border-[#2ABFBF]/20"
                               >
-                                <div className="rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 group-hover:from-orange-500/30 transition-all">
-                                  <Icon size={20} className="text-orange-400" />
+                                <div className="rounded-xl bg-[#2ABFBF]/10 group-hover:bg-[#2ABFBF]/20 transition-all p-1.5">
+                                  <Icon size={18} className="text-[#2ABFBF]" />
                                 </div>
                                 <div>
-                                  <h4 className="text-white font-medium group-hover:text-orange-400 transition-colors">
+                                  <h4 className="text-[#0D1F3C] font-medium group-hover:text-[#2ABFBF] transition-colors">
                                     {item.name}
                                   </h4>
                                 </div>
@@ -548,29 +580,35 @@ export default function CodxNavbar() {
                 )}
               </div>
 
-              <Link to="/our-work" className="relative group py-0.5">
-                <span className="hover:text-white transition-colors">
+              <Link
+                to="/our-work"
+                className="relative group py-0.5 text-[#0D1F3C] font-medium"
+              >
+                <span className="hover:text-[#2ABFBF] transition-colors">
                   Our Work
                 </span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-500 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ABFBF] group-hover:w-full transition-all duration-300"></span>
               </Link>
             </nav>
           </div>
 
           {/* CTA PILL */}
-          <div className="flex items-center gap-2 bg-black/70 backdrop-blur-2xl border border-white/15 rounded-full px-4 py-2.5 shadow-2xl shadow-black/20 transition-all duration-500">
-            <button className="relative overflow-hidden rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-medium px-5 py-1.5 hover:from-orange-400 hover:to-orange-500 transition-all duration-300 shadow-lg shadow-orange-500/20">
+          <div
+            className="flex items-center gap-2 rounded-full px-4 py-2.5 transition-all duration-500"
+            style={pillGlassStyle}
+          >
+            <button className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-sm font-medium px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md">
               Speak to an expert
             </button>
-            <div className="w-px h-5 bg-white/15 mx-1"></div>
+            <div className="w-px h-5 bg-[#0D1F3C]/20 mx-1"></div>
             <div className="flex items-center gap-1.5">
-              <div className="flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 w-8 h-8 cursor-pointer transition-all duration-300 group">
+              <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-8 h-8 cursor-pointer transition-all duration-300 group">
                 <Phone
                   size={14}
                   className="group-hover:scale-110 transition-transform"
                 />
               </div>
-              <div className="flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 w-8 h-8 cursor-pointer transition-all duration-300 group">
+              <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-8 h-8 cursor-pointer transition-all duration-300 group">
                 <Mail
                   size={14}
                   className="group-hover:scale-110 transition-transform"
@@ -584,27 +622,28 @@ export default function CodxNavbar() {
     );
   }
 
-  // ─── DEFAULT: Full-width transparent navbar ────────────────────────────────
+  // ─── DEFAULT: Full-width glass navbar (Premium) ────────────────────────────────
   return (
     <div
       className="fixed top-0 left-0 w-full font-poppins z-50"
       ref={navbarRef}
+      style={glassStyle}
     >
-      <div className="flex items-center justify-between w-full py-5 px-10 bg-gradient-to-b from-black/40 to-transparent">
+      <div className="flex items-center justify-between w-full px-10">
         <Link to="/">
           <img
             src={logo}
             alt="Logo"
-            className="h-12 cursor-pointer drop-shadow-lg transition-all duration-500"
+            className="w-40  cursor-pointer h-15 transition-all duration-500"
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10 font-medium text-white/90 text-base">
+        <nav className="hidden md:flex items-center gap-10 font-medium text-[#0D1F3C] text-base">
           <Link to="/about" className="relative group py-2">
-            <span className="hover:text-white transition-colors">
+            <span className="hover:text-[#2ABFBF] transition-colors">
               About Codx
             </span>
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-500 group-hover:w-full transition-all duration-300"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ABFBF] group-hover:w-full transition-all duration-300"></span>
           </Link>
 
           {/* SERVICES DROPDOWN */}
@@ -617,7 +656,7 @@ export default function CodxNavbar() {
               }}
               className="flex items-center gap-1.5 cursor-pointer group py-2"
             >
-              <span className="group-hover:text-white transition-colors">
+              <span className="hover:text-[#2ABFBF] transition-colors">
                 Services
               </span>
               <ChevronDown
@@ -630,9 +669,10 @@ export default function CodxNavbar() {
               <div
                 ref={servicesRef}
                 onClick={(e) => e.stopPropagation()}
-                className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1200px] bg-black/90 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl animate-fadeIn"
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1200px] rounded-2xl shadow-2xl animate-fadeIn"
+                style={dropdownGlassStyle}
               >
-                <div className="grid grid-cols-4 gap-1 p-4 bg-white/5 border-b border-white/10">
+                <div className="grid grid-cols-4 gap-1 p-4 border-b border-[#0D1F3C]/10 bg-[#EADECF]/30">
                   {Object.keys(services).map((category) => {
                     const CategoryIcon = categoryIcons[category];
                     return (
@@ -645,8 +685,8 @@ export default function CodxNavbar() {
                         className={`cursor-pointer p-3 rounded-xl text-center transition-all duration-200 flex items-center justify-center gap-2
                         ${
                           activeCategory === category
-                            ? "bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 text-white"
-                            : "hover:bg-white/10 text-gray-300 hover:text-white"
+                            ? "bg-[#2ABFBF]/10 border border-[#2ABFBF]/30 text-[#0D1F3C]"
+                            : "hover:bg-[#0D1F3C]/5 text-[#0D1F3C]/70 hover:text-[#0D1F3C]"
                         }`}
                       >
                         {CategoryIcon && (
@@ -654,8 +694,8 @@ export default function CodxNavbar() {
                             size={16}
                             className={
                               activeCategory === category
-                                ? "text-orange-400"
-                                : ""
+                                ? "text-[#2ABFBF]"
+                                : "text-[#0D1F3C]/50"
                             }
                           />
                         )}
@@ -666,7 +706,7 @@ export default function CodxNavbar() {
                 </div>
 
                 <div className="grid grid-cols-[280px_1fr_340px] gap-8 p-6">
-                  <div className="space-y-1 border-r border-white/10 pr-4">
+                  <div className="space-y-1 border-r border-[#0D1F3C]/10 pr-4">
                     {services[activeCategory].map((service) => {
                       const ServiceIcon = serviceDetails[service]?.icon;
                       return (
@@ -676,8 +716,8 @@ export default function CodxNavbar() {
                           className={`flex items-center gap-3 px-4 py-2.5 rounded-xl cursor-pointer transition-all duration-200 group
                           ${
                             activeService === service
-                              ? "bg-gradient-to-r from-orange-500/20 to-transparent border-l-2 border-orange-500"
-                              : "hover:bg-white/5"
+                              ? "bg-[#2ABFBF]/10 border-l-2 border-[#2ABFBF]"
+                              : "hover:bg-[#0D1F3C]/5"
                           }`}
                         >
                           {ServiceIcon && (
@@ -685,16 +725,16 @@ export default function CodxNavbar() {
                               size={16}
                               className={
                                 activeService === service
-                                  ? "text-orange-400"
-                                  : "text-gray-500 group-hover:text-gray-300"
+                                  ? "text-[#2ABFBF]"
+                                  : "text-[#0D1F3C]/50 group-hover:text-[#0D1F3C]/70"
                               }
                             />
                           )}
                           <span
                             className={`text-sm ${
                               activeService === service
-                                ? "text-white font-medium"
-                                : "text-gray-400 group-hover:text-gray-200"
+                                ? "text-[#0D1F3C] font-medium"
+                                : "text-[#0D1F3C]/60 group-hover:text-[#0D1F3C]/80"
                             }`}
                           >
                             {service}
@@ -707,7 +747,7 @@ export default function CodxNavbar() {
                   <div className="space-y-4">
                     <Link
                       to={servicePageLinks[activeService] || "#"}
-                      className="inline-flex items-center gap-2 text-lg font-semibold text-white hover:text-orange-400 transition-colors group"
+                      className="inline-flex items-center gap-2 text-lg font-semibold text-[#0D1F3C] hover:text-[#2ABFBF] transition-colors group"
                     >
                       {activeService}
                       <ArrowRight
@@ -720,9 +760,9 @@ export default function CodxNavbar() {
                         (item, i) => (
                           <div
                             key={i}
-                            className="flex items-center gap-2 text-sm text-gray-300 px-2 py-1.5 rounded-lg hover:bg-white/5 transition-colors"
+                            className="flex items-center gap-2 text-sm text-[#0D1F3C]/70 px-2 py-1.5 rounded-lg hover:bg-[#0D1F3C]/5 transition-colors"
                           >
-                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-[#2ABFBF] rounded-full"></div>
                             <span className="truncate">{item}</span>
                           </div>
                         ),
@@ -730,10 +770,10 @@ export default function CodxNavbar() {
                     </div>
                   </div>
 
-                  <div className="border-l border-white/10 pl-6">
+                  <div className="border-l border-[#0D1F3C]/10 pl-6">
                     <div className="flex items-center gap-2 mb-4">
-                      <Sparkles size={14} className="text-orange-400" />
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                      <Sparkles size={14} className="text-[#2ABFBF]" />
+                      <h3 className="text-sm font-semibold uppercase tracking-wider text-[#0D1F3C]/50">
                         Featured Insight
                       </h3>
                     </div>
@@ -741,16 +781,16 @@ export default function CodxNavbar() {
                       (article, i) => (
                         <div
                           key={i}
-                          className="group relative bg-gradient-to-br from-white/5 to-transparent p-5 rounded-xl hover:bg-white/10 transition-all duration-300 cursor-pointer border border-white/5 hover:border-white/20"
+                          className="group relative bg-[#EADECF]/30 p-5 rounded-xl hover:bg-[#EADECF]/60 transition-all duration-300 cursor-pointer border border-[#0D1F3C]/5 hover:border-[#2ABFBF]/20"
                         >
-                          <p className="text-sm text-gray-200 leading-relaxed mb-3">
+                          <p className="text-sm text-[#0D1F3C]/80 leading-relaxed mb-3">
                             {article}
                           </p>
-                          <div className="flex items-center gap-1 text-orange-400 text-xs font-medium group-hover:gap-2 transition-all">
+                          <div className="flex items-center gap-1 text-[#2ABFBF] text-xs font-medium group-hover:gap-2 transition-all">
                             Read more <ChevronRight size={12} />
                           </div>
-                          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
-                            <Star size={12} className="text-orange-400" />
+                          <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#2ABFBF]/10 flex items-center justify-center">
+                            <Star size={12} className="text-[#2ABFBF]" />
                           </div>
                         </div>
                       ),
@@ -771,7 +811,7 @@ export default function CodxNavbar() {
               }}
               className="flex items-center gap-1.5 cursor-pointer group py-2"
             >
-              <span className="group-hover:text-white transition-colors">
+              <span className="hover:text-[#2ABFBF] transition-colors">
                 Industries
               </span>
               <ChevronDown
@@ -784,17 +824,18 @@ export default function CodxNavbar() {
               <div
                 ref={industriesRef}
                 onClick={(e) => e.stopPropagation()}
-                className="absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[1200px] bg-black/90 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-2xl animate-fadeIn"
+                className="absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[1200px] rounded-2xl shadow-2xl animate-fadeIn"
+                style={dropdownGlassStyle}
               >
                 <div className="grid grid-cols-3 gap-8 p-8">
                   <div className="col-span-1">
                     <div className="flex items-center gap-2 mb-3">
-                      <Globe size={18} className="text-orange-400" />
-                      <h3 className="text-lg font-semibold text-white">
+                      <Globe size={18} className="text-[#2ABFBF]" />
+                      <h3 className="text-lg font-semibold text-[#0D1F3C]">
                         Industries We Serve
                       </h3>
                     </div>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <p className="text-[#0D1F3C]/70 text-sm leading-relaxed">
                       Empowering diverse industries with exclusive IT solutions
                       that drive innovation and business success.
                     </p>
@@ -807,13 +848,13 @@ export default function CodxNavbar() {
                           <Link
                             to={item.link}
                             key={i}
-                            className="group flex items-start gap-4 p-2 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10"
+                            className="group flex items-start gap-4 p-2 rounded-xl hover:bg-[#0D1F3C]/5 transition-all duration-300 border border-transparent hover:border-[#2ABFBF]/20"
                           >
-                            <div className="rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 group-hover:from-orange-500/30 transition-all">
-                              <Icon size={20} className="text-orange-400" />
+                            <div className="rounded-xl bg-[#2ABFBF]/10 group-hover:bg-[#2ABFBF]/20 transition-all p-1.5">
+                              <Icon size={18} className="text-[#2ABFBF]" />
                             </div>
                             <div>
-                              <h4 className="text-white font-medium group-hover:text-orange-400 transition-colors">
+                              <h4 className="text-[#0D1F3C] font-medium group-hover:text-[#2ABFBF] transition-colors">
                                 {item.name}
                               </h4>
                             </div>
@@ -828,24 +869,25 @@ export default function CodxNavbar() {
           </div>
 
           <Link to="/our-work" className="relative group py-2">
-            <span className="hover:text-white transition-colors">Our Work</span>
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-500 group-hover:w-full transition-all duration-300"></span>
+            <span className="hover:text-[#2ABFBF] transition-colors">
+              Our Work
+            </span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ABFBF] group-hover:w-full transition-all duration-300"></span>
           </Link>
         </nav>
 
         <div className="flex items-center gap-4">
-          <button className="relative overflow-hidden rounded-full border border-white/30 text-white transition-all duration-300 hover:bg-white/10 hover:border-white/50 px-7 py-2.5 text-base">
+          <button className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white transition-all duration-300 hover:bg-[#2ABFBF] px-7 py-2.5 text-base shadow-md">
             <span className="relative z-10">Speak to an expert</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-transparent opacity-0 hover:opacity-100 transition-opacity"></div>
           </button>
           <div className="flex items-center gap-2">
-            <div className="flex items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 w-9 h-9 cursor-pointer transition-all duration-300 group">
+            <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-9 h-9 cursor-pointer transition-all duration-300 group">
               <Phone
                 size={16}
                 className="group-hover:scale-110 transition-transform"
               />
             </div>
-            <div className="flex items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 hover:border-white/50 w-9 h-9 cursor-pointer transition-all duration-300 group">
+            <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-9 h-9 cursor-pointer transition-all duration-300 group">
               <Mail
                 size={16}
                 className="group-hover:scale-110 transition-transform"
