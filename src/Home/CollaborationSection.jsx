@@ -79,13 +79,19 @@ function FloatingImage({ img, cardRef }) {
       <img
         src={img}
         alt=""
-        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+        }}
       />
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(140deg, rgba(42,191,191,0.12), transparent 55%)",
+          background:
+            "linear-gradient(140deg, rgba(42,191,191,0.12), transparent 55%)",
           pointerEvents: "none",
         }}
       />
@@ -107,7 +113,11 @@ function Card({ item, index }) {
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.55, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{
+          duration: 0.55,
+          delay: index * 0.1,
+          ease: [0.25, 0.46, 0.45, 0.94],
+        }}
         style={{
           position: "relative",
           overflow: "visible",
@@ -193,7 +203,9 @@ function Card({ item, index }) {
             <motion.div
               animate={{
                 borderColor: hovered ? "#2ABFBF" : "rgba(42,191,191,0.2)",
-                backgroundColor: hovered ? "rgba(42,191,191,0.1)" : "transparent",
+                backgroundColor: hovered
+                  ? "rgba(42,191,191,0.1)"
+                  : "transparent",
               }}
               transition={{ duration: 0.3 }}
               style={{
@@ -228,7 +240,8 @@ function Card({ item, index }) {
               bottom: 0,
               left: 0,
               height: 2,
-              background: "linear-gradient(to right, transparent, #2ABFBF, transparent)",
+              background:
+                "linear-gradient(to right, transparent, #2ABFBF, transparent)",
             }}
           />
         </div>
@@ -269,9 +282,9 @@ function Card({ item, index }) {
               }}
               style={{
                 position: "absolute",
-                right: -115,         // hangs off right edge
+                right: -115, // hangs off right edge
                 top: "50%",
-                marginTop: -115,     // vertically centered
+                marginTop: -115, // vertically centered
                 width: 230,
                 height: 230,
                 borderRadius: 14,
@@ -331,3 +344,4 @@ export default function CollaborationSection() {
     </>
   );
 }
+
