@@ -11,7 +11,7 @@ const FeaturesSection = ({ items = [] }) => {
   };
 
   return (
-    <section className=" py-16 px-6 md:px-12" style={{ background: colors.cream }}>
+    <section className="max-w-5xl mx-auto py-16 px-6 md:px-12" >
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
         
         {items.map((item, i) => (

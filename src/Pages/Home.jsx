@@ -13,6 +13,8 @@ import StatsSection from '../Home/StatsSection';
 import Collabrator from"../Home/CollaborationSection";
 import TechnologiesSection from '../web-development/technologiesweuse';
 import TestimonialSection from '../Home/Testimonial';
+import BlogSection from '../about/BlogSection';
+import ContactSection from '../Contact/contactForm';
 export default function Home() {
    const portalData = [
   {
@@ -64,19 +66,29 @@ export default function Home() {
     Industries and Expertise
   </h1>
 
+<div className="relative max-w-5xl mx-auto">
+
   {portalData.map((item, index) => (
-    <PortalCard
+    <div
       key={index}
-      {...item}
-      reverse={index % 2 !== 0} // 🔥 alternating layout
-    />
+      className="sticky top-24 mb-20"
+    >
+      <PortalCard
+        {...item}
+        reverse={index % 2 !== 0}
+      />
+    </div>
   ))}
+
 </div>
+</div>
+
 <TestimonialSection/>
 <StatsSection />
 <TechnologiesSection/>
+<BlogSection/>
 <Collabrator/>
-
+<ContactSection/>
     </div>
     </div>
   )

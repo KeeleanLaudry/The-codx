@@ -40,7 +40,7 @@ const BeautyHeroSection = ({
           {cards.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-100 text-black text-center py-6 px-4 rounded-2xl font-medium shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-[#EADECF] text-[#0D1F3C] text-center py-6 px-4 rounded-2xl font-medium shadow-md hover:shadow-lg transition-all duration-300"
             >
               {item}
             </div>

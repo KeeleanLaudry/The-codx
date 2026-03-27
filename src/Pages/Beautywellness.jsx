@@ -2,13 +2,14 @@ import bgImage from "../assets/rejuvenation-procedures-300x113.jpg";
 import ContactSection from "../Contact/contactForm";
 import BeautyHeroSection from "../Industries/HeroBanner";
 import BrandsGrid from "../Home/logos";
-import PortalCard from "../Home/card";
-import rejuvenation from "../assets/rejuvenation-procedures-300x113.jpg";
+import PortalCard from "../Industries/Portalcard";
+import BeautyWellness from "../assets/beauty & welness.png"
 import WebDevelopmentPhases from '../web-development/WebDevelopmentPhases ';
 import Services from "../Industries/services";
 import FeaturesSection from "../Industries/Features";
 import Features from "../Industries/WeCanDevelop";
-import ScrollCards from "../Industries/Scrollablecard"
+import Servicessection from "../about/services"
+
 import { Layout, Calendar, Users, Settings, Grid } from "lucide-react";
 
 function BeautyPage() {
@@ -63,31 +64,31 @@ const scrollCardsData = [
       ]}
     />
     <Services
-      title="Our Services for Healthcare Include:"
+      title="Our Services for Beauty & Wellness Include:"
       services={[
         {
           title: "Website Design & Development",
-          image: "https://images.unsplash.com/photo-1581090700227-1e8b8e0c4a6b"
+          image: "https://i.pinimg.com/736x/57/5b/b9/575bb90f1bc6f04ee939dad3c03b08e1.jpg"
         },
         {
           title: "Social Media Marketing",
-          image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113"
+          image: "https://i.pinimg.com/736x/6d/e2/4a/6de24a69b5a28dae70b8b76352fb7945.jpg"
         },
         {
           title: "SEO & Patient Lead Generation",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+          image: "https://i.pinimg.com/736x/6e/a8/41/6ea841d6f850df8dc47b6eb2f352c412.jpg"
         },
         {
           title: "Mobile-Friendly Patient Portals",
-          image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5"
+          image: "https://i.pinimg.com/1200x/e6/4e/51/e64e5154d08b6fccb696332c0cd2762e.jpg"
         },
         {
           title: "Healthcare Advertising & Influencer Marketing",
-          image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef"
+          image: "https://i.pinimg.com/736x/ad/8e/37/ad8e378eb81d42ff08fb1cfa48c8064e.jpg"
         },
         {
           title: "Analytics & Reporting",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+          image: "https://i.pinimg.com/736x/79/d0/91/79d091f10757ec31230b5005fb55352f.jpg"
         }
       ]}
      highlights={[
@@ -144,8 +145,8 @@ const scrollCardsData = [
       ]}
     />
   <WebDevelopmentPhases
-  phaseTitle="Healthcare Development Process: Phases"
-  phaseDescription="Our development team is experienced in healthcare industries standerds and compliance we divide the process into four phases"
+  phaseTitle="Beauty & Wellness Development Process: Phases"
+  phaseDescription="Our development team is fluent in Beauty & wellness industry and its standerd. with divided into four phases  "
   phasesData={[
     {
       id: 1,
@@ -180,14 +181,14 @@ const scrollCardsData = [
   ]}
   />
 
-    <div className='text-white justify-center text-center text-5xl p-5 font-semibold'>
-           Healthcare Released Projects
+    <div className='section-heading max-w-5xl mx-auto'>
+Beauty & Wellness Released Projects
           </div>
 
       <div className=" top-24">
     <PortalCard
       description="Take a look at our projects and the impact we create."
-      image={rejuvenation}
+      image={BeautyWellness}
       reverse
     />
   </div>
@@ -197,7 +198,7 @@ const scrollCardsData = [
   features={featuresData}
   customText="Your Custom Requirement"
 />
-<ScrollCards items={scrollCardsData} />
+<Servicessection />
     <BrandsGrid/>
     <ContactSection/>
     </div>

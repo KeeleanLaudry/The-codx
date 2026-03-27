@@ -21,27 +21,31 @@ import RealEstate from "./Pages/realestate";
 import BusinessConsultancy from "./Pages/businessconsultancy";
 import Healthcare from "./Pages/healthcare";
 import BlogSection from "./about/BlogSection";
+import Blogdetail from "./about/BlogDetail";
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+
+        {/* Home */}
         <Route index element={<Home />} />
+
+        {/* Pages */}
         <Route path="about" element={<About />} />
         <Route path="our-work" element={<OurWork />} />
         <Route path="web-development" element={<Webdevelopment />} />
-        <Route
-          path="mobile-app-development"
-          element={<Mobileappdevelopment />}
-        />
+        <Route path="mobile-app-development" element={<Mobileappdevelopment />} />
         <Route path="ecommerce-website" element={<Ecomerce />} />
         <Route path="ui-ux-design" element={<Uiux />} />
-        <Route
-          path="social-media-marketing"
-          element={<SocialMarketingSection />}
-        />
+        <Route path="social-media-marketing" element={<SocialMarketingSection />} />
         <Route path="digital-marketing" element={<DigitalMarketingSection />} />
         <Route path="digital-branding" element={<DigitalBrandingSection />} />
+
         <Route path="blogs" element={<BlogSection />} />
+        <Route path="blog/:id" element={<Blogdetail />} />
+
+        {/* Other */}
         <Route path="ads" element={<AdsSection />} />
         <Route path="video-production" element={<Videoproductionsection />} />
         <Route path="erp-solutions" element={<Erpsection />} />
@@ -51,6 +55,7 @@ function App() {
         <Route path="real-estate" element={<RealEstate />} />
         <Route path="business-consultancy" element={<BusinessConsultancy />} />
         <Route path="healthcare" element={<Healthcare />} />
+
       </Route>
     </Routes>
   );

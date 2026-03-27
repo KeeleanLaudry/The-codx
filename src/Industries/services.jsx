@@ -13,17 +13,17 @@ const HealthcareServicesSection = ({ title, services = [], highlights = [] }) =>
   };
 
   return (
-    <section className="max-w- 5xl mx-auto py-16 px-6 md:px-12" style={{ background: colors.cream }}>
+    <section className="max-w-5xl mx-auto py-16 px-6 md:px-12" style={{ background: colors.cream }}>
       {/* TITLE */}
       <h2 
-        className="text-center text-3xl md:text-4xl font-semibold mb-12"
-        style={{ color: colors.navy }}
+        className="section-heading mb-10"
+        
       >
         {title}
       </h2>
 
       {/* SERVICES GRID */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 w-full mx-auto mb-14">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 w-full mx-auto mb-14">
         {services.map((item, i) => (
           <div
             key={i}
@@ -33,7 +33,7 @@ const HealthcareServicesSection = ({ title, services = [], highlights = [] }) =>
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-35 object-cover group-hover:scale-105 transition-transform duration-500"
             />
 
             <div 
@@ -42,7 +42,7 @@ const HealthcareServicesSection = ({ title, services = [], highlights = [] }) =>
                 background: `linear-gradient(135deg, ${colors.navy}cc, ${colors.navy}99)`,
               }}
             >
-              <p className="text-white text-sm font-semibold tracking-wide">
+              <p className="text-white text-xs font-semibold tracking-wide">
                 {item.title}
               </p>
             </div>

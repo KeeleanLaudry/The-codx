@@ -2,8 +2,8 @@ import bgImage from "../assets/rejuvenation-procedures-300x113.jpg";
 import ContactSection from "../Contact/contactForm";
 import BeautyHeroSection from "../Industries/HeroBanner";
 import BrandsGrid from "../Home/logos";
-import PortalCard from "../Home/card";
-import rejuvenation from "../assets/rejuvenation-procedures-300x113.jpg";
+import PortalCard from "../Industries/Portalcard";
+import eccomerce from "../assets/ecommerce.png"
 import WebDevelopmentPhases from '../web-development/WebDevelopmentPhases ';
 import Services from "../Industries/services";
 import FeaturesSection from "../Industries/Features";
@@ -37,29 +37,29 @@ Marketing & Website Solutions"
           <Services
       title="Our Ecommerce Services Include:"
       services={[
-        {
+          {
           title: "Website Design & Development",
-          image: "https://images.unsplash.com/photo-1581090700227-1e8b8e0c4a6b"
+          image: "https://i.pinimg.com/736x/57/5b/b9/575bb90f1bc6f04ee939dad3c03b08e1.jpg"
         },
         {
           title: "Social Media Marketing",
-          image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113"
+          image: "https://i.pinimg.com/736x/6d/e2/4a/6de24a69b5a28dae70b8b76352fb7945.jpg"
         },
         {
-          title: "SEO & Conversion Optimization",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+          title: "SEO & Patient Lead Generation",
+          image: "https://i.pinimg.com/736x/6e/a8/41/6ea841d6f850df8dc47b6eb2f352c412.jpg"
         },
         {
-          title: "Mobile-Friendly Stores",
-          image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5"
+          title: "Mobile-Friendly Patient Portals",
+          image: "https://i.pinimg.com/1200x/e6/4e/51/e64e5154d08b6fccb696332c0cd2762e.jpg"
         },
         {
-          title: "Influencer Marketing",
-          image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef"
+          title: "Healthcare Advertising & Influencer Marketing",
+          image: "https://i.pinimg.com/736x/ad/8e/37/ad8e378eb81d42ff08fb1cfa48c8064e.jpg"
         },
         {
           title: "Analytics & Reporting",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71"
+          image: "https://i.pinimg.com/736x/79/d0/91/79d091f10757ec31230b5005fb55352f.jpg"
         }
       ]}
      highlights={[
@@ -152,14 +152,14 @@ Marketing & Website Solutions"
   ]}
   />
 
-    <div className='text-white justify-center text-center text-5xl p-5 font-semibold'>
+    <div className='section-heading max-w-5xl mx-auto'>
 Ecommerce Released Projects
           </div>
 
       <div className=" top-24">
     <PortalCard
       description="Take a look at our projects and the impact we create."
-      image={rejuvenation}
+      image={eccomerce}
       reverse
     />
   </div>

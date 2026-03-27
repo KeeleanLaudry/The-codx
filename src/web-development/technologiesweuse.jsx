@@ -62,7 +62,7 @@ const TechnologiesSection = () => {
   const duplicatedRow3 = [...row3, ...row3, ...row3];
 
   return (
-    <section ref={sectionRef} className="max-w-5xl mx-auto flex justify-center py-10" >
+    <section ref={sectionRef} className="max-w-5xl mx-auto flex justify-center py-8 px-4 md:px-0" >
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

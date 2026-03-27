@@ -130,7 +130,7 @@ function Card({ item, index }) {
           style={{
             borderRadius: 18,
             overflow: "hidden",
-            background: "linear-gradient(135deg, #0D1F3C 0%, #0f2748 100%)",
+            background: "#0D1F3C",
             border: "1px solid rgba(42,191,191,0.14)",
             position: "relative",
           }}

@@ -63,7 +63,6 @@ const ContactSection = () => {
                     style={{ 
                       backgroundColor: "#F7F3EE",
                       borderColor: "#EADECF",
-                      focusRingColor: "#2ABFBF"
                     }}
                     onFocus={(e) => e.target.style.borderColor = "#2ABFBF"}
                     onBlur={(e) => e.target.style.borderColor = "#EADECF"}
@@ -185,16 +184,12 @@ const ContactSection = () => {
                   className="primary-btn"
                 >
                   <span className="relative z-10">Send Message</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#2ABFBF] to-[#2ABFBF80] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className=" inset-0 bg-gradient-to-r from-[#2ABFBF] to-[#2ABFBF80] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               </div>
             </form>
 
-            {/* Decorative bottom element */}
-            <div className="absolute bottom-0 right-0 w-32 h-32 opacity-5" style={{
-              backgroundImage: `radial-gradient(circle, #2ABFBF 2px, transparent 2px)`,
-              backgroundSize: "16px 16px"
-            }} />
+           
           </div>
         </div>
       </div>
