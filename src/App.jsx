@@ -22,6 +22,7 @@ import BusinessConsultancy from "./Pages/businessconsultancy";
 import Healthcare from "./Pages/healthcare";
 import BlogSection from "./about/BlogSection";
 import Blogdetail from "./about/BlogDetail";
+import ContactPage from "./ContactUs/Contactus";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
 
         {/* Pages */}
         <Route path="about" element={<About />} />
+         <Route path="contact-us" element={<ContactPage />} />
+
         <Route path="our-work" element={<OurWork />} />
         <Route path="web-development" element={<Webdevelopment />} />
         <Route path="mobile-app-development" element={<Mobileappdevelopment />} />

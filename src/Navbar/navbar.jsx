@@ -46,11 +46,7 @@ export default function CodxNavbar() {
   const navbarRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+ 
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -331,12 +327,16 @@ export default function CodxNavbar() {
     "IT Services & Solutions": Database,
   };
 
-  const pillGlassStyle = {
-    background: "rgba(247, 243, 238, 0.92)",
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(13, 31, 60, 0.1)",
-    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.04)",
-  };
+const pillGlassStyle = {
+background: "rgba(255,255,255,0.75)",
+  backdropFilter: "blur(18px)",
+  WebkitBackdropFilter: "blur(18px)",
+  border: "1px solid rgba(255,255,255,0.3)",
+  boxShadow: `
+    0 8px 32px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4)
+  `,
+};
 
   const dropdownGlassStyle = {
     background: "rgba(247, 243, 238, 0.98)",
@@ -351,10 +351,10 @@ export default function CodxNavbar() {
         className="relative w-full font-poppins z-50 flex items-center justify-between px-4 sm:px-6 md:px-8 pt-3 sm:pt-4 md:pt-5"
         ref={navbarRef}
         style={{
-          background: "transparent",
-          backdropFilter: "none",
-          boxShadow: "none",
-        }}
+  backdropFilter: "blur(12px)",
+  WebkitBackdropFilter: "blur(12px)",
+  
+}}
       >
         {/* LEFT — Logo */}
         <Link to="/" className="flex-shrink-0">
@@ -628,9 +628,12 @@ export default function CodxNavbar() {
             className="flex items-center gap-2 rounded-full px-3 xl:px-4 py-2 transition-all duration-500"
             style={pillGlassStyle}
           >
-            <button className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-xs xl:text-sm font-medium px-3 xl:px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md whitespace-nowrap">
-              Speak to an expert
-            </button>
+            <button
+  onClick={() => navigate("/contact-us")}
+  className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-xs xl:text-sm font-medium px-3 xl:px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md whitespace-nowrap"
+>
+  Speak to an expert
+</button>
             <div className="w-px h-5 bg-[#0D1F3C]/20 mx-1"></div>
             <div className="flex items-center gap-1.5">
               <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-7 h-7 xl:w-8 xl:h-8 cursor-pointer transition-all duration-300 group">

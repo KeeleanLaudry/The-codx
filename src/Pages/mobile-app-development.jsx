@@ -14,6 +14,8 @@ import ContactSection from '../Contact/contactForm';
 import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
+import DifferenceDeliver from '../web-development/DifferenceDeliver';
+
 import {
   FaChartPie,
   FaBuilding,
@@ -124,8 +126,10 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
     }
   ]}
   />
+  <DifferenceDeliver/>
         <TechnologiesSection/>
 <Appsection/>
+
 <PlatformTypes
   title="Platform Types We Can Develop"
   items={platformTypesData}
