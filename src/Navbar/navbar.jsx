@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import {  useNavigate } from "react-router-dom";
 import {
   ChevronDown,
   Phone,
@@ -45,7 +46,7 @@ export default function CodxNavbar() {
   const industriesButtonRef = useRef(null);
   const navbarRef = useRef(null);
   const mobileMenuRef = useRef(null);
-
+const navigate = useNavigate();
  
 
   useEffect(() => {
@@ -348,7 +349,7 @@ background: "rgba(255,255,255,0.75)",
   return (
     <>
       <div
-        className="relative w-full font-poppins z-50 flex items-center justify-between px-4 sm:px-6 md:px-8 pt-3 sm:pt-4 md:pt-5"
+        className="relative w-full font-poppins z-50 flex items-center justify-between px-4 sm:px-6 md:px-8  py-2"
         ref={navbarRef}
         style={{
   backdropFilter: "blur(12px)",

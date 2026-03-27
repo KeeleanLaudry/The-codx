@@ -2,7 +2,7 @@ import React from "react";
 
 export default function HeroBanner() {
   return (
-    <section className="px-6 pt-5 pb-16 ">
+    <section className="px-6  pb-16 ">
       
       {/* Hero Container */}
       <div
