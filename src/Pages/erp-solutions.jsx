@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaShoppingCart,
   FaIndustry,
@@ -69,6 +71,78 @@ const industries = [
         image: health
       }
     ];
+    const featuresData = [
+  {
+    title: "Integrated Business Management",
+    desc: "Manage all business operations from a single unified system."
+  },
+  {
+    title: "Inventory & Stock Control",
+    desc: "Track stock levels, orders, and deliveries in real-time."
+  },
+  {
+    title: "Accounting & Finance",
+    desc: "Automate billing, invoices, and financial reporting."
+  },
+  {
+    title: "HR & Payroll Management",
+    desc: "Handle employee data, attendance, and salary processing."
+  },
+  {
+    title: "Reports & Analytics",
+    desc: "Get insights with detailed reports for better decision-making."
+  }
+];
+const services = [
+  {
+    title: "ERP Consulting",
+    description: "Analyze your business processes and recommend the best ERP solutions to improve efficiency and productivity."
+  },
+  {
+    title: "Custom ERP Development",
+    description: "Build tailored ERP systems that align with your business needs and streamline operations."
+  },
+  {
+    title: "ERP Implementation",
+    description: "Ensure smooth deployment of ERP systems with proper setup, configuration, and integration."
+  },
+  {
+    title: "ERP Integration",
+    description: "Integrate ERP with existing systems like CRM, HR, and accounting for seamless data flow."
+  },
+  {
+    title: "Inventory Management",
+    description: "Track stock levels, manage inventory, and optimize supply chain operations effectively."
+  },
+  {
+    title: "Accounting & Finance Management",
+    description: "Automate financial processes including billing, invoicing, and reporting with accuracy."
+  },
+  {
+    title: "Human Resource Management (HRM)",
+    description: "Manage employee data, payroll, attendance, and performance within a unified system."
+  },
+  {
+    title: "Sales & CRM Integration",
+    description: "Enhance customer relationships and sales tracking with integrated CRM functionalities."
+  },
+  {
+    title: "Reporting & Analytics",
+    description: "Generate real-time reports and insights to support better decision-making."
+  },
+  {
+    title: "ERP Migration Services",
+    description: "Upgrade or migrate your existing system to a modern ERP platform with zero data loss."
+  },
+  {
+    title: "ERP Maintenance & Support",
+    description: "Ensure smooth functioning with regular updates, bug fixes, and ongoing technical support."
+  },
+  {
+    title: "Cloud ERP Solutions",
+    description: "Access your business data anytime, anywhere with secure and scalable cloud-based ERP systems."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -78,7 +152,10 @@ const industries = [
      containerWidth="max-w-5xl"
       titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+     <Services 
+                         title="Our ERP Services"
+                         services={services} 
+                       />
 <WebDevelopmentPhases
   phaseTitle="Video Production Development Phases"
   phaseDescription="CODX drives impactful social media presence with a proven process: Research, Strategy, Creation, Execution, and Optimization."
@@ -116,6 +193,13 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   />
           <TechnologiesSection/>
+               <DifferenceSection
+                                  title="The Difference We Deliver"
+                                  features={featuresData}
+                                  bgColor="#F7F3EE"
+                                  accentColor="#2ABFBF"
+                                  textColor="#0D1F3C"
+                                />
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Develop"

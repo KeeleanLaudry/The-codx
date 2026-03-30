@@ -52,7 +52,7 @@ const StatsSection = () => {
   
   return (
     <div ref={sectionRef} className="relative px-6  overflow-hidden ">
-      <div className="relative z-10 mb-12 text-center">
+      <div className="relative z-10 mb-12 ">
         <h2 className="section-heading">
           Proven Track Record: Our Gains
         </h2>
@@ -76,7 +76,7 @@ const StatsSection = () => {
   className={`group relative bg-white rounded-2xl shadow-lg border transition-all duration-500 hover:scale-105 overflow-hidden ${
     activeIndex === index
       ? "border-[#2ABFBF] shadow-xl h-auto"
-      : "border-gray-200 hover:border-[#2ABFBF] hover:shadow-xl h-[250px]"
+      : "border-gray-200 hover:border-[#2ABFBF] hover:shadow-xl h-[200px]"
   }`}
 >
               <div 

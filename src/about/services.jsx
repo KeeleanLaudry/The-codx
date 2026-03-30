@@ -159,7 +159,7 @@ export default function Services() {
                         {service.title}
                       </h3>
                       
-                      <p className="text-sm leading-relaxed text-white/90 line-clamp-2">
+                      <p className="text-base font-medium  text-white/90 line-clamp-2">
                         {service.description}
                       </p>
 
@@ -186,7 +186,7 @@ export default function Services() {
                         
                         <div className="w-12 h-0.5 bg-[#2ABFBF] mx-auto mb-4"></div>
                         
-                        <p className="text-base leading-relaxed text-white/95">
+                        <p className="text-[18px] leading-relaxed text-white/95">
                           {service.details}
                         </p>
                  

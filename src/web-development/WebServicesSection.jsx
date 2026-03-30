@@ -9,8 +9,8 @@ export default function WebServicesSection({ title, description, servicesData })
   }
 
   return (
-    <section className=" py-24 px-6">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="pb-10  px-6">
+      <div className="max-w-5xl mx-auto ">
 
         {/* Title */}
         <h2 className="section-heading">
@@ -39,10 +39,10 @@ export default function WebServicesSection({ title, description, servicesData })
                     <div key={index} className="text-left">
                       <div className="flex items-center gap-4 bg-[#EADECF]  rounded-full px-6 py-4 transition">
                     <div className="min-w-[50px] h-[50px] flex items-center justify-center rounded-full 
-bg-gradient-to-br from-[#0D1F3C] to-[#2ABFBF] 
-text-white font-bold ">
-  {String(globalIndex + 1).padStart(2, "0")}
-</div>
+                      bg-gradient-to-br from-[#0D1F3C] to-[#2ABFBF] 
+                      text-white font-bold ">
+                        {String(globalIndex + 1).padStart(2, "0")}
+                      </div>
                         <h3 className="section-webtitle">
                           {service.title}
                         </h3>

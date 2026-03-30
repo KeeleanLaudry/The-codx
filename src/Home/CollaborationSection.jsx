@@ -317,24 +317,15 @@ export default function CollaborationSection() {
 
       <section style={{ background: "#F7F3EE", padding: "50px 0px" }}>
         <div style={{ maxWidth: 1500, margin: "0 auto" }}>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 36 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75 }}
-            style={{
-              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-              fontWeight: 600,
-              fontFamily: "'Playfair Display', serif",
-              background: "linear-gradient(135deg, #0D1F3C 30%, #2ABFBF)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              marginBottom: 44,
-            }}
-          >
-            Strong Collaboration With
-          </motion.h2>
+<motion.h2
+  initial={{ opacity: 0, y: 36 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.75 }}
+  className="section-heading mb-10"
+>
+  Strong Collaboration With
+</motion.h2>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 150 }}>
             {data.map((item, i) => (

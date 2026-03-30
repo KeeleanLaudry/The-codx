@@ -6,8 +6,7 @@
 }
 
 body {
-font-family: 'Poppins', sans-serif;}
-body {
+  font-family: "Times New Roman", Times, serif !important;
   background: var(--cream);
 }
 .gradient-text {
@@ -23,28 +22,26 @@ body {
 .primary-btn {
   background: linear-gradient(to right, #0D1F3C, #2ABFBF);
   color: white;
-  font-weight: 500;
+  font-weight: 600;
   padding: 12px 24px;
   border-radius: 9999px;
   box-shadow: none;
   transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
 }
 
 .primary-btn:hover {
   background: linear-gradient(to right, #0B1830, #239E9E);
 }
 .section-heading {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: 26px;
   font-weight: 600;
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
   background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.section-heading {
-  font-size: 2.5rem;
-  padding-left: 10px;
-}
+
 
 @media (max-width: 768px) {
   .section-heading {
@@ -52,17 +49,17 @@ body {
   }
 }
 .section-title {
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  /* font-family: 'Playfair Display', serif; */
   background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .section-subheading {
-  font-size: 30px;
-  font-weight: 700;
-font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+/* font-family: 'Playfair Display', serif; */
 background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -70,26 +67,36 @@ background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   margin-bottom: 20px;
 }
 .section-subtitle {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
   color: #0D1F3C;
   margin-top: 10px;
   line-height: 1.5;
 }
 
 .section-desc {
-  font-size: 14px;
+  font-size: 18px;
   color: #0D1F3C;
   line-height: 1.7;
   margin-top: 10px;
-  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .section-webtitle {
   font-size: 24px;
   font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
   background: linear-gradient(135deg, #0D1F3C, #2ABFBF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* 👉 Mobile view */
+@media (max-width: 640px) {
+  .section-webtitle {
+    font-size: 20px;
+  }
+}
+
+body {
+  text-transform: lowercase;
 }

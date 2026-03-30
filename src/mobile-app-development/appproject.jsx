@@ -26,8 +26,8 @@ export default function MobileProjects() {
 
           {/* Read More Button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <button className="primary-btn">
-              READ MORE
+            <button className="primary-btn font-semibold">
+             read more
             </button>
           </div>
 

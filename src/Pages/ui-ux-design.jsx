@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaChartPie,
   FaShoppingCart,
@@ -74,6 +76,78 @@ export default function mobileappdevelopment() {
   { title: "Community & Social Platforms", icon: <FaComments /> },
   { title: "Custom Business Applications", icon: <FaBriefcase /> },
 ];
+const featuresData = [
+  {
+    title: "User-Centered Design",
+    desc: "Design experiences focused on user needs and behavior."
+  },
+  {
+    title: "Wireframing & Prototyping",
+    desc: "Create interactive layouts to visualize the user journey."
+  },
+  {
+    title: "Responsive Design",
+    desc: "Ensure seamless experience across mobile, tablet, and desktop."
+  },
+  {
+    title: "Visual & Interaction Design",
+    desc: "Craft engaging interfaces with intuitive interactions."
+  },
+  {
+    title: "Usability Testing",
+    desc: "Analyze user feedback to improve design and performance."
+  }
+];
+const services = [
+  {
+    title: "User Research & Analysis",
+    description: "Understand user behavior and needs through research, surveys, and data analysis to create effective design strategies."
+  },
+  {
+    title: "Wireframing & Prototyping",
+    description: "Create structured wireframes and interactive prototypes to visualize app and website layouts before development."
+  },
+  {
+    title: "UI Design (User Interface)",
+    description: "Design visually appealing and modern interfaces that align with your brand identity and enhance user engagement."
+  },
+  {
+    title: "UX Design (User Experience)",
+    description: "Craft seamless and intuitive user journeys that improve usability and overall satisfaction."
+  },
+  {
+    title: "Responsive Design",
+    description: "Ensure your designs adapt perfectly across all devices including mobile, tablet, and desktop."
+  },
+  {
+    title: "Interaction Design",
+    description: "Design smooth interactions and animations that enhance usability and create engaging user experiences."
+  },
+  {
+    title: "Usability Testing",
+    description: "Test designs with real users to identify issues and improve user experience before final launch."
+  },
+  {
+    title: "Design System Creation",
+    description: "Build consistent design systems with reusable components, styles, and guidelines for scalability."
+  },
+  {
+    title: "Mobile App UI/UX Design",
+    description: "Design intuitive and engaging mobile app interfaces focused on performance and user satisfaction."
+  },
+  {
+    title: "Website UI/UX Design",
+    description: "Create modern, responsive, and user-friendly website designs that drive engagement and conversions."
+  },
+  {
+    title: "UX Audit & Improvement",
+    description: "Analyze existing designs to identify gaps and improve usability, accessibility, and performance."
+  },
+  {
+    title: "Accessibility & Inclusive Design",
+    description: "Ensure your design is accessible to all users, including people with disabilities, following best practices."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -83,7 +157,10 @@ export default function mobileappdevelopment() {
       containerWidth="max-w-[700px]"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+     <Services 
+             title="Our UI/UX Designing Services"
+             services={services} 
+           />
  <WebDevelopmentPhases
   phaseTitle="UI/UX Designing Phases"
   phaseDescription="CODX streamlines healthcare web development with a proven process: Discovery, UI/UX Design, Secure Development, and Ongoing Support for long-term success."
@@ -121,6 +198,14 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   />       
    <TechnologiesSection/>
+    <DifferenceSection
+         title="The Difference We Deliver"
+         features={featuresData}
+         bgColor="#F7F3EE"
+         accentColor="#2ABFBF"
+         textColor="#0D1F3C"
+       />
+           
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Design"

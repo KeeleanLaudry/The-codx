@@ -1,69 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const services = [
-  {
-    title: "Digital Marketing",
-    description:
-      "Boost your online presence with tailored digital marketing strategies. From social media to targeted ads, we ensure your brand reaches the right audience."
-  },
-  {
-    title: "Website Audit",
-    description:
-      "Uncover hidden issues with a comprehensive website audit. We identify performance, usability, and SEO gaps to optimize your site's efficiency."
-  },
-  {
-    title: "Cyber Security",
-    description:
-      "Protect your digital assets with robust cybersecurity solutions. We safeguard your business against threats and ensure data integrity."
-  },
-  {
-    title: "Hosting and Administration",
-    description:
-      "Reliable hosting and seamless administration services for uninterrupted website performance with secure hosting and 24/7 support."
-  },
-  {
-    title: "Website Maintenance",
-    description:
-      "Keep your website running smoothly with regular updates, bug fixes, and performance monitoring."
-  },
-  {
-    title: "Annual Maintenance Services",
-    description:
-      "Comprehensive annual maintenance packages including updates, security checks, and backups."
-  },
-  {
-    title: "Website Design & Development",
-    description:
-      "Transform your ideas into reality with stunning and user-friendly website designs tailored to your business goals."
-  },
-  {
-    title: "Performance Optimization",
-    description:
-      "Maximize your website's speed and efficiency with advanced performance optimization services."
-  },
-  {
-    title: "API Integration",
-    description:
-      "Streamline operations with seamless API integrations to enhance functionality and automate workflows."
-  },
-  {
-    title: "Payment Gateway Integrations",
-    description:
-      "Secure and hassle-free payment gateway integration enabling smooth and reliable transactions."
-  },
-  {
-    title: "Website Migrations",
-    description:
-      "Switch platforms effortlessly with expert website migration ensuring zero downtime and data integrity."
-  },
-  {
-    title: "SEO",
-    description:
-      "Climb search engine rankings with expert SEO strategies that drive organic traffic and business growth."
-  }
-];
-
-export default function Services() {
+export default function Services({ services, title = "Our Services" }) {
 
   const scrollRef = useRef(null);
 
@@ -89,16 +26,16 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto relative">
+    <div className="max-w-5xl mx-auto relative px-4">
 
       <h2 className="section-heading">
-        Our Services
+        {title}
       </h2>
 
- <div
-  ref={scrollRef}
-  className="flex gap-6 overflow-x-auto scroll-smooth px-10 pb-6 hide-scrollbar"
->
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-auto scroll-smooth px-10 pb-6 hide-scrollbar"
+      >
 
         {services.map((service, index) => (
           <div
@@ -110,7 +47,7 @@ export default function Services() {
               {service.title}
             </h3>
 
-            <p className="text-gray-200 text-sm leading-relaxed">
+            <p className="text-gray-200 text-base leading-relaxed">
               {service.description}
             </p>
 

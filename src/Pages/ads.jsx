@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaSearch,
   FaYoutube,
@@ -39,6 +41,28 @@ export default function mobileappdevelopment() {
   { title: "Media Remarketing Campaigns", icon: <FaBuilding /> },
   { title: "Seasonal & Launch-Based Promotions", icon: <FaStore /> },
   { title: "E-commerce Performance Ads", icon: <FaShoppingBag /> },
+];
+const featuresData = [
+  {
+    title: "Targeted Ad Campaigns",
+    desc: "Reach the right audience at the right time."
+  },
+  {
+    title: "Google & Social Ads",
+    desc: "Run ads across Google, Facebook, and Instagram."
+  },
+  {
+    title: "Creative Ad Design",
+    desc: "Engaging visuals that drive clicks and action."
+  },
+  {
+    title: "Budget Optimization",
+    desc: "Maximize results while minimizing ad spend."
+  },
+  {
+    title: "Performance Tracking",
+    desc: "Analyze and improve campaigns for better ROI."
+  }
 ];
   const industries = [
         {
@@ -67,6 +91,56 @@ export default function mobileappdevelopment() {
           image: health
         }
       ];
+      const services = [
+  {
+    title: "Ad Strategy & Planning",
+    description: "Create data-driven advertising strategies tailored to your business goals and target audience."
+  },
+  {
+    title: "Creative Ad Design",
+    description: "Design eye-catching visuals and creatives that grab attention and drive engagement."
+  },
+  {
+    title: "Copywriting for Ads",
+    description: "Craft compelling ad copies that convert viewers into customers with strong messaging."
+  },
+  {
+    title: "Social Media Ads",
+    description: "Run targeted ad campaigns on platforms like Facebook, Instagram, and LinkedIn."
+  },
+  {
+    title: "Google Ads Campaigns",
+    description: "Reach potential customers through search, display, and video ads on Google."
+  },
+  {
+    title: "Display Advertising",
+    description: "Increase brand visibility with visually engaging banner ads across websites and apps."
+  },
+  {
+    title: "Video Ads Development",
+    description: "Create high-converting video ads for platforms like YouTube and social media."
+  },
+  {
+    title: "Retargeting & Remarketing",
+    description: "Reconnect with users who have previously interacted with your brand to boost conversions."
+  },
+  {
+    title: "A/B Testing & Optimization",
+    description: "Test different ad variations to improve performance and maximize return on investment."
+  },
+  {
+    title: "Landing Page Optimization",
+    description: "Optimize landing pages to improve ad performance and increase conversion rates."
+  },
+  {
+    title: "Performance Tracking & Analytics",
+    description: "Monitor campaign performance with detailed analytics and actionable insights."
+  },
+  {
+    title: "Budget Management",
+    description: "Optimize ad spend efficiently to achieve maximum results within your budget."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -76,7 +150,10 @@ export default function mobileappdevelopment() {
  containerWidth="max-w-[800px]"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+        <Services 
+                title="Our Ads Development Services"
+                services={services} 
+              />
 <WebDevelopmentPhases
   phaseTitle="Ads Development Phases"
   phaseDescription="CODX drives impactful social media presence with a proven process: Research, Strategy, Creation, Execution, and Optimization."
@@ -114,6 +191,13 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   />  
           <TechnologiesSection/>
+           <DifferenceSection
+                        title="The Difference We Deliver"
+                        features={featuresData}
+                        bgColor="#F7F3EE"
+                        accentColor="#2ABFBF"
+                        textColor="#0D1F3C"
+                      />
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Develop"

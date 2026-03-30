@@ -125,7 +125,7 @@ const TechnologiesSection = () => {
                     alt={tech.name}
                     className="w-6 h-6 object-contain"
                   />
-                  <p className="text-[#0D1F3C] font-medium text-sm whitespace-nowrap">
+                  <p className="text-[#0D1F3C]  font-medium text-sm whitespace-nowrap">
                     {tech.name}
                   </p>
                 </div>

@@ -81,15 +81,8 @@ export default function TestimonialsSection() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
-        .testi-section {
-          font-family: 'Inter', sans-serif;
-          background: ${colors.cream};
-        }
-        .testi-heading {
-          font-family: 'Playfair Display', serif;
-        }
+        
         .blob-shape {
           border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         }
@@ -144,26 +137,18 @@ export default function TestimonialsSection() {
           />
 
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* LEFT — Static text */}
             <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
               <div>
-                <h2
-                  className="testi-heading text-3xl sm:text-4xl lg:text-5xl leading-tight"
-                  style={{ color: colors.navy }}
+                <div
+                  className="section-heading"
                 >
-                  Our Clients{" "}
-                  <span className="italic" style={{ color: colors.teal }}>
-                    And
-                  </span>
-                  <br />
-                  Testimonials
-                </h2>
+                  Our Clients  And Testimonials
+                  
+                  
+                </div>
               </div>
 
-              <p
-                className="text-sm sm:text-base lg:text-lg leading-relaxed max-w-md mx-auto lg:mx-0"
-                style={{ color: colors.navy + "cc", fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
-              >
+              <p className="section-desc font-semibold">
                 Listen to what one of our clients have to say about making us
                 their digital marketing partner. At CODX, we embrace better,
                 and we're at our proudest when we help other companies and
@@ -171,7 +156,6 @@ export default function TestimonialsSection() {
               </p>
             </div>
 
-            {/* RIGHT — Stacked cards - Responsive positioning */}
             <div 
               className="relative flex items-center justify-center" 
               style={{ height: "auto", minHeight: 420 }}
@@ -300,7 +284,7 @@ export default function TestimonialsSection() {
                       </div>
 
                       <p
-                        className="leading-relaxed mb-4 sm:mb-6 lg:mb-8 text-xs sm:text-sm lg:text-base"
+                        className="section-subtitle mb-10"
                         style={{ color: colors.navy + "dd", fontWeight: 400, lineHeight: 1.6 }}
                       >
                         {t.text.length > 120 && window.innerWidth < 768 
@@ -319,7 +303,7 @@ export default function TestimonialsSection() {
                           {t.initials}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="font-semibold text-xs sm:text-sm truncate" style={{ color: colors.navy }}>
+                          <p className="section-desc font-semibold truncate" style={{ color: colors.navy }}>
                             {t.name}
                           </p>
                           <p className="text-xs truncate" style={{ color: colors.navy + "99" }}>

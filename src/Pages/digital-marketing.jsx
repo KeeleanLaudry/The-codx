@@ -19,6 +19,8 @@ import { FaGoogle, FaYoutube, FaLinkedin, FaChartPie } from "react-icons/fa";
 import { SiMeta } from "react-icons/si";
 import { MdOutlineCampaign } from "react-icons/md";
 import { FaBuilding, FaLaptopCode, FaAppStoreIos } from "react-icons/fa";
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 export default function mobileappdevelopment() {
      const industries = [
       {
@@ -58,6 +60,78 @@ export default function mobileappdevelopment() {
   { title: "App Store Optimization (iOS & Android)", icon: <FaAppStoreIos /> },
   { title: "Reputation & Review Management", icon: <FaChartPie /> },
 ];
+const featuresData = [
+  {
+    title: "Data-Driven Strategies",
+    desc: "We use insights to create effective marketing campaigns."
+  },
+  {
+    title: "SEO & Visibility",
+    desc: "Improve rankings and reach the right audience."
+  },
+  {
+    title: "Paid Advertising",
+    desc: "Run targeted ads that drive real conversions."
+  },
+  {
+    title: "Content Marketing",
+    desc: "Engaging content that builds trust and brand value."
+  },
+  {
+    title: "Analytics & Reporting",
+    desc: "Track performance and optimize for better results."
+  }
+];
+const services = [
+  {
+    title: "Digital Marketing Strategy",
+    description: "Create data-driven marketing strategies tailored to your business goals and target audience."
+  },
+  {
+    title: "Search Engine Optimization (SEO)",
+    description: "Improve your website’s visibility on search engines and drive organic traffic with proven SEO techniques."
+  },
+  {
+    title: "Search Engine Marketing (SEM)",
+    description: "Run paid campaigns on Google Ads to generate high-quality leads and boost conversions."
+  },
+  {
+    title: "Social Media Marketing",
+    description: "Promote your brand across social platforms with engaging content and targeted campaigns."
+  },
+  {
+    title: "Content Marketing",
+    description: "Create valuable and relevant content that attracts, engages, and converts your audience."
+  },
+  {
+    title: "Email Marketing",
+    description: "Reach your audience directly with personalized email campaigns that drive engagement and sales."
+  },
+  {
+    title: "Pay-Per-Click Advertising (PPC)",
+    description: "Maximize ROI with targeted PPC campaigns across search engines and social media platforms."
+  },
+  {
+    title: "Conversion Rate Optimization (CRO)",
+    description: "Enhance your website performance to convert more visitors into customers effectively."
+  },
+  {
+    title: "Affiliate Marketing",
+    description: "Expand your reach through affiliate partnerships that promote your products and services."
+  },
+  {
+    title: "Online Reputation Management",
+    description: "Monitor and improve your brand image across digital platforms to build trust and credibility."
+  },
+  {
+    title: "Marketing Analytics & Reporting",
+    description: "Track campaign performance with detailed analytics and insights to make informed decisions."
+  },
+  {
+    title: "Lead Generation Campaigns",
+    description: "Generate high-quality leads through targeted campaigns designed to increase conversions."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -68,7 +142,10 @@ Intelligent Social Media Marketing"
        containerWidth="max-w-3xl"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+   <Services 
+           title="Our Digital Marketing Services"
+           services={services} 
+         />
 <WebDevelopmentPhases
   phaseTitle="Digital Marketing Phases"
   phaseDescription="CODX drives impactful social media presence with a proven process: Research, Strategy, Creation, Execution, and Optimization."
@@ -106,6 +183,13 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   /> 
           <TechnologiesSection/>
+           <DifferenceSection
+                        title="The Difference We Deliver"
+                        features={featuresData}
+                        bgColor="#F7F3EE"
+                        accentColor="#2ABFBF"
+                        textColor="#0D1F3C"
+                      />
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Develop"

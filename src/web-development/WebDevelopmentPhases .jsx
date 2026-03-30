@@ -45,12 +45,12 @@ const WebDevelopmentPhases = ({
         />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="relative z-10 max-w-5xl mx-auto px-4  ">
+        <div className=" mb-16">
           <h2 className="section-heading" >
             {phaseTitle}
           </h2>          
-          <p className="section-subtitle" >
+          <p className="section-desc" >
             {phaseDescription}
           </p>
         </div>
@@ -121,7 +121,7 @@ const WebDevelopmentPhases = ({
                       </h3>
                     </div>
                     
-                    <p className={`text-xs font-medium leading-relaxed transition-all duration-500 ${
+                    <p className={`text-sm font-medium  transition-all duration-500 ${
                       hoveredIndex === index ? 'text-[#EADECF]' : 'text-[#EDE7DF]'
                     }`}>
                       {phase.description}

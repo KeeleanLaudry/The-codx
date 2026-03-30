@@ -25,7 +25,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-16 overflow-hidden" >
+    <section className="relative min-h-screen flex items-center justify-center px-6  overflow-hidden" >
       <div className="max-w-5xl w-full relative ">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <div className="hidden md:block relative group">
@@ -181,7 +181,7 @@ const ContactSection = () => {
               <div className="flex items-center gap-4 pt-2">
                 <button
                   type="submit"
-                  className="primary-btn"
+                  className="primary-btn font-semibold"
                 >
                   <span className="relative z-10">Send Message</span>
                   <div className=" inset-0 bg-gradient-to-r from-[#2ABFBF] to-[#2ABFBF80] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaUsers,
   FaShareAlt,
@@ -71,6 +73,78 @@ export default function mobileappdevelopment() {
         image: health
       }
     ];
+    const featuresData = [
+  {
+    title: "Creative Video Production",
+    desc: "High-quality videos that tell your brand story effectively."
+  },
+  {
+    title: "Script & Storyboarding",
+    desc: "Well-planned concepts to deliver clear and engaging messages."
+  },
+  {
+    title: "Professional Editing",
+    desc: "Seamless editing with visuals, sound, and effects."
+  },
+  {
+    title: "Social Media Videos",
+    desc: "Optimized videos for Instagram, YouTube, and other platforms."
+  },
+  {
+    title: "Product & Promo Videos",
+    desc: "Showcase products and services to boost engagement and sales."
+  }
+];
+const services = [
+  {
+    title: "Video Strategy & Planning",
+    description: "Plan impactful video content aligned with your brand goals, audience, and marketing strategy."
+  },
+  {
+    title: "Script Writing",
+    description: "Craft engaging and compelling scripts that effectively communicate your message."
+  },
+  {
+    title: "Storyboarding",
+    description: "Visualize your video concept with detailed storyboards before production begins."
+  },
+  {
+    title: "Corporate Video Production",
+    description: "Create professional corporate videos to showcase your brand, services, and company values."
+  },
+  {
+    title: "Promotional Videos",
+    description: "Produce high-converting promotional videos designed to attract and engage your target audience."
+  },
+  {
+    title: "Social Media Videos",
+    description: "Create short, engaging videos optimized for platforms like Instagram, YouTube, and Facebook."
+  },
+  {
+    title: "Product Demo Videos",
+    description: "Showcase your products with detailed demo videos that highlight features and benefits."
+  },
+  {
+    title: "Explainer Videos",
+    description: "Simplify complex ideas with animated or live-action explainer videos."
+  },
+  {
+    title: "Video Editing & Post Production",
+    description: "Enhance your videos with professional editing, color grading, sound design, and effects."
+  },
+  {
+    title: "Motion Graphics & Animation",
+    description: "Add creativity with motion graphics and animations to make your videos more engaging."
+  },
+  {
+    title: "YouTube Video Production",
+    description: "Produce high-quality YouTube videos optimized for engagement, retention, and growth."
+  },
+  {
+    title: "Video Marketing & Optimization",
+    description: "Optimize video content for SEO, reach, and performance across digital platforms."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -79,7 +153,10 @@ export default function mobileappdevelopment() {
        animateText={false}
     titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+        <Services 
+                     title="Our Video Production Services"
+                     services={services} 
+                   />
 <WebDevelopmentPhases
   phaseTitle="Video Production Development Phases"
   phaseDescription="CODX drives impactful social media presence with a proven process: Research, Strategy, Creation, Execution, and Optimization."
@@ -117,6 +194,13 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   /> 
           <TechnologiesSection/>
+               <DifferenceSection
+                                  title="The Difference We Deliver"
+                                  features={featuresData}
+                                  bgColor="#F7F3EE"
+                                  accentColor="#2ABFBF"
+                                  textColor="#0D1F3C"
+                                />
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Develop"

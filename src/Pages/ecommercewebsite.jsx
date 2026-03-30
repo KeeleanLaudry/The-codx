@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaShoppingCart,
   FaUsers,
@@ -65,6 +67,78 @@ export default function mobileappdevelopment() {
   { title: "Wholesale Platforms with Bulk Pricing", icon: <FaRunning /> },
   { title: "Custom E-Commerce Portals", icon: <FaTv /> },
 ];
+const featuresData = [
+  {
+    title: "Custom Online Store Development",
+    desc: "Build fully functional e-commerce websites tailored to your business."
+  },
+  {
+    title: "Product & Catalog Management",
+    desc: "Easily manage products, categories, pricing, and inventory."
+  },
+  {
+    title: "Secure Payment Integration",
+    desc: "Enable safe and smooth transactions with multiple payment options."
+  },
+  {
+    title: "Shopping Cart & Checkout",
+    desc: "Provide a seamless and user-friendly buying experience."
+  },
+  {
+    title: "Order Tracking & Management",
+    desc: "Track orders, manage deliveries, and enhance customer satisfaction."
+  }
+];
+const services = [
+  {
+    title: "E-commerce Website Development",
+    description: "Build scalable and user-friendly online stores with seamless navigation and high performance."
+  },
+  {
+    title: "Custom E-commerce Solutions",
+    description: "Get tailor-made e-commerce platforms designed to match your unique business requirements."
+  },
+  {
+    title: "Shopping Cart Development",
+    description: "Implement secure and intuitive shopping cart systems for smooth and hassle-free checkout experiences."
+  },
+  {
+    title: "Product Management Systems",
+    description: "Easily manage products, categories, pricing, and inventory with efficient admin dashboards."
+  },
+  {
+    title: "Payment Gateway Integration",
+    description: "Enable secure and multiple payment options including cards, UPI, and digital wallets."
+  },
+  {
+    title: "Order Management System",
+    description: "Track and manage orders, returns, and customer data efficiently in real-time."
+  },
+  {
+    title: "E-commerce UI/UX Design",
+    description: "Design attractive and conversion-focused interfaces to enhance user experience and boost sales."
+  },
+  {
+    title: "Mobile Commerce (M-commerce)",
+    description: "Deliver seamless shopping experiences across mobile devices with responsive and optimized designs."
+  },
+  {
+    title: "E-commerce SEO Optimization",
+    description: "Improve visibility and rankings of your online store to drive organic traffic and increase sales."
+  },
+  {
+    title: "Performance Optimization",
+    description: "Boost website speed and performance for better user experience and higher conversion rates."
+  },
+  {
+    title: "E-commerce Security Solutions",
+    description: "Protect your store with advanced security measures, secure transactions, and data encryption."
+  },
+  {
+    title: "Maintenance & Support",
+    description: "Ensure smooth operation with regular updates, bug fixes, and ongoing technical support."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -74,7 +148,10 @@ export default function mobileappdevelopment() {
      containerWidth="max-w-[800px]"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+    <Services 
+         title="Our E-commerce Services"
+         services={services} 
+       />
    <WebDevelopmentPhases
   phaseTitle="E-Commerce Development Phases"
   phaseDescription="CODX streamlines healthcare web development with a proven process: Discovery, UI/UX Design, Secure Development, and Ongoing Support for long-term success."
@@ -112,6 +189,13 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   />
         <TechnologiesSection/>
+         <DifferenceSection
+              title="The Difference We Deliver"
+              features={featuresData}
+              bgColor="#F7F3EE"
+              accentColor="#2ABFBF"
+              textColor="#0D1F3C"
+            />
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Develop"

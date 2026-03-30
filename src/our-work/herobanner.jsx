@@ -23,13 +23,12 @@ export default function HeroBanner() {
 
         <div className="relative z-10 flex items-center justify-center h-full px-6 text-center">
           
-          <div className="">
-            
-            <h1 className="text-4xl  bg-gradient-to-r from-[#FAD5A5] via-[#FBCEB1] to-[#FF7F50] 
-      bg-clip-text text-transparent font-semibold  leading-tight mb-6">
+          <div className={`relative z-10 flex flex-col items-center justify-center h-full text-center px-6 mx-auto text-5xl`}>
+       <h1 className={`gradient-text bg-clip-text font-inria  text-transparent font-semibold leading-tight pb-2`}>
               Transforming Brands, One Project at a Time
-            </h1>
-
+</h1>
+            
+           
             {/* Description */}
             <p className="text-gray-200 text-lg max-w-3xl leading-relaxed">
               At Codx, every project reflects our commitment to understanding

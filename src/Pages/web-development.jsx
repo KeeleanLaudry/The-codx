@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroBanner from "../Home/HeroBanner";
 import WebDevelopmentPhases from '../web-development/WebDevelopmentPhases ';
-import DifferenceDeliver from '../web-development/DifferenceDeliver';
+import DifferenceSection from '../web-development/DifferenceDeliver';
 import WebServicesSection from '../web-development/WebServicesSection';
 import PortalCard from '../Home/card';
 import rejuvenation from "../assets/rejuvenation-procedures-300x113.jpg";
@@ -80,6 +80,75 @@ const platformTypesData = [
   { title: "CRM & ERP", icon: <FaProjectDiagram /> },
   { title: "Custom Solutions for any business needed", icon: <FaCubes /> },
 ];
+const featuresData = [
+  {
+    title: "Custom Website Development",
+    desc: "Build responsive and scalable websites tailored to your business needs."
+  },
+  {
+    title: "Frontend Development",
+    desc: "Create interactive and user-friendly interfaces using modern technologies."
+  },
+  {
+    title: "Backend Development",
+    desc: "Develop secure and efficient server-side logic and database systems."
+  },
+  {
+    title: "E-commerce Solutions",
+    desc: "Design and develop online stores with seamless shopping experiences."
+  },
+  {
+    title: "Website Maintenance & Support",
+    desc: "Ensure smooth performance with regular updates and technical support."
+  }
+];
+const services = [ { title: "Digital Marketing",
+   description: "Boost your online presence with tailored digital marketing strategies. From social media to targeted ads, we ensure your brand reaches the right audience." },
+    {
+       title: "Website Audit",
+       description: "Uncover hidden issues with a comprehensive website audit. We identify performance, usability, and SEO gaps to optimize your site's efficiency."
+     },
+    { 
+      title: "Cyber Security",
+      description: "Protect your digital assets with robust cybersecurity solutions. We safeguard your business against threats and ensure data integrity." 
+    },
+    { 
+      title: "Hosting and Administration",
+      description: "Reliable hosting and seamless administration services for uninterrupted website performance with secure hosting and 24/7 support." 
+    },
+   {
+       title: "Website Maintenance", 
+      description: "Keep your website running smoothly with regular updates, bug fixes, and performance monitoring."
+     }, 
+     { 
+      title: "Annual Maintenance Services",
+       description: "Comprehensive annual maintenance packages including updates, security checks, and backups."
+     },
+    {
+       title: "Website Design & Development",
+       description: "Transform your ideas into reality with stunning and user-friendly website designs tailored to your business goals."
+     }, 
+       {
+         title: "Performance Optimization", 
+        description: "Maximize your website's speed and efficiency with advanced performance optimization services."
+       },
+     {
+       title: "API Integration",
+      description: "Streamline operations with seamless API integrations to enhance functionality and automate workflows." 
+    }, 
+     {
+       title: "Payment Gateway Integrations",
+       description: "Secure and hassle-free payment gateway integration enabling smooth and reliable transactions." 
+      }, 
+       {
+         title: "Website Migrations",
+          description: "Switch platforms effortlessly with expert website migration ensuring zero downtime and data integrity."
+         },
+           {
+             title: "SEO",
+   description: "Climb search engine rankings with expert SEO strategies that drive organic traffic and business growth." 
+  }
+ ];
   return (
     <div>
       <HeroBanner
@@ -91,8 +160,10 @@ titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"
 />
 
-<Services/>
-
+  <Services 
+      title="Our Web Development Services"
+      services={services} 
+    />
 <WebDevelopmentPhases
   phaseTitle="Web Development Phases"
   phaseDescription="CODX streamlines healthcare web development with a proven process: Discovery, UI/UX Design, Secure Development, and Ongoing Support for long-term success."
@@ -129,8 +200,14 @@ linesSize="text-lg sm:text-xl md:text-xl"
     }
   ]}
   />
-<DifferenceDeliver/>
-<PlatformTypes
+ <DifferenceSection
+      title="The Difference We Deliver"
+      features={featuresData}
+      bgColor="#F7F3EE"
+      accentColor="#2ABFBF"
+      textColor="#0D1F3C"
+    />
+    <PlatformTypes
   title="Platform Types We Can Develop"
   items={platformTypesData}
 />

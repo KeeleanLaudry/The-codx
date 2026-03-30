@@ -14,7 +14,8 @@ import ContactSection from '../Contact/contactForm';
 import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
-import DifferenceDeliver from '../web-development/DifferenceDeliver';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+import Services from '../web-development/servicecard';
 
 import {
   FaChartPie,
@@ -81,6 +82,78 @@ export default function mobileappdevelopment() {
   { title: "Job Portals", icon: <FaBriefcase /> },
   { title: "Custom Business Apps", icon: <FaCube /> },
 ];
+const featuresData = [
+  {
+    title: "Custom App Development",
+    desc: "Build scalable and high-performance mobile apps tailored to your needs."
+  },
+  {
+    title: "Android & iOS Apps",
+    desc: "Develop cross-platform or native apps for wider audience reach."
+  },
+  {
+    title: "UI/UX Design",
+    desc: "Create intuitive and engaging user experiences for better usability."
+  },
+  {
+    title: "API Integration",
+    desc: "Seamlessly connect apps with third-party services and backend systems."
+  },
+  {
+    title: "App Maintenance & Support",
+    desc: "Ensure smooth performance with updates, bug fixes, and improvements."
+  }
+];
+const services = [
+  {
+    title: "Custom Mobile App Development",
+    description: "Build powerful and scalable mobile apps tailored to your business needs with modern technologies and user-centric design."
+  },
+  {
+    title: "Android App Development",
+    description: "Develop high-performance Android applications with seamless user experience and compatibility across devices."
+  },
+  {
+    title: "iOS App Development",
+    description: "Create elegant and secure iOS applications optimized for performance and user engagement on Apple devices."
+  },
+  {
+    title: "Cross-Platform App Development",
+    description: "Reach a wider audience with apps built using cross-platform technologies like React Native and Flutter."
+  },
+  {
+    title: "UI/UX Design for Mobile Apps",
+    description: "Design intuitive and visually appealing interfaces that enhance user engagement and improve usability."
+  },
+  {
+    title: "App Testing & Quality Assurance",
+    description: "Ensure flawless performance with rigorous testing, bug fixing, and quality checks across all devices."
+  },
+  {
+    title: "App Maintenance & Support",
+    description: "Keep your app updated and running smoothly with regular maintenance, updates, and technical support."
+  },
+  {
+    title: "App Performance Optimization",
+    description: "Enhance app speed, responsiveness, and overall performance for a seamless user experience."
+  },
+  {
+    title: "API Integration for Apps",
+    description: "Integrate third-party APIs to add advanced features and improve app functionality efficiently."
+  },
+  {
+    title: "App Store Deployment",
+    description: "Get your app published on Google Play Store and Apple App Store with complete deployment support."
+  },
+  {
+    title: "App Security Implementation",
+    description: "Protect user data and app integrity with advanced security measures and encryption techniques."
+  },
+  {
+    title: "Push Notifications & Analytics",
+    description: "Engage users with real-time notifications and track performance with powerful analytics tools."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -90,6 +163,10 @@ export default function mobileappdevelopment() {
 containerWidth="max-w-[650px]"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
+  <Services 
+      title="Our Mobile App Services"
+      services={services} 
+    />
        <WebDevelopmentPhases
   phaseTitle="Mobile App Development Phases"
   phaseDescription="CODX streamlines healthcare web development with a proven process: Discovery, UI/UX Design, Secure Development, and Ongoing Support for long-term success."
@@ -126,8 +203,15 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
     }
   ]}
   />
-  <DifferenceDeliver/>
-        <TechnologiesSection/>
+      <TechnologiesSection/>
+ <DifferenceSection
+      title="The Difference We Deliver"
+      features={featuresData}
+      bgColor="#F7F3EE"
+      accentColor="#2ABFBF"
+      textColor="#0D1F3C"
+    />
+        
 <Appsection/>
 
 <PlatformTypes
@@ -182,7 +266,7 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
 />
         <VideoSection/>
-<div className='max-w-5xl mx-auto mb-10'>
+<div className='max-w-5xl mx-auto mb-10 px-4'>
 <div className='section-heading '>
             Industries We Serve
           </div>

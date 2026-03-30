@@ -6,7 +6,7 @@ export default {
   theme: {  
     extend: {
        fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+      poppins: ["Times New Roman", "serif"],
       },
         keyframes: {
                slideDown: {

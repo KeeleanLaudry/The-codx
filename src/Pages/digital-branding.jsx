@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaMapMarkedAlt,
   FaShoppingCart,
@@ -65,6 +67,78 @@ export default function mobileappdevelopment() {
           image: health
         }
       ];
+      const featuresData = [
+  {
+    title: "Brand Identity Design",
+    desc: "Create a strong and memorable visual identity."
+  },
+  {
+    title: "Consistent Brand Voice",
+    desc: "Maintain a clear and unified brand message."
+  },
+  {
+    title: "Online Presence Building",
+    desc: "Establish your brand across digital platforms."
+  },
+  {
+    title: "Creative Visual Strategy",
+    desc: "Design visuals that reflect your brand values."
+  },
+  {
+    title: "Brand Growth & Recognition",
+    desc: "Increase visibility and build lasting impressions."
+  }
+];
+const services = [
+  {
+    title: "Brand Strategy Development",
+    description: "Define your brand vision, mission, and positioning to create a strong and lasting market presence."
+  },
+  {
+    title: "Logo & Visual Identity Design",
+    description: "Create memorable logos and visual elements that reflect your brand personality and values."
+  },
+  {
+    title: "Brand Guidelines",
+    description: "Establish consistent branding with detailed guidelines for colors, typography, and design elements."
+  },
+  {
+    title: "Brand Voice & Messaging",
+    description: "Develop a clear and consistent brand voice that connects with your target audience."
+  },
+  {
+    title: "Social Media Branding",
+    description: "Build a cohesive brand presence across all social media platforms with consistent visuals and messaging."
+  },
+  {
+    title: "Website Branding",
+    description: "Align your website design with your brand identity to create a seamless user experience."
+  },
+  {
+    title: "Rebranding Services",
+    description: "Refresh your existing brand identity to stay relevant and competitive in the market."
+  },
+  {
+    title: "Brand Awareness Campaigns",
+    description: "Increase visibility and recognition through targeted branding campaigns."
+  },
+  {
+    title: "Personal Branding",
+    description: "Build a strong personal brand to establish authority and credibility in your industry."
+  },
+  {
+    title: "Content & Creative Direction",
+    description: "Ensure all content aligns with your brand identity through strategic creative direction."
+  },
+  {
+    title: "Brand Positioning",
+    description: "Differentiate your brand in the market with a unique value proposition and clear positioning."
+  },
+  {
+    title: "Brand Consistency Management",
+    description: "Maintain consistent branding across all digital platforms and customer touchpoints."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -75,7 +149,10 @@ Identity Online"
      containerWidth="max-w-2xl"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+      <Services 
+              title="Our Digital branding Services"
+              services={services} 
+            />
 <WebDevelopmentPhases
   phaseTitle="Digital Branding Phases"
   phaseDescription="CODX streamlines healthcare Digital Branding with a proven process: Discovery, UI/UX Design, Secure Development, and Ongoing Support for long-term success."
@@ -113,6 +190,13 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   /> 
           <TechnologiesSection/>
+           <DifferenceSection
+                        title="The Difference We Deliver"
+                        features={featuresData}
+                        bgColor="#F7F3EE"
+                        accentColor="#2ABFBF"
+                        textColor="#0D1F3C"
+                      />
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Develop"

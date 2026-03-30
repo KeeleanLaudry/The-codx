@@ -32,7 +32,6 @@ import { Link } from "react-router-dom";
 import logo from "../assets/blue complete logo.png";
 
 export default function CodxNavbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Development");
   const [activeService, setActiveService] = useState("Web Development");
@@ -329,7 +328,7 @@ const navigate = useNavigate();
   };
 
 const pillGlassStyle = {
-background: "rgba(255,255,255,0.75)",
+background: "rgba(255, 255, 255, 0.6)",
   backdropFilter: "blur(18px)",
   WebkitBackdropFilter: "blur(18px)",
   border: "1px solid rgba(255,255,255,0.3)",
@@ -349,7 +348,7 @@ background: "rgba(255,255,255,0.75)",
   return (
     <>
       <div
-        className="relative w-full font-poppins z-50 flex items-center justify-between px-4 sm:px-6 md:px-8  py-2"
+        className="relative w-full  z-50 flex items-center justify-between px-4 sm:px-6 md:px-8  py-2"
         ref={navbarRef}
         style={{
   backdropFilter: "blur(12px)",
@@ -376,7 +375,7 @@ background: "rgba(255,255,255,0.75)",
             >
               <Link
                 to="/about"
-                className="relative group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-base"
+                className="relative group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-base "
               >
                 <span className="hover:text-[#2ABFBF] transition-colors">
                   About Codx
@@ -407,7 +406,7 @@ background: "rgba(255,255,255,0.75)",
                   <div
                     ref={servicesRef}
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[95vw] max-w-[1200px] rounded-2xl shadow-2xl animate-fadeIn"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[95vw] max-w-[1050px] rounded-2xl shadow-2xl animate-fadeIn"
                     style={dropdownGlassStyle}
                   >
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-1 p-4 border-b border-[#0D1F3C]/10 bg-[#EADECF]/30">
@@ -437,7 +436,7 @@ background: "rgba(255,255,255,0.75)",
                                 }
                               />
                             )}
-                            <span className="text-xs md:text-sm font-medium">
+                            <span className="text-xs md:text-base font-semibold">
                               {category}
                             </span>
                           </div>
@@ -445,7 +444,7 @@ background: "rgba(255,255,255,0.75)",
                       })}
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-[280px_1fr_340px] gap-4 md:gap-8 p-4 md:p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-[240px_1fr_200px] gap-4 md:gap-8 p-4 md:p-6">
                       <div className="space-y-1 border-r border-[#0D1F3C]/10 pr-4">
                         {services[activeCategory].map((service) => {
                           const ServiceIcon = serviceDetails[service]?.icon;
@@ -453,7 +452,7 @@ background: "rgba(255,255,255,0.75)",
                             <div
                               key={service}
                               onClick={() => setActiveService(service)}
-                              className={`flex items-center gap-3 px-4 py-2.5 rounded-xl cursor-pointer transition-all duration-200 group
+                              className={`flex items-center gap-3 px-4 py-2.5 rounded-xl cursor-pointer transition-all duration-200 group 
                             ${
                               activeService === service
                                 ? "bg-[#2ABFBF]/10 border-l-2 border-[#2ABFBF]"
@@ -471,7 +470,7 @@ background: "rgba(255,255,255,0.75)",
                                 />
                               )}
                               <span
-                                className={`text-sm ${
+                                className={`text-base font-medium ${
                                   activeService === service
                                     ? "text-[#0D1F3C] font-medium"
                                     : "text-[#0D1F3C]/60 group-hover:text-[#0D1F3C]/80"
@@ -503,14 +502,14 @@ background: "rgba(255,255,255,0.75)",
                                 className="flex items-center gap-2 text-xs md:text-sm text-[#0D1F3C]/70 px-2 py-1.5 rounded-lg hover:bg-[#0D1F3C]/5 transition-colors"
                               >
                                 <div className="w-1.5 h-1.5 bg-[#2ABFBF] rounded-full flex-shrink-0"></div>
-                                <span className="truncate">{item}</span>
+                                <span className="font-medium text-base truncate">{item}</span>
                               </div>
                             ),
                           )}
                         </div>
                       </div>
 
-                      <div className="hidden md:block border-l border-[#0D1F3C]/10 pl-6">
+                      <div className="hidden md:block border-l border-[#0D1F3C]/10 pl-2">
                         <div className="flex items-center gap-2 mb-4">
                           <Sparkles size={14} className="text-[#2ABFBF]" />
                           <h3 className="text-sm font-semibold uppercase tracking-wider text-[#0D1F3C]/50">
@@ -522,17 +521,17 @@ background: "rgba(255,255,255,0.75)",
                             <div
                               key={i}
                               className="
-  group relative 
-  p-5 
-  rounded-xl 
-  min-h-[350px]   // 👈 height increase
-  flex flex-col justify-between
-  transition-all duration-300 
-  cursor-pointer 
-  hover:border-[#2ABFBF]/20
+                              group relative 
+                              p-5 
+                              rounded-xl 
+                              min-h-[350px]   // 👈 height increase
+                              flex flex-col justify-between
+                              transition-all duration-300 
+                              cursor-pointer 
+                              hover:border-[#2ABFBF]/20
 "
                             >
-                              <p className="text-sm text-[#0D1F3C]/80 leading-relaxed mb-3">
+                              <p className="text-base text-[#0D1F3C]/80 font-medium leading-relaxed mb-3">
                                 {article}
                               </p>
                             </div>
@@ -567,7 +566,7 @@ background: "rgba(255,255,255,0.75)",
                   <div
                     ref={industriesRef}
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[95vw] max-w-[1200px] rounded-2xl shadow-2xl animate-fadeIn"
+                    className="absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[95vw] max-w-[1050px] rounded-2xl shadow-2xl animate-fadeIn"
                     style={dropdownGlassStyle}
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 p-6 md:p-8">
@@ -578,13 +577,13 @@ background: "rgba(255,255,255,0.75)",
                             Industries We Serve
                           </h3>
                         </div>
-                        <p className="text-[#0D1F3C]/70 text-sm leading-relaxed">
+                        <p className="text-[#0D1F3C]/70 text-base leading-relaxed">
                           Empowering diverse industries with exclusive IT
                           solutions that drive innovation and business success.
                         </p>
                       </div>
                       <div className="col-span-2">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {industriesList.map((item, i) => {
                             const Icon = item.icon;
                             return (
@@ -631,7 +630,7 @@ background: "rgba(255,255,255,0.75)",
           >
             <button
   onClick={() => navigate("/contact-us")}
-  className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-xs xl:text-sm font-medium px-3 xl:px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md whitespace-nowrap"
+  className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-xs xl:text-sm font-semibold px-3 xl:px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md whitespace-nowrap"
 >
   Speak to an expert
 </button>

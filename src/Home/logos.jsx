@@ -12,7 +12,7 @@ import auracious from "../assets/brand/auracious.png";
 import eatplaystudy from "../assets/brand/eat play study.png";
 import Shades from "../assets/brand/Shades.png";
 
-export default function BrandsGrid({ title = "Trusted by 80+ Clients Worldwide" }) {
+export default function BrandsGrid({ title = "Trusted by 350+ Clients Worldwide" }) {
   const brands = [
     { id: 1, image: arabian },
     { id: 2, image: ahk },

@@ -193,7 +193,7 @@ export default function BlogDetail() {
     <div className="max-w-5xl mx-auto">
       
       {/* HERO */}
-      <div className="relative h-[60vh] min-h-[400px] overflow-hidden rounded-2xl">
+      <div className="relative h-[40vh] min-h-[250px] md:h-[60vh] md:min-h-[400px] overflow-hidden rounded-2xl">
         <img
           src={blog.image}
           alt={blog.title}

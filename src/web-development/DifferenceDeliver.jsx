@@ -1,34 +1,19 @@
 import React from "react";
 
-const features = [
-  {
-    title: "Data-Driven Campaigns",
-    desc: "Every decision is backed by audience insights, trends, and analytics to maximize ROI."
-  },
-  {
-    title: "Creative That Converts",
-    desc: "We craft scroll-stopping visuals and copy designed to engage and drive action."
-  },
-  {
-    title: "Multi-Platform Expertise",
-    desc: "From Google to TikTok, we know how to leverage each platform for your goals."
-  },
-  {
-    title: "End-to-End Ad Management",
-    desc: "We handle everything — from strategy to reporting — so you can focus on growth."
-  },
-  {
-    title: "Transparent Performance Reporting",
-    desc: "Clear, detailed reports showing results, spend, and ROI at every stage."
-  }
-];
-
-export default function DifferenceSection() {
+export default function DifferenceSection({
+  title = "The Difference We Deliver",
+  features = [],
+  bgColor = "#F7F3EE",
+  accentColor = "#2ABFBF",
+  textColor = "#0D1F3C"
+}) {
   return (
-    <section className="relative px-6 overflow-hidden" style={{ backgroundColor: "#F7F3EE" }}>
-      {/* Decorative Background Elements */}
+    <section
+      className="relative px-6 overflow-hidden"
+      style={{ backgroundColor: bgColor }}
+    >
+      {/* Decorative Background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Floating Circles */}
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
@@ -36,70 +21,75 @@ export default function DifferenceSection() {
             style={{
               width: `${Math.random() * 200 + 50}px`,
               height: `${Math.random() * 200 + 50}px`,
-              background: `radial-gradient(circle at center, ${i % 2 === 0 ? "#2ABFBF" : "#EADECF"}08, transparent 70%)`,
+              background: `radial-gradient(circle at center, ${
+                i % 2 === 0 ? accentColor : "#EADECF"
+              }08, transparent 70%)`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
               animationDuration: `${12 + Math.random() * 8}s`,
-              filter: 'blur(40px)'
+              filter: "blur(40px)"
             }}
           />
         ))}
-        
-       
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="section-heading" >
-            The Difference We Deliver
-          </h2>
+        {/* Title */}
+        <div className=" mb-12">
+          <h2 className="section-heading">{title}</h2>
         </div>
 
-        {/* Cards Grid */}
+        {/* Cards */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
           {features.map((item, index) => (
             <div
-              key={index}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden"
-              style={{
-                animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
-              }}
-            >
-              {/* Top Accent Line */}
-              <div 
-                className="absolute top-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                style={{ backgroundColor: "#2ABFBF" }}
-              />
-              
-              {/* Card Content */}
+  key={index}
+  className="group relative bg-white rounded-2xl shadow-lg 
+  hover:shadow-2xl md:hover:scale-105 
+  active:scale-95 transition-all duration-500 overflow-hidden"
+  style={{
+    animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
+  }}
+>
+              {/* Top Line */}
+            <div
+  className="absolute top-0 left-0 right-0 h-1 transform scale-x-0 
+  group-hover:scale-x-100 group-active:scale-x-100 
+  transition-transform duration-500 origin-left"
+  style={{ backgroundColor: accentColor }}
+/>
+
+              {/* Content */}
               <div className="p-6">
-         
-                <h3 
-                  className="text-lg font-bold mb-3 transition-colors duration-500 group-hover:text-[#2ABFBF]"
-                  style={{ color: "#0D1F3C" }}
+                <h3
+                  className="text-lg font-semibold mb-3 transition-colors duration-500 group-hover:text-[var(--accent)]"
+                  style={{ color: textColor }}
                 >
                   {item.title}
                 </h3>
-                
-                <p className="text-sm font-medium leading-relaxed" style={{ color: "#0D1F3C" }}>
+
+                <p
+                  className="text-base font-medium "
+                  style={{ color: textColor }}
+                >
                   {item.desc}
                 </p>
               </div>
-              
-              <div 
-                className={`absolute inset-0 rounded-2xl transition-opacity duration-500 pointer-events-none opacity-0 group-hover:opacity-100`}
+
+              {/* Border Hover */}
+              <div
+                className="absolute inset-0 rounded-2xl transition-opacity duration-500 pointer-events-none opacity-0 group-hover:opacity-100"
                 style={{
-                  border: `2px solid ${"#2ABFBF"}`,
+                  border: `2px solid ${accentColor}`
                 }}
               />
             </div>
           ))}
         </div>
-
-      
       </div>
 
+      {/* Animations */}
       <style jsx>{`
         @keyframes float {
           0%, 100% {
@@ -112,7 +102,7 @@ export default function DifferenceSection() {
             transform: translate(-15px, 15px) scale(0.95);
           }
         }
-        
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -123,24 +113,9 @@ export default function DifferenceSection() {
             transform: translateY(0);
           }
         }
-        
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 0.5;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.2);
-          }
-        }
-        
+
         .animate-float {
           animation: float 15s ease-in-out infinite;
-        }
-        
-        .animate-pulse {
-          animation: pulse 1.5s ease-in-out infinite;
         }
       `}</style>
     </section>

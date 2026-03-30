@@ -30,7 +30,7 @@ const PortalCard = ({
         {/* TEXT */}
         <div className="w-full md:w-1/2 text-[#0D1F3C] text-center md:text-left">
           
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="section-heading">
             {title}
           </h2>
 

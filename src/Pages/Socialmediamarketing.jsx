@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaInstagram,
   FaTiktok,
@@ -68,6 +70,78 @@ export default function mobileappdevelopment()
   { title: "E-commerce Social Shops", icon: <FaShoppingCart /> },
   { title: "Brand Collaboration Campaigns", icon: <FaHandshake /> },
 ];
+const featuresData = [
+  {
+    title: "Strategic Content Planning",
+    desc: "We create targeted content that engages your audience."
+  },
+  {
+    title: "Creative Visual Design",
+    desc: "Eye-catching posts designed to boost brand visibility."
+  },
+  {
+    title: "Platform Optimization",
+    desc: "Optimized campaigns for Instagram, Facebook, and more."
+  },
+  {
+    title: "Audience Engagement",
+    desc: "We manage interactions to build strong relationships."
+  },
+  {
+    title: "Performance Tracking",
+    desc: "Track results and improve campaigns with insights."
+  }
+];
+const services = [
+  {
+    title: "Social Media Strategy",
+    description: "Develop result-driven social media strategies tailored to your brand goals and target audience."
+  },
+  {
+    title: "Content Creation",
+    description: "Create engaging posts, graphics, and videos that capture attention and boost audience interaction."
+  },
+  {
+    title: "Social Media Management",
+    description: "Manage your social media accounts with regular posting, monitoring, and audience engagement."
+  },
+  {
+    title: "Paid Ads Campaigns",
+    description: "Run targeted ad campaigns on platforms like Facebook, Instagram, and LinkedIn to maximize ROI."
+  },
+  {
+    title: "Audience Growth & Engagement",
+    description: "Increase followers and engagement through strategic content, campaigns, and community building."
+  },
+  {
+    title: "Influencer Marketing",
+    description: "Collaborate with influencers to expand your brand reach and build trust with your audience."
+  },
+  {
+    title: "Analytics & Reporting",
+    description: "Track performance with detailed analytics and reports to optimize campaigns and strategies."
+  },
+  {
+    title: "Brand Awareness Campaigns",
+    description: "Boost brand visibility with creative campaigns that reach the right audience at the right time."
+  },
+  {
+    title: "Social Media Optimization",
+    description: "Optimize profiles, content, and strategies to improve reach, visibility, and engagement."
+  },
+  {
+    title: "Reels & Short Video Marketing",
+    description: "Leverage trending reels and short videos to increase reach and connect with modern audiences."
+  },
+  {
+    title: "Hashtag & Trend Research",
+    description: "Use effective hashtags and trending topics to maximize content visibility and reach."
+  },
+  {
+    title: "Crisis & Reputation Management",
+    description: "Handle negative feedback and protect your brand image with proactive reputation management."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -77,7 +151,10 @@ export default function mobileappdevelopment()
        containerWidth="max-w-[800px]"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+ <Services 
+      title="Our Social Media Marketing Services"
+      services={services} 
+    />
  <WebDevelopmentPhases
   phaseTitle="Social Media Marketing Phases"
   phaseDescription="CODX drives impactful social media presence with a proven process: Research, Strategy, Creation, Execution, and Optimization."
@@ -115,7 +192,16 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   />  
           <TechnologiesSection/>
+          <DifferenceSection
+              title="The Difference We Deliver"
+              features={featuresData}
+              bgColor="#F7F3EE"
+              accentColor="#2ABFBF"
+              textColor="#0D1F3C"
+            />
+                
         <Appsection/>
+         
 <PlatformTypes
   title="Platform Types We Can Develop"
   items={socialPlatformsData}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const PortalCard = ({
   title,
   description,
-  buttonText = "Learn More",
+  buttonText = "learn More",
   image,
   reverse = false
 }) => {
@@ -14,7 +14,7 @@ const PortalCard = ({
         reverse 
           ? "lg:justify-end lg:translate-x-20" 
           : "lg:-translate-x-20"
-      } mb-6 sm:mb-8 lg:mb-10`}
+      } mb-6 sm:mb-8 lg:mb-10 px-4 `}
     >
       <motion.div
         initial={{ opacity: 0, y: 80 }}
@@ -41,16 +41,16 @@ const PortalCard = ({
         </motion.div>
         
         <div className="w-full lg:w-1/2 text-[#0D1F3C] text-center lg:text-left">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
+          <h2 className="section-title">
             {title}
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-[#0D1F3C]/80 mb-4 sm:mb-6 leading-relaxed">
+          <p className="section-desc font-medium">
             {description}
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-[#2ABFBF] text-white font-semibold rounded-full hover:bg-[#0D1F3C] transition-all duration-300 shadow-md text-sm sm:text-base"
+            className="primary-btn"
           >
             {buttonText}
           </motion.button>

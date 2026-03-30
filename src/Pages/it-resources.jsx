@@ -15,6 +15,8 @@ import VideoSection from  "../mobile-app-development/videosection";
 import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
+import DifferenceSection from '../web-development/DifferenceDeliver';
+
 import {
   FaProjectDiagram,
   FaUsers,
@@ -72,6 +74,78 @@ const industries = [
         image: health
       }
     ];
+    const featuresData = [
+  {
+    title: "IT Infrastructure Management",
+    desc: "Efficient setup and maintenance of servers, networks, and systems."
+  },
+  {
+    title: "Resource Allocation",
+    desc: "Optimize the use of IT resources for maximum productivity."
+  },
+  {
+    title: "Cloud & Server Support",
+    desc: "Secure and scalable cloud solutions with reliable server management."
+  },
+  {
+    title: "Technical Support Services",
+    desc: "24/7 assistance to resolve IT issues and ensure smooth operations."
+  },
+  {
+    title: "Security & Data Protection",
+    desc: "Protect systems and data with advanced security measures."
+  }
+];
+const services = [
+  {
+    title: "IT Staff Augmentation",
+    description: "Scale your team quickly with skilled IT professionals tailored to your project requirements."
+  },
+  {
+    title: "Dedicated Development Team",
+    description: "Hire a dedicated team of developers, designers, and testers for long-term projects."
+  },
+  {
+    title: "Contract-Based Hiring",
+    description: "Get expert IT professionals on a contract basis for short-term or specific project needs."
+  },
+  {
+    title: "Remote IT Resources",
+    description: "Access global talent with flexible remote IT resource hiring options."
+  },
+  {
+    title: "Full-Time IT Recruitment",
+    description: "Hire full-time IT professionals who align with your company culture and goals."
+  },
+  {
+    title: "Project-Based Resource Allocation",
+    description: "Assign skilled resources based on project scope, timeline, and technical requirements."
+  },
+  {
+    title: "Technology Experts Hiring",
+    description: "Hire specialists in technologies like Java, React, PHP, Python, and more."
+  },
+  {
+    title: "QA & Testing Resources",
+    description: "Ensure quality delivery with experienced QA engineers and software testers."
+  },
+  {
+    title: "DevOps & Cloud Experts",
+    description: "Hire DevOps engineers and cloud specialists to streamline deployment and operations."
+  },
+  {
+    title: "UI/UX Designers Hiring",
+    description: "Get creative designers to build intuitive and engaging user interfaces and experiences."
+  },
+  {
+    title: "Flexible Engagement Models",
+    description: "Choose from hourly, part-time, or full-time hiring models based on your needs."
+  },
+  {
+    title: "Resource Management & Support",
+    description: "Ensure smooth collaboration and performance with continuous resource management and support."
+  }
+];
   return (
     <div>
         <HeroBanner
@@ -81,7 +155,10 @@ const industries = [
           containerWidth="max-w-5xl"
       titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
-     <Services/>
+       <Services 
+                           title="Our IT Resource Services"
+                           services={services} 
+                         />
 <WebDevelopmentPhases
   phaseTitle="IT Resource Development Phases"
   phaseDescription="CODX drives impactful social media presence with a proven process: Research, Strategy, Creation, Execution, and Optimization."
@@ -119,6 +196,13 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
   />    
       <TechnologiesSection/>
+           <DifferenceSection
+                              title="The Difference We Deliver"
+                              features={featuresData}
+                              bgColor="#F7F3EE"
+                              accentColor="#2ABFBF"
+                              textColor="#0D1F3C"
+                            />
         <Appsection/>
 <PlatformTypes
   title="Platform Types We Can Develop"

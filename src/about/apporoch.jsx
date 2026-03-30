@@ -47,10 +47,10 @@ export default function OurApproach() {
               {/* BACK */}
               <div
                 className="absolute inset-0 rotate-y-180 backface-hidden 
-      bg-gradient-to-r from-[#EADECF] via-[#d6c3b3c6] to-[#EADECF]
+      bg-gradient-to-r from-[#EADECF]  to-[#EADECF]
       text-[#0D1F3C] flex items-center justify-center text-center p-6 rounded-xl"
               >
-                <p className="section-subtitle">
+                <p className="section-desc">
                   {item.desc}
                 </p>
               </div>

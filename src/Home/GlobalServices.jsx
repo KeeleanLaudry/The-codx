@@ -123,7 +123,7 @@ useEffect(() => {
                       className="w-10 h-10 mb-3"
                       style={{ color: isActive ? "#2ABFBF" : "#0D1F3C" }}
                     />
-                  <p className="font-semibold text-sm relative" style={{ color: "#0D1F3C" }}>
+                  <p className="section-desc font-semibold" >
                     {service.name}
                   </p>
                 </div>
@@ -143,19 +143,19 @@ useEffect(() => {
             <div className="rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border" style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}>
 
               <div className="flex-1">
-    <h2 className="section-subheading  font-inria text-[20px]">
+    <h2 className="section-subheading  text-[20px]">
                     {activeService.title}
                 </h2>
 
-                <p className="section-desc font-medium mb-6 " style={{ color: "#0D1F3CCC" }}>
+                <p className="section-desc font-medium mb-6 ">
                   {activeService.desc}
                 </p>
 
-                <button className="primary-btn px-6 py-3 rounded-full transition flex items-center gap-2" 
+                <button className="primary-btn font-semibold px-6 py-3 rounded-full transition flex items-center gap-2" 
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#2ABFBF"}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#0D1F3C"}
                 >
-                  Learn More <ArrowRight size={16} />
+                  learn more <ArrowRight size={16} />
                 </button>
               </div>
 

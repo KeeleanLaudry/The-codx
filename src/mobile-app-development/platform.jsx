@@ -34,7 +34,7 @@ const platforms = [
 
 export default function PlatformTypes({ title, items }) {
   return (
-    <section className="max-w-5xl mx-auto">
+    <section className="max-w-5xl mx-auto px-4 py-10">
 
       {/* Heading */}
       <h2 className="section-heading">
@@ -50,7 +50,7 @@ export default function PlatformTypes({ title, items }) {
           >
             <div className="text-3xl mb-3">{item.icon}</div>
 
-            <p className="section-subtitle">
+            <p className="section-desc">
               {item.title}
             </p>
           </div>
