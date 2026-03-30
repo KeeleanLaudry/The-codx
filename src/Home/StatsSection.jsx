@@ -97,7 +97,7 @@ const StatsSection = () => {
                     {item.number}
                   </div>
                 </div>
-                <h3 className="section-subtitle">
+                <h3 className="section-subtitle font-semibold">
                   {item.text}
                 </h3>                
                 <div 

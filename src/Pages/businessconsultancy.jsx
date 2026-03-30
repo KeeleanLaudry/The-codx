@@ -25,8 +25,10 @@ function BusinessConsultancy() {
   return (
     <div>
       <BeautyHeroSection
-      title="Business Consultancy
-Marketing & Website Solutions"
+      title={[
+"Business Consultancy",
+"Marketing & Website Solutions"
+      ]}
       description="Empowering businesses with tailored strategies, technology, and marketing solutions that drive sustainable growth"
     //   backgroundImage={bgImage}
       cards={[

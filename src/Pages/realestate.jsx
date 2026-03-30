@@ -24,8 +24,9 @@ function RealEstate() {
   return (
     <div>
     <BeautyHeroSection
-      title="Real Estate
-Marketing & Website Solutions"
+      title={["Real Estate",
+"Marketing & Website Solutions"
+]}
       description="Unlocking growth for real estate companies with powerful websites and digital marketing solutions"
     //   backgroundImage={bgImage}
       cards={[

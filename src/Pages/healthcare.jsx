@@ -24,8 +24,10 @@ function Healthcare() {
   return (
     <div>
     <BeautyHeroSection
-      title="Healthcare
-Marketing & Website Solutions"
+      title={[
+        "Healthcare",
+"Marketing & Website Solutions"
+]}
       description="Transforming healthcare services with innovative websites, digital platforms, and marketing strategies that put patients first "
     //   backgroundImage={bgImage}
       cards={[

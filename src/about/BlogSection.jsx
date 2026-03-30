@@ -150,7 +150,7 @@ function BlogCard({ blog, index }) {
 
         {/* Content */}
         <div className="p-6 flex flex-col flex-1">
-          <h3 className="section-subtitle">
+          <h3 className="section-subtitle font-bold">
             {blog.title}
           </h3>
 

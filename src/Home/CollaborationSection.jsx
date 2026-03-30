@@ -188,8 +188,8 @@ function Card({ item, index }) {
             />
             <p
               style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: 14,
+              
+                fontSize: 16,
                 color: "rgba(237,231,223,0.72)",
                 lineHeight: 1.7,
 width: 360,

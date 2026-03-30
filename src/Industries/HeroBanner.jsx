@@ -22,10 +22,20 @@ const BeautyHeroSection = ({
 
         {/* Content */}
         <div className="relative z-10 text-center px-6 max-w-4xl">
-          <h1 className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF] 
-  font-semibold leading-tight pb-2text-4xl md:text-5xl  text-transparent bg-clip-text ">
-            {title}
-          </h1>
+     <h1 className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF] 
+font-semibold leading-tight pb-2 text-4xl md:text-5xl text-transparent bg-clip-text">
+  
+  {Array.isArray(title) ? (
+    title.map((line, index) => (
+      <span key={index} className="block">
+        {line}
+      </span>
+    ))
+  ) : (
+    title
+  )}
+
+</h1>
 
           <p className="mt-4 text-[#2ABFBF]  font-semibold  text-lg">
             {description}
@@ -40,7 +50,7 @@ const BeautyHeroSection = ({
           {cards.map((item, index) => (
             <div
               key={index}
-              className="bg-[#EADECF] text-[#0D1F3C] text-center py-6 px-4 rounded-2xl font-medium shadow-md hover:shadow-lg transition-all duration-300"
+              className="bg-[#EADECF] text-[16px] text-[#0D1F3C] text-center py-6 px-4 rounded-2xl font-medium shadow-md hover:shadow-lg transition-all duration-300"
             >
               {item}
             </div>

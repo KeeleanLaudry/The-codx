@@ -42,7 +42,7 @@ const HealthcareServicesSection = ({ title, services = [], highlights = [] }) =>
                 background: `linear-gradient(135deg, ${colors.navy}cc, ${colors.navy}99)`,
               }}
             >
-              <p className="text-white text-xs font-semibold tracking-wide">
+              <p className="text-white text-base font-semibold tracking-wide">
                 {item.title}
               </p>
             </div>
@@ -81,7 +81,7 @@ const HealthcareServicesSection = ({ title, services = [], highlights = [] }) =>
               style={{ background: colors.navy }}
             >
               <p 
-                className="text-sm leading-relaxed"
+                className="text-base leading-relaxed"
                 style={{ color: colors.cream }}
               >
                 {item.description}

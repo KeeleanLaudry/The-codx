@@ -146,7 +146,7 @@ const services = [
 Identity Online"
        lines="We craft memorable digital identities — from visual design to brand voice — ensuring your business stands out, connects with the right audience, and leaves a lasting impression across all digital platforms"
        animateText={false}
-     containerWidth="max-w-2xl"
+     containerWidth="max-w-5xl"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
       <Services 

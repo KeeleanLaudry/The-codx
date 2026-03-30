@@ -375,7 +375,7 @@ background: "rgba(255, 255, 255, 0.6)",
             >
               <Link
                 to="/about"
-                className="relative group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-base "
+                className="relative group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-[17px] "
               >
                 <span className="hover:text-[#2ABFBF] transition-colors">
                   About Codx
@@ -391,7 +391,7 @@ background: "rgba(255, 255, 255, 0.6)",
                     setServicesOpen(!servicesOpen);
                     setIndustriesOpen(false);
                   }}
-                  className="flex items-center gap-1.5 cursor-pointer group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-base"
+                  className="flex items-center gap-1.5 cursor-pointer group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-[17px]"
                 >
                   <span className="group-hover:text-[#2ABFBF] transition-colors">
                     Services
@@ -406,8 +406,8 @@ background: "rgba(255, 255, 255, 0.6)",
                   <div
                     ref={servicesRef}
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[95vw] max-w-[1050px] rounded-2xl shadow-2xl animate-fadeIn"
-                    style={dropdownGlassStyle}
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1100px] rounded-2xl shadow-2xl animate-fadeIn"              
+                 style={dropdownGlassStyle}
                   >
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-1 p-4 border-b border-[#0D1F3C]/10 bg-[#EADECF]/30">
                       {Object.keys(services).map((category) => {
@@ -444,7 +444,7 @@ background: "rgba(255, 255, 255, 0.6)",
                       })}
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-[240px_1fr_200px] gap-4 md:gap-8 p-4 md:p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-[240px_1fr_260px] gap-4 md:gap-8 p-4 md:p-6">
                       <div className="space-y-1 border-r border-[#0D1F3C]/10 pr-4">
                         {services[activeCategory].map((service) => {
                           const ServiceIcon = serviceDetails[service]?.icon;
@@ -551,7 +551,7 @@ background: "rgba(255, 255, 255, 0.6)",
                     setIndustriesOpen(!industriesOpen);
                     setServicesOpen(false);
                   }}
-                  className="flex items-center gap-1.5 cursor-pointer group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-base"
+                  className="flex items-center gap-1.5 cursor-pointer group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-[17px]"
                 >
                   <span className="group-hover:text-[#2ABFBF] transition-colors">
                     Industries
@@ -577,7 +577,7 @@ background: "rgba(255, 255, 255, 0.6)",
                             Industries We Serve
                           </h3>
                         </div>
-                        <p className="text-[#0D1F3C]/70 text-base leading-relaxed">
+                        <p className="text-[#0D1F3C]/70 text-[17px] leading-relaxed">
                           Empowering diverse industries with exclusive IT
                           solutions that drive innovation and business success.
                         </p>
@@ -592,11 +592,11 @@ background: "rgba(255, 255, 255, 0.6)",
                                 key={i}
                                 className="group flex items-start gap-4 p-2 rounded-xl hover:bg-[#0D1F3C]/5 transition-all duration-300 border border-transparent hover:border-[#2ABFBF]/20"
                               >
-                                <div className="rounded-xl bg-[#2ABFBF]/10 group-hover:bg-[#2ABFBF]/20 transition-all p-1.5">
+                                <div className="rounded-xl bg-[#2ABFBF]/10 group-hover:bg-[#2ABFBF]/20 transition-all p-0.75">
                                   <Icon size={18} className="text-[#2ABFBF]" />
                                 </div>
                                 <div>
-                                  <h4 className="text-[#0D1F3C] font-medium group-hover:text-[#2ABFBF] transition-colors">
+                                  <h4 className="text-[#0D1F3C] text-[17px] font-medium group-hover:text-[#2ABFBF] transition-colors">
                                     {item.name}
                                   </h4>
                                   
@@ -613,7 +613,7 @@ background: "rgba(255, 255, 255, 0.6)",
 
               <Link
                 to="/our-work"
-                className="relative group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-base"
+                className="relative group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-[17px]"
               >
                 <span className="hover:text-[#2ABFBF] transition-colors">
                   Our Work

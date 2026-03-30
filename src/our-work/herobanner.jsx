@@ -30,7 +30,7 @@ export default function HeroBanner() {
             
            
             {/* Description */}
-            <p className="text-gray-200 text-lg max-w-3xl leading-relaxed">
+            <p className="text-gray-200 text-lg max-w-3xl ">
               At Codx, every project reflects our commitment to understanding
               our clients’ vision, industry, and business goals. We combine
               creative design with strategic digital solutions, helping brands

@@ -54,8 +54,11 @@ const scrollCardsData = [
   return (
    <div>
     <BeautyHeroSection
-      title="Beauty & Wellness Marketing & Website Solutions"
-      description="Unlocking Growth for Beauty & Wellness Brands with Effective Web and Marketing Solutions"
+  title={[
+    "Beauty & Wellness",
+    "Marketing & Website Solutions"
+  ]}      
+  description="Unlocking Growth for Beauty & Wellness Brands with Effective Web and Marketing Solutions"
     //   backgroundImage={bgImage}
       cards={[
         "Expertise in Beauty & Wellness Marketing",

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const PortalCard = ({
   title,
   description,
-  buttonText = "Learn More",
+  buttonText = "learn more",
   image,
 }) => {
   return (
@@ -34,7 +34,7 @@ const PortalCard = ({
             {title}
           </h2>
 
-          <p className="text-[#4A3E2C] text-sm md:text-base leading-6 mb-4">
+          <p className="text-[#0d1f3cb1] text-sm md:text-xl font-semibold leading-6 mb-4">
             {description}
           </p>
 
@@ -42,13 +42,7 @@ const PortalCard = ({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="
-              bg-gradient-to-r from-[#0D1F3C] to-[#2ABFBF]
-              text-white
-              px-5 py-2.5
-              rounded-full
-              text-sm
-              shadow hover:shadow-md
-              transition
+             primary-btn
             "
           >
             {buttonText}

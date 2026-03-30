@@ -24,8 +24,10 @@ function Eccomerce() {
   return (
     <div>
        <BeautyHeroSection
-      title="Ecommerce
-Marketing & Website Solutions"
+      title={[
+        "Ecommerce",
+"Marketing & Website Solutions"
+]}
       description="Unlocking Growth for Beauty & Wellness Brands with Effective Web and Marketing Solutions"
     //   backgroundImage={bgImage}
       cards={[

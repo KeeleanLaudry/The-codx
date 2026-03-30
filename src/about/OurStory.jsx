@@ -71,11 +71,7 @@ export default function OurStory() {
 
       {/* Header Section */}
       <div className="relative text-center mb-20">
-        {/* Decorative Circle */}
-        <div 
-          className="w-24 h-24 rounded-full mx-auto mb-6 opacity-20 animate-pulse"
-          style={{ backgroundColor: "#EADECF" }}
-        />
+      
         
         <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "#0D1F3C" }}>
           Our{" "}
@@ -83,22 +79,15 @@ export default function OurStory() {
             Story
           </span>
         </h2>
-        
-        {/* Underline */}
-        <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: "#2ABFBF" }} />
-        
-        <p className="mt-6 text-lg max-w-2xl mx-auto" style={{ color: "#0D1F3C" }}>
-          A journey of innovation, growth, and digital transformation
-        </p>
       </div>
 
       {/* Main timeline */}
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative max-w-5xl mx-auto">
         {/* Timeline center line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full" style={{ backgroundColor: `${"#2ABFBF"}30` }} />
         
         {/* Timeline items */}
-        <div className="relative space-y-24">
+        <div className="relative ">
           {timeline.map((item, index) => {
             const isEven = index % 2 === 0;
             
@@ -117,47 +106,42 @@ export default function OurStory() {
                       animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
                     }}
                   >
-                    {/* Year tag */}
-                    <div
-                      className={`inline-block mb-4 px-5 py-2 rounded-full ${
-                        isEven ? 'mr-0' : 'ml-0'
-                      }`}
-                      style={{ 
-                        backgroundColor: `${"#2ABFBF"}15`,
-                        border: `1px solid ${"#2ABFBF"}30`
-                      }}
-                    >
-                      <span className="font-mono text-sm font-bold" style={{ color: "#2ABFBF" }}>
-                        {item.year}
-                      </span>
-                    </div>
-                    
-                    <h3 
-                      className="text-xl md:text-2xl font-bold mb-3 relative inline-block"
-                      style={{ color: "#0D1F3C" }}
-                    >
-                      {item.title}
-                      <span
-                        className={`absolute bottom-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full ${
-                          isEven ? 'right-0' : 'left-0'
-                        }`}
-                        style={{ backgroundColor: "#2ABFBF" }}
-                      />
-                    </h3>
+                    {/* Wrap year + title */}
+<div className={`flex flex-col ${isEven ? 'items-end' : 'items-start'}`}>
+  
+  {/* Year tag */}
+  <div
+    className="mb-2 px-5 py-2 rounded-full"
+    style={{ 
+      backgroundColor: `${"#2ABFBF"}15`,
+      border: `1px solid ${"#2ABFBF"}30`
+    }}
+  >
+    <span className="font-mono text-sm font-bold" style={{ color: "#2ABFBF" }}>
+      {item.year}
+    </span>
+  </div>
+
+  {/* Title */}
+  <h3 
+    className="text-xl md:text-2xl font-bold mb-3 relative inline-block"
+    style={{ color: "#0D1F3C" }}
+  >
+    {item.title}
+    <span
+      className={`absolute bottom-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full ${
+        isEven ? 'right-0' : 'left-0'
+      }`}
+      style={{ backgroundColor: "#2ABFBF" }}
+    />
+  </h3>
+
+</div>
                     
                     <p className="text-base leading-relaxed max-w-md mx-auto" style={{ color: "#0D1F3C" }}>
-                      "{item.desc}"
+                      {item.desc}
                     </p>
-                    
-                    {/* Decorative quote mark */}
-                    <div 
-                      className={`text-6xl font-serif absolute opacity-10 -z-10 ${
-                        isEven ? '-left-8 top-0' : '-right-8 top-0'
-                      }`}
-                      style={{ color: "#2ABFBF" }}
-                    >
-                      "
-                    </div>
+                   
                   </div>
                 </div>
 
@@ -193,17 +177,6 @@ export default function OurStory() {
             );
           })}
         </div>
-      </div>
-
-      {/* Bottom decorative element */}
-      <div className="relative z-10 mt-20 text-center">
-        <div 
-          className="w-12 h-12 rounded-full mx-auto mb-4 opacity-30"
-          style={{ backgroundColor: "#EADECF" }}
-        />
-        <p className="text-sm" style={{ color: "#2ABFBF" }}>
-          Building the future, one milestone at a time
-        </p>
       </div>
 
       <style jsx>{`

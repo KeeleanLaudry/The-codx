@@ -147,7 +147,7 @@ const featuresData = [
        title="Reach The Right Audience With Impactful Ads"
        lines="We design and run highly targeted ad campaigns that maximize reach, drive engagement, and deliver real ROI — from social media to display and search networks."
        animateText={false}
- containerWidth="max-w-[800px]"
+ containerWidth="max-w-5xl"
 titleSize="text-4xl sm:text-3xl md:text-4xl"
 linesSize="text-lg sm:text-xl md:text-xl"/> 
         <Services 
