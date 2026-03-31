@@ -90,7 +90,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen  font-sans">
+    <div className="min-h-screen ">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-16 md:py-24">
      
@@ -183,30 +183,33 @@ export default function ContactPage() {
          <section className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
 
       {/* 🔘 Buttons */}
-      <div className="flex justify-center gap-4 mb-6">
-        <button
-          onClick={() => setLocation("india")}
-          className={`px-5 py-2 rounded-full border transition ${
-            location === "india"
-              ? "primary-btn"
-              : "bg-white text-[#0D1F3C] border-gray-300"
-          }`}
-        >
-          India
-        </button>
+     <div className="flex justify-center gap-3 sm:gap-4 mb-6 flex-wrap">
+  
+  <button
+    onClick={() => setLocation("india")}
+    className={`px-4 sm:px-6 py-2 rounded-full border text-sm sm:text-base font-medium transition-all duration-300
+      ${
+        location === "india"
+          ? "bg-gradient-to-r from-[#0D1F3C] to-[#2ABFBF] text-white  shadow-md"
+          : "bg-white text-[#0D1F3C] border-gray-300 hover:bg-[#0D1F3C]/5"
+      }`}
+  >
+    INDIA
+  </button>
 
-        <button
-          onClick={() => setLocation("uae")}
-          className={`px-5 py-2 rounded-full border transition ${
-            location === "uae"
-              ? "primary-btn"
-              : "bg-white text-[#0D1F3C] border-gray-300"
-          }`}
-        >
-          UAE
-        </button>
-      </div>
+  <button
+    onClick={() => setLocation("uae")}
+    className={`px-4 sm:px-6 py-2 rounded-full border text-sm sm:text-base font-medium transition-all duration-300
+      ${
+        location === "uae"
+          ? "bg-gradient-to-r from-[#0D1F3C] to-[#2ABFBF] text-white  shadow-md"
+          : "bg-white text-[#0D1F3C] border-gray-300 hover:bg-[#0D1F3C]/5"
+      }`}
+  >
+    UAE
+  </button>
 
+</div>
       {/* 🗺️ Map */}
       <motion.div
         key={location} // 🔥 animation refresh

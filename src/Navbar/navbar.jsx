@@ -486,6 +486,7 @@ background: "rgba(255, 255, 255, 0.6)",
                       <div className="space-y-4">
                         <Link
                           to={servicePageLinks[activeService] || "#"}
+                           onClick={() => setServicesOpen(false)}
                           className="inline-flex items-center gap-2 text-base md:text-lg font-semibold text-[#0D1F3C] hover:text-[#2ABFBF] transition-colors group"
                         >
                           {activeService}
@@ -590,6 +591,8 @@ background: "rgba(255, 255, 255, 0.6)",
                               <Link
                                 to={item.link}
                                 key={i}
+                                  onClick={() => setIndustriesOpen(false)}
+
                                 className="group flex items-start gap-4 p-2 rounded-xl hover:bg-[#0D1F3C]/5 transition-all duration-300 border border-transparent hover:border-[#2ABFBF]/20"
                               >
                                 <div className="rounded-xl bg-[#2ABFBF]/10 group-hover:bg-[#2ABFBF]/20 transition-all p-0.75">

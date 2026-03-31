@@ -322,12 +322,12 @@ export default function CollaborationSection() {
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
   transition={{ duration: 0.75 }}
-  className="section-heading mb-10"
+  className="section-heading mb-10 px-5 lg:px-0"
 >
   Strong Collaboration With
 </motion.h2>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 150 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 120 }}>
             {data.map((item, i) => (
               <Card key={i} item={item} index={i} />
             ))}

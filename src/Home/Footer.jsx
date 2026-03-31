@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight, ChevronRight, Send } from "lucide-react";
-import logo from "../assets/codx logo.png";
+import logo from "../assets/THE CODX logo-15.svg";
 import React, { useState } from "react";
 
 const Footer = () => {
@@ -69,20 +69,20 @@ const Footer = () => {
     
       
       {/* Main Footer Content */}
-      <div className="relative container mx-auto px-6 py-16 lg:py-20">
+      <div className="relative container mx-auto px-6 py-5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center space-x-2">
-              <img
-                src={logo}
-                alt="Logo"
-                className={`transition-all duration-500 ${
-                  scrolled ? "h-9" : "h-12"
-                }`}
-              />
-            </div>
+          <div className="flex items-center space-x-2">
+          <img
+            src={logo}
+            alt="Logo"
+            className={`transition-all duration-500 ${
+              scrolled ? "h-12" : "h-20"
+            }`}
+          />
+        </div>
 
             <p className="text-[#0D1F3C]/70 text-base leading-relaxed">
               We transform ideas into digital realities. With expertise across industries, we deliver innovative solutions that drive growth and success.
@@ -141,7 +141,7 @@ const Footer = () => {
               </form>
             </div>
 
-            <div className="flex space-x-3 pt-2">
+            <div className="flex space-x-3 ">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}

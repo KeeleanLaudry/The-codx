@@ -242,7 +242,7 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ]}
 />
         {/* <VideoSection/> */}
-<div className='max-w-5xl mx-auto mb-10'>
+<div className='max-w-5xl mx-auto mb-10 px-5 lg:px-0'>
 <div className='section-heading '>
             Industries We Serve
           </div>

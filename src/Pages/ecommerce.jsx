@@ -156,7 +156,7 @@ function Eccomerce() {
   ]}
   />
 
-    <div className='section-heading max-w-5xl mx-auto'>
+    <div className='section-heading max-w-5xl mx-auto px-5 py-5'>
 Ecommerce Released Projects
           </div>
 

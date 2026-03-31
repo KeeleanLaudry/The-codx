@@ -22,7 +22,7 @@ const PortalCard = ({
         transition={{ duration: 0.8 }}
         className={`max-w-2xl w-full rounded-2xl overflow-hidden
         bg-[#EDE7DF] border border-[#0D1F3C]/10
-        px-4 sm:px-6 lg:px-8 
+        px-4 sm:px-6 lg:px-8 py-4 lg:py-0
         flex flex-col lg:flex-row items-center gap-4 sm:gap-6 lg:gap-8 shadow-xl
         ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"}
         `}

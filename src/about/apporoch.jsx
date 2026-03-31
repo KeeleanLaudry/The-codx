@@ -23,7 +23,7 @@ const data = [
 
 export default function OurApproach() {
   return (
-    <section className="max-w-5xl mx-auto">
+    <section className="max-w-5xl mx-auto px-5">
       <h2
         className="section-heading"
       >

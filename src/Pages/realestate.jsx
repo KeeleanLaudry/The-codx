@@ -156,7 +156,7 @@ function RealEstate() {
   ]}
   />
 
-    <div className='section-heading max-w-5xl mx-auto '>
+    <div className='section-heading max-w-5xl mx-auto px-5 py-5'>
 Real Estate Released Projects
           </div>
 

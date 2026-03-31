@@ -9,7 +9,7 @@ import Services from "../Industries/services";
 import FeaturesSection from "../Industries/Features";
 import Features from "../Industries/WeCanDevelop";
 import Servicessection from "../about/services"
-
+ 
 import { Layout, Calendar, Users, Settings, Grid } from "lucide-react";
 function Healthcare() {
  const healthcareFeaturesProps = [
@@ -156,7 +156,7 @@ function Healthcare() {
   ]}
   />
 
-    <div className='section-heading max-w-5xl mx-auto'>
+    <div className='section-heading max-w-5xl mx-auto px-5 py-5'>
 Healthcare Released Projects
           </div>
 

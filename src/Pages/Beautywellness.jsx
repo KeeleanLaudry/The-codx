@@ -184,7 +184,7 @@ const scrollCardsData = [
   ]}
   />
 
-    <div className='section-heading max-w-5xl mx-auto py-5'>
+    <div className='section-heading max-w-5xl mx-auto py-5 px-5'>
 Beauty & Wellness Released Projects
           </div>
 

@@ -33,51 +33,58 @@ const steps = [
       "CODX provides robust post-launch support to keep your application running smoothly with continuous improvements."
   }
 ];
-
 export default function ProcessSection() {
   return (
-    <section className="  w-full py-5 ">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+    <section className="w-full py-10 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
 
-        {/* LEFT SIDE VIDEO */}
-<div className="sticky top-20">
+        {/* VIDEO */}
+        <div className="w-full lg:sticky lg:top-20">
           <video
             src={Videofile}
             autoPlay
             muted
             loop
             playsInline
-            className="w-full rounded-xl -ml-[10%] shadow-lg"
+            className="w-full rounded-xl shadow-lg"
           />
         </div>
 
-        {/* RIGHT SIDE CONTENT */}
-        <div className="flex flex-col gap-8 text-white">
-            <div className="section-heading">
-Our Process: The Project Handling Journey
-            </div>
-            <div className="section-subtitle">
+        {/* CONTENT */}
+        <div className="flex flex-col gap-6 text-white">
+
+          <h2 className="section-heading ">
+            Our Process: The Project Handling Journey
+          </h2>
+
+          <p className="section-subtitle text-sm sm:text-base">
 Embark on your digital transformation with CODX’s comprehensive mobile application development solutions, tailored to meet your unique needs. From Android to cross-platform app development, our expert developers in UAE leverage state-of-the-art technologies to deliver seamless experiences both locally and globally. Whether building new apps or enhancing existing ones, CODX ensures excellence at every step.
-</div>
-          {steps.map((step, index) => (
-            <div key={index} className="flex gap-4">
+          </p>
 
-        <div className="min-w-[40px] h-[40px] flex items-center justify-center bg-[#E6ECF5] text-black rounded-full">
-  <FaCheck className="text-lg text-[#1A2F4E]" />
-</div>
+          {/* STEPS */}
+          <div className="flex flex-col gap-6">
+            {steps.map((step, index) => (
+              <div key={index} className="flex gap-3 sm:gap-4 items-start">
 
-              <div>
-                <h3 className="section-webtitle">
-                  {step.title}
-                </h3>
+                {/* ICON */}
+                <div className="min-w-[34px] h-[34px] sm:min-w-[40px] sm:h-[40px] flex items-center justify-center bg-[#E6ECF5] rounded-full">
+                  <FaCheck className="text-sm sm:text-lg text-[#1A2F4E]" />
+                </div>
 
-                <p className="section-desc font-medium">
-                  {step.description}
-                </p>
+                {/* TEXT */}
+                <div>
+                  <h3 className="section-webtitle text-base sm:text-lg">
+                    {step.title}
+                  </h3>
+
+                  <p className="section-desc font-medium text-sm sm:text-base">
+                    {step.description}
+                  </p>
+                </div>
+
               </div>
-
-            </div>
-          ))}
+            ))}
+          </div>
 
         </div>
       </div>

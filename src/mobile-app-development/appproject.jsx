@@ -6,7 +6,7 @@ export default function MobileProjects() {
     <section className="w-full  ">
       
       {/* Heading */}
-      <div className="max-w-5xl mx-auto mb-10">
+      <div className="max-w-5xl mx-auto mb-10 px-5">
         <h2 className="section-heading">
           Our Mobile App Development Projects
         </h2>
