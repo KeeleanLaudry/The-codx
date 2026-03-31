@@ -7,7 +7,9 @@ import realestate from "../assets/real estate.png"
 import WebDevelopmentPhases from '../web-development/WebDevelopmentPhases ';
 import Services from "../Industries/services";
 import FeaturesSection from "../Industries/Features";
-import Features from "../Industries/WeCanDevelop"
+import Features from "../Industries/WeCanDevelop";
+import Servicessection from "../about/services"
+
 import { Layout, Calendar, Users, Settings, Grid } from "lucide-react";
 function RealEstate() {
    const realEstateFeaturesProps  = [
@@ -170,9 +172,13 @@ Real Estate Released Projects
   features={realEstateFeaturesProps  }
   customText="Your Custom Requirement"
 />
+<Servicessection />
 
- <BrandsGrid/>
-    <ContactSection/>
+<div className="py-5">
+    <BrandsGrid/>
+
+</div>  
+  <ContactSection/>
     </div> 
   );
 }

@@ -184,7 +184,7 @@ const scrollCardsData = [
   ]}
   />
 
-    <div className='section-heading max-w-5xl mx-auto'>
+    <div className='section-heading max-w-5xl mx-auto py-5'>
 Beauty & Wellness Released Projects
           </div>
 
@@ -202,7 +202,10 @@ Beauty & Wellness Released Projects
   customText="Your Custom Requirement"
 />
 <Servicessection />
+<div className="py-5">
     <BrandsGrid/>
+
+</div>
     <ContactSection/>
     </div>
   );

@@ -135,11 +135,11 @@ function BlogCard({ blog, index }) {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={() => navigate(`/blog/${index}`)}
-        className="relative rounded-2xl overflow-hidden bg-white border border-[#EADECF] cursor-pointer flex flex-col h-full transition-all duration-300 group hover:border-[#2ABFBF] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+        className="max-w-4xl  relative rounded-2xl overflow-hidden bg-white border border-[#EADECF] cursor-pointer flex flex-col h-full transition-all duration-300 group hover:border-[#2ABFBF] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
         style={{ transformStyle: "preserve-3d", willChange: "transform" }}
       >
         {/* Image Container */}
-        <div className="relative overflow-hidden h-[180px] md:h-[220px] flex-shrink-0">
+        <div className="relative overflow-hidden h-[180px] md:h-[200px] flex-shrink-0">
           <img
             src={blog.image}
             alt={blog.title}
@@ -290,13 +290,13 @@ export default function BlogSection() {
       `}</style>
 
      
-      <section className="relative overflow-hidden ">
+     <section className="relative overflow-hidden px-4 sm:px-6 lg:px-0">
     
         
 
-        <div className="max-w-[1240px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+        <div className="max-w-5xl mx-auto relative z-10">
           {/* Heading */}
-          <div className=" mb-16">
+          <div className=" mb-5">
             <h2
               className="section-heading"
             >
@@ -306,7 +306,7 @@ export default function BlogSection() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="max-w-[950px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogs.map((blog, i) => (
               <BlogCard key={i} blog={blog} index={i} />
             ))}

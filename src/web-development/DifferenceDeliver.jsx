@@ -34,9 +34,9 @@ export default function DifferenceSection({
         ))}
       </div>
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative py-5 z-10">
         {/* Title */}
-        <div className=" mb-12">
+        <div className=" mb-5">
           <h2 className="section-heading">{title}</h2>
         </div>
 

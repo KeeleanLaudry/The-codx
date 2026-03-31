@@ -7,7 +7,9 @@ import eccomerce from "../assets/ecommerce.png"
 import WebDevelopmentPhases from '../web-development/WebDevelopmentPhases ';
 import Services from "../Industries/services";
 import FeaturesSection from "../Industries/Features";
-import Features from "../Industries/WeCanDevelop"
+import Features from "../Industries/WeCanDevelop";
+import Servicessection from "../about/services"
+
 import { Layout, Calendar, Users, Settings, Grid } from "lucide-react";
 function Eccomerce() {
    const ecommerceFeaturesProps  = [
@@ -171,7 +173,12 @@ Ecommerce Released Projects
   customText="Your Custom Requirement"
 />
 
- <BrandsGrid/>
+<Servicessection />
+
+<div className="py-5">
+    <BrandsGrid/>
+
+</div>  
     <ContactSection/>
     </div> 
   );

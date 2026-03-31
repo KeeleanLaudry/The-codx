@@ -79,14 +79,14 @@ useEffect(() => {
   const activeService = services.find(s => s.id === active);
 
   return (
-    <section className="px-6 py-16 relative overflow-hidden" style={{ backgroundColor: "#F7F3EE", color: "#0D1F3C" }}>
+    <section className="px-6 py-10 relative overflow-hidden" style={{ backgroundColor: "#F7F3EE", color: "#0D1F3C" }}>
 
       {/* BACKGROUND GLOW */}
    
 
       <div className="max-w-5xl mx-auto relative ">
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
           {services.map(service => {
             const Icon = service.icon;
             const isActive = active === service.id;
@@ -140,7 +140,7 @@ useEffect(() => {
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border" style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}>
+            <div className="rounded-3xl p-5 pl-10 flex flex-col md:flex-row items-center gap-10 border" style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}>
 
               <div className="flex-1">
     <h2 className="section-subheading  text-[20px]">

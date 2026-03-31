@@ -315,7 +315,7 @@ export default function CollaborationSection() {
         * { box-sizing: border-box; }
       `}</style>
 
-      <section style={{ background: "#F7F3EE", padding: "50px 0px" }}>
+      <section style={{ background: "#F7F3EE", padding: "20px 0px" }}>
         <div style={{ maxWidth: 1500, margin: "0 auto" }}>
 <motion.h2
   initial={{ opacity: 0, y: 36 }}

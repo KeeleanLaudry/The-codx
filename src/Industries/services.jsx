@@ -13,7 +13,7 @@ const HealthcareServicesSection = ({ title, services = [], highlights = [] }) =>
   };
 
   return (
-    <section className="max-w-5xl mx-auto py-16 px-6 md:px-12" style={{ background: colors.cream }}>
+    <section className="max-w-5xl mx-auto  px-6 " style={{ background: colors.cream }}>
       {/* TITLE */}
       <h2 
         className="section-heading mb-10"

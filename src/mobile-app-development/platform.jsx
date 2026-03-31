@@ -34,14 +34,14 @@ const platforms = [
 
 export default function PlatformTypes({ title, items }) {
   return (
-    <section className="max-w-5xl mx-auto px-4 py-10">
+    <section className="max-w-5xl mx-auto px-4 py-4">
 
       {/* Heading */}
       <h2 className="section-heading">
         {title}
       </h2>
 
-      <div className="max-w-5xl mx-auto px-6 py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-5xl mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         {items.map((item, index) => (
           <div

@@ -30,14 +30,14 @@ export default function BrandsGrid({ title = "Trusted by 350+ Clients Worldwide"
   const logos = [...brands, ...brands];
 
   return (
-    <section className="  px-6 overflow-hidden">
+    <section className="px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <h2 className="section-heading">
           {title}
         </h2>
         <div className="relative overflow-hidden">
           <motion.div
-            className="flex gap-12"
+            className="flex gap-10"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               ease: "linear",
@@ -54,7 +54,7 @@ export default function BrandsGrid({ title = "Trusted by 350+ Clients Worldwide"
               >
                 <img
                   src={brand.image}
-                  className="h-30 w-auto object-contain opacity-80 hover:opacity-100 transition"
+                  className="h-20 md:h-24 lg:h-28 w-auto object-contain opacity-80 hover:opacity-100 transition"
                 />
               </div>
             ))}

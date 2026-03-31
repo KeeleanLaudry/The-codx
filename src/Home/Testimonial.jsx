@@ -287,9 +287,7 @@ export default function TestimonialsSection() {
                         className="section-subtitle mb-10"
                         style={{ color: colors.navy + "dd", fontWeight: 400, lineHeight: 1.6 }}
                       >
-                        {t.text.length > 120 && window.innerWidth < 768 
-                          ? t.text.substring(0, 120) + "..." 
-                          : t.text}
+                     {t.text}
                       </p>
 
                       {/* Author */}

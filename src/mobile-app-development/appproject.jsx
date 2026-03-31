@@ -3,7 +3,7 @@ import projectImg from "../assets/project-image.jpg";
 
 export default function MobileProjects() {
   return (
-    <section className="w-full  py-12">
+    <section className="w-full  ">
       
       {/* Heading */}
       <div className="max-w-5xl mx-auto mb-10">

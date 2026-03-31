@@ -45,7 +45,7 @@ const timeline = [
 
 export default function OurStory() {
   return (
-    <section className="relative py-24 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: "#F7F3EE" }}>
+    <section className="relative py-10 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: "#F7F3EE" }}>
       
       {/* Floating decorative circles */}
       <div className="absolute inset-0 pointer-events-none">
@@ -70,7 +70,7 @@ export default function OurStory() {
       </div>
 
       {/* Header Section */}
-      <div className="relative text-center mb-20">
+      <div className="relative text-center mb-10">
       
         
         <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "#0D1F3C" }}>

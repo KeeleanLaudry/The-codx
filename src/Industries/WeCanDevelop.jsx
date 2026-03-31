@@ -2,7 +2,7 @@ import React from "react";
 
 const FeaturesSection = ({ title, features = [], customText }) => {
   return (
-    <section className="max-w-5xl mx-auto py-16 px-6 ">
+    <section className="max-w-5xl mx-auto py-5 px-6 ">
       
       {/* Title */}
       <h2 className="section-heading mb-10">

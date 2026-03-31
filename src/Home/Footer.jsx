@@ -84,7 +84,7 @@ const Footer = () => {
               />
             </div>
 
-            <p className="text-[#0D1F3C]/70 text-sm leading-relaxed">
+            <p className="text-[#0D1F3C]/70 text-base leading-relaxed">
               We transform ideas into digital realities. With expertise across industries, we deliver innovative solutions that drive growth and success.
             </p>
 
@@ -93,7 +93,7 @@ const Footer = () => {
                 <div className="w-8 h-8 rounded-lg bg-[#2ABFBF]/10 flex items-center justify-center group-hover:bg-[#2ABFBF] transition-colors">
                   <MapPin className="w-4 h-4 text-[#2ABFBF] group-hover:text-white transition-colors" />
                 </div>
-                <p className="text-sm">{companyInfo.address}</p>
+                <p className="text-base">{companyInfo.address}</p>
               </div>
 
               <div className="flex items-center space-x-3 group">
@@ -102,7 +102,7 @@ const Footer = () => {
                 </div>
                 <a
                   href={`tel:${companyInfo.phone}`}
-                  className="text-sm hover:text-[#2ABFBF] transition-colors"
+                  className="text-base hover:text-[#2ABFBF] transition-colors"
                 >
                   {companyInfo.phone}
                 </a>
@@ -114,7 +114,7 @@ const Footer = () => {
                 </div>
                 <a
                   href={`mailto:${companyInfo.email}`}
-                  className="text-sm hover:text-[#2ABFBF] transition-colors"
+                  className="text-base hover:text-[#2ABFBF] transition-colors"
                 >
                   {companyInfo.email}
                 </a>
@@ -122,14 +122,14 @@ const Footer = () => {
             </div>
 
             <div className="pt-4">
-              <h4 className="font-semibold mb-3 text-[#0D1F3C]">Stay Updated</h4>
+              <h4 className="font-semibold mb-3 text-[#0D1F3C] text-base">Stay Updated</h4>
               <form onSubmit={handleSubmit} className="relative">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full px-5 py-3 rounded-xl bg-white border border-[#EADECF] text-[#0D1F3C] text-sm focus:outline-none focus:ring-2 focus:ring-[#2ABFBF] focus:border-transparent transition-all"
+                  className="w-full px-5 py-3 rounded-xl bg-white border border-[#EADECF] text-[#0D1F3C] text-base focus:outline-none focus:ring-2 focus:ring-[#2ABFBF] focus:border-transparent transition-all"
                   required
                 />
                 <button
@@ -165,7 +165,7 @@ const Footer = () => {
                       className="group flex items-center space-x-2 text-[#0D1F3C]/70 hover:text-[#2ABFBF] transition-colors"
                     >
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      <span className="text-sm">{link.name}</span>
+                      <span className="text-base">{link.name}</span>
                     </a>
                   </li>
                 ))}
@@ -183,7 +183,7 @@ const Footer = () => {
                       className="group flex items-center space-x-2 text-[#0D1F3C]/70 hover:text-[#2ABFBF] transition-colors"
                     >
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      <span className="text-sm">{service.name}</span>
+                      <span className="text-base">{service.name}</span>
                     </a>
                   </li>
                 ))}
@@ -201,7 +201,7 @@ const Footer = () => {
                       className="group flex items-center space-x-2 text-[#0D1F3C]/70 hover:text-[#2ABFBF] transition-colors"
                     >
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      <span className="text-sm">{industry.name}</span>
+                      <span className="text-base">{industry.name}</span>
                     </a>
                   </li>
                 ))}
@@ -214,11 +214,11 @@ const Footer = () => {
       <div className="relative border-t border-[#EADECF] bg-[#EDE7DF]/50">
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-[#0D1F3C]/60">
+            <p className="text-base text-[#0D1F3C]/60">
               © {currentYear} {companyInfo.name}. All rights reserved.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-6 text-base">
               {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
                 (item, index) => (
                   <a

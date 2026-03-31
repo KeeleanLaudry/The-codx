@@ -2,15 +2,14 @@ import React from "react";
 
 export default function FlipCard({ logo, title, description }) {
   return (
-    <div className="group perspective w-full h-[260px] pb-10">
+    <div className="group perspective w-full h-[260px]  ">
 
       <div className="relative preserve-3d transition-transform duration-700 group-hover:rotate-x-180 w-full h-full">
 
         {/* Front */}
         <div className="absolute inset-0 backface-hidden bg-white rounded-xl shadow-lg flex flex-col justify-center items-center p-6">
 
-          {/* Circle Background */}
-          <div className="w-28 h-28 rounded-full  flex items-center justify-center mb-3">
+          <div className="w-40 h-28 rounded-full  flex items-center justify-center mb-3">
             <img 
               src={logo} 
               alt={title} 

@@ -191,7 +191,7 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
     }
   ]}
   />  
-          <TechnologiesSection/>
+      
           <DifferenceSection
               title="The Difference We Deliver"
               features={featuresData}
@@ -267,7 +267,7 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   {industries.map((item, index) => (
     <div
       key={index}
-      className="sticky top-24 mb-20"
+      className="sticky top-16 mb-10"
     >
       <PortalCard
         {...item}
@@ -277,7 +277,7 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
   ))}
 
 </div>
-
+    <TechnologiesSection/>
 <BrandsGrid title="Trusted by 350+ Clients Worldwide" />
 <ContactSection/>
     </div>

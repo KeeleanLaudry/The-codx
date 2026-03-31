@@ -8,7 +8,7 @@ export default function GlimpseSection({
   reverse = false
 }) {
   return (
-    <section className=" max-w-5xl mx-auto py-20 px-6">
+    <section className=" max-w-5xl mx-auto py-5 px-6">
       <div
         className={`max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center ${
           reverse ? "md:flex-row-reverse" : ""
@@ -34,7 +34,7 @@ export default function GlimpseSection({
           <img
             src={image}
             alt="section visual"
-            className="rounded-[40px] w-[420px] h-[520px] object-cover shadow-lg"
+            className="rounded-[40px] w-[420px] h-[450px] object-cover shadow-lg"
           />
         </div>
       </div>

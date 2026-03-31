@@ -36,7 +36,7 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="  w-full py-20 ">
+    <section className="  w-full py-5 ">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
 
         {/* LEFT SIDE VIDEO */}

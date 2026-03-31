@@ -10,11 +10,11 @@ const PortalCard = ({
 }) => {
   return (
     <div
-      className={`w-full flex ${
+      className={`max-w-5xl flex ${
         reverse 
-          ? "lg:justify-end lg:translate-x-20" 
-          : "lg:-translate-x-20"
-      } mb-6 sm:mb-8 lg:mb-10 px-4 `}
+          ? "lg:justify-end lg:translate-x-10" 
+          : "lg:-translate-x-10"
+      }  px-4 `}
     >
       <motion.div
         initial={{ opacity: 0, y: 80 }}
@@ -22,7 +22,7 @@ const PortalCard = ({
         transition={{ duration: 0.8 }}
         className={`max-w-2xl w-full rounded-2xl overflow-hidden
         bg-[#EDE7DF] border border-[#0D1F3C]/10
-        px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-0
+        px-4 sm:px-6 lg:px-8 
         flex flex-col lg:flex-row items-center gap-4 sm:gap-6 lg:gap-8 shadow-xl
         ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"}
         `}

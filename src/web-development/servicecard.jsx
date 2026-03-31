@@ -26,9 +26,9 @@ export default function Services({ services, title = "Our Services" }) {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto relative px-4">
+    <div className="max-w-5xl mx-auto relative px-4 ">
 
-      <h2 className="section-heading">
+      <h2 className="section-heading pb-5">
         {title}
       </h2>
 

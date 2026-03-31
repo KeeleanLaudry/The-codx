@@ -113,7 +113,7 @@ export default function Services() {
       </div>
 
       <div className="  max-w-5xl mx-auto">
-        <div className=" mb-16">
+        <div className=" mb-10">
           <h2 className="section-heading" >
            OUR SERVICES
           </h2>
@@ -130,7 +130,7 @@ export default function Services() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="flex gap-6 min-w-max px-4 pb-8">
+          <div className="flex gap-6 min-w-max px-4">
             {services.map((service, index) => (
               <div
                 key={index}

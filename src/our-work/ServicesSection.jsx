@@ -224,30 +224,33 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className=" px-6">
+    <section className="mb-10 px-6">
 
  <div className="flex justify-center mb-12">
 
-  <div className="w-full max-w-5xl bg-[#90550c]  rounded-full shadow-lg flex flex-wrap justify-center gap-5">
+  <div className="w-full max-w-5xl bg-[#90550cdb] rounded-full shadow-lg 
+flex overflow-x-auto sm:flex-wrap justify-start sm:justify-center 
+gap-2 sm:gap-5 px-2 scrollbar-hide">
 
-    {buttons.map((btn) => (
-      <button
-        key={btn.key}
-        onClick={() => setActive(btn.key)}
-        className={`px-6 py-2 rounded-full text-lg font-semibold transition-all duration-300
-          
-          ${
-            active === btn.key
-              ? "bg-[#C97A1B] text-white shadow-md"
-              : "text-gray-300 hover:text-black"
-          }
-        `}
-      >
-        {btn.label}
-      </button>
-    ))}
+  {buttons.map((btn) => (
+    <button
+      key={btn.key}
+      onClick={() => setActive(btn.key)}
+      className={`whitespace-nowrap px-4 py-1.5 sm:px-6 sm:py-2 
+      text-sm sm:text-lg font-semibold rounded-full 
+      transition-all duration-300
+      
+      ${
+        active === btn.key
+          ? "bg-[#C97A1B] text-white shadow-md"
+          : "text-gray-300 hover:text-black"
+      }`}
+    >
+      {btn.label}
+    </button>
+  ))}
 
-  </div>
+</div>
 
 </div>
 

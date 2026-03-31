@@ -62,8 +62,10 @@ const TechnologiesSection = () => {
   const duplicatedRow3 = [...row3, ...row3, ...row3];
 
   return (
-    <section ref={sectionRef} className="max-w-5xl mx-auto flex justify-center py-8 px-4 md:px-0" >
-      
+<section
+  ref={sectionRef}
+  className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 lg:px-0 py-5   "
+>      
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-20 left-10 w-96 h-96 rounded-full"
@@ -84,7 +86,7 @@ const TechnologiesSection = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full  opacity-30 blur-3xl" />
       </div>
 
-      <div className="max-w-full mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto  z-10">
         
         {/* Section Header */}
         <motion.div
@@ -94,7 +96,7 @@ const TechnologiesSection = () => {
           className=" mb-10"
         >
         
-          <h2 className="section-heading leading-tight pb-2" >
+          <h2 className="section-heading leading-tight " >
             Technologies We use
           </h2>
         

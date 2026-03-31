@@ -29,7 +29,7 @@ import {
   X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/blue complete logo.png";
+import logo from "../assets/THE CODX logo-15.svg";
 
 export default function CodxNavbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -361,7 +361,7 @@ background: "rgba(255, 255, 255, 0.6)",
           <img
             src={logo}
             alt="Logo"
-            className="w-32 sm:w-36 md:w-40 h-auto drop-shadow-sm cursor-pointer"
+            className="w-40 sm:w-44 md:w-50 h-auto drop-shadow-sm cursor-pointer"
           />
         </Link>
 

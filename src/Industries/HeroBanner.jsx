@@ -11,7 +11,7 @@ const BeautyHeroSection = ({
       
       {/* HERO SECTION */}
       <div
-        className="relative h-[520px] flex items-center justify-center"
+        className="relative h-[400px] flex items-center justify-center"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",

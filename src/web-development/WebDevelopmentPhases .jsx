@@ -16,7 +16,7 @@ const WebDevelopmentPhases = ({
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative py-10 max-w-5xl mx-auto  overflow-hidden" >
+    <section className="relative  max-w-5xl mx-auto  overflow-hidden" >
       <div className="absolute inset-0">
         {/* Floating orbs with new color scheme */}
         {[...Array(8)].map((_, i) => (
@@ -46,7 +46,7 @@ const WebDevelopmentPhases = ({
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4  ">
-        <div className=" mb-16">
+        <div className=" mb-5">
           <h2 className="section-heading" >
             {phaseTitle}
           </h2>          

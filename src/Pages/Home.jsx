@@ -61,18 +61,18 @@ export default function Home() {
       <GlobalServices />
 <Logos />
          <div className="space-y-8  max-w-5xl mx-auto relative ">
-        <div className="space-y-12  max-w-5xl mx-auto">
-  <h1 className="section-heading">
+      <div className="space-y-3 sm:space-y-4 max-w-5xl mx-auto">
+  <h1 className="section-heading mb-5">
     Industries and Expertise
   </h1>
 
 <div className="relative max-w-5xl mx-auto">
 
   {portalData.map((item, index) => (
-    <div
-      key={index}
-      className="sticky top-24 mb-20"
-    >
+   <div
+  key={index}
+  className="sticky top-16 mb-10"
+>
       <PortalCard
         {...item}
         reverse={index % 2 !== 0}
@@ -82,12 +82,11 @@ export default function Home() {
 
 </div>
 </div>
-
+<Collabrator/>
 <TestimonialSection/>
 <StatsSection />
 <TechnologiesSection/>
 <BlogSection/>
-<Collabrator/>
 <ContactSection/>
     </div>
     </div>
