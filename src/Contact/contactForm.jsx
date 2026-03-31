@@ -28,7 +28,7 @@ const ContactSection = () => {
     <section className="relative min-h-screen flex items-center justify-center px-6  overflow-hidden" >
       <div className="max-w-5xl w-full relative ">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-          <div className="hidden md:block w-full md:w-1/2 flex justify-center relative group">
+          <div className="hidden md:block relative group">
          
             <img
               src={Sir}

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import bgVideo from "../assets/bg-video.mp4";
+import bgVideo from "../assets/herobanner.webm";
 
 export default function Hero({
   title,
@@ -24,25 +24,69 @@ export default function Hero({
   }, [animateText, lines.length]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-[95vh] overflow-hidden">
+<video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover"
+>
+  <source src={bgVideo} type="video/webm" />
+</video>
 
-      {/* Background Video */}
-      {/* <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src={bgVideo} type="video/mp4" />
-      </video> */}
-      <div className="absolute inset-0 bg-[#F7F3EE]"></div>
+<div className="absolute inset-0 bg-black/30"></div>
+<div className="absolute bottom-6 w-full flex justify-center z-20 px-4">
+
+  <div
+    className="
+      w-full max-w-3xl
+      flex items-center justify-between
+      gap-4 sm:gap-6 
+      px-6 sm:px-20 py-3 sm:py-4 
+      rounded-full
+      border border-white/40
+      shadow-[0_8px_30px_rgba(13,31,60,0.15)]
+    "
+    style={{
+      background: "rgba(247, 243, 238, 0.7)",
+      backdropFilter: "blur(14px)",
+      WebkitBackdropFilter: "blur(14px)"
+    }}
+  >
+
+    {/* TITLE */}
+    <span className="text-[#0D1F3C] font-semibold text-base sm:text-lg whitespace-nowrap">
+      Our Global Presence
+    </span>
+
+    {/* COUNTRIES */}
+    <div className="flex items-center gap-4 sm:gap-6 text-[#0D1F3C]/80 text-lg flex-wrap justify-end">
+
+      {["India", "UAE", "Saudi Arabia", "USA", "Kuwait"].map((country, i) => (
+        <span key={i} className="flex items-center gap-2 ">
+
+          <span className="w-2.5 h-2.5 rounded-full bg-[#0D1F3C] border border-[#2ABFBF]/40"></span>
+
+          <span className="font-medium transition">
+            {country}
+          </span>
+
+        </span>
+      ))}
+
+    </div>
+
+  </div>
+
+</div>
+{/* Overlay */}
    <div className={`relative z-10 flex flex-col items-center justify-center h-full text-center px-6 mx-auto ${containerWidth}`}>
-       <h1 className={`gradient-text bg-clip-text font-inria  text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
+       {/* <h1 className={`gradient-text bg-clip-text font-inria  text-transparent ${titleSize} font-semibold leading-tight pb-2`}>
   {title}
-</h1>
+</h1> */}
   
-        {animateText ? (
+        {/* {animateText ? (
 
           <div className="min-h-[120px] flex items-center justify-center">
             <AnimatePresence mode="wait">
@@ -64,7 +108,7 @@ className="bg-gradient-to-r from-[#2ABFBF] via-[#0D1F3C] to-[#2ABFBF]  font-inri
   {lines}
 </p>
 
-        )}
+        )} */}
 
       </div>
     </div>

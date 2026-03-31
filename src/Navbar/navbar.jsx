@@ -339,29 +339,29 @@ background: "rgba(255, 255, 255, 0.6)",
 };
 
   const dropdownGlassStyle = {
-    background: "rgba(247, 243, 238, 0.98)",
-    backdropFilter: "blur(20px)",
-    border: "1px solid rgba(13, 31, 60, 0.1)",
-    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.08)",
+   background: "rgba(255, 255, 255, 0.6)",
+  backdropFilter: "blur(18px)",
+  WebkitBackdropFilter: "blur(18px)",
+  border: "1px solid rgba(255,255,255,0.3)",
+  boxShadow: `
+    0 8px 32px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4)
+  `,
   };
 
   return (
     <>
       <div
-        className="relative w-full  z-50 flex items-center justify-between px-4 sm:px-6 md:px-8  py-2"
+        className="absolute top-0 left-0 w-full z-50 bg-transparent flex items-center justify-between px-4 sm:px-6 md:px-8 "
         ref={navbarRef}
-        style={{
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
-  
-}}
+       
       >
         {/* LEFT — Logo */}
         <Link to="/" className="flex-shrink-0">
           <img
             src={logo}
             alt="Logo"
-            className="w-40 sm:w-44 md:w-50 h-auto drop-shadow-sm cursor-pointer"
+            className="w-40 sm:w-44 md:w-60 h-auto drop-shadow-sm cursor-pointer"
           />
         </Link>
 
