@@ -361,7 +361,7 @@ background: "rgba(255, 255, 255, 0.6)",
           <img
             src={logo}
             alt="Logo"
-            className="w-40 sm:w-44 md:w-60 h-auto drop-shadow-sm cursor-pointer"
+className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-pointer"
           />
         </Link>
 

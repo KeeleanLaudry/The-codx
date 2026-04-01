@@ -36,15 +36,15 @@ export default function Hero({
 </video>
 
 <div className="absolute inset-0 bg-black/30"></div>
-<div className="absolute bottom-6 w-full flex justify-center z-20 px-4">
+<div className="absolute bottom-4 w-full flex justify-center z-20 px-3">
 
   <div
     className="
       w-full max-w-3xl
-      flex items-center justify-between
-      gap-4 sm:gap-6 
-      px-6 sm:px-20 py-3 sm:py-4 
-      rounded-full
+      flex flex-col sm:flex-row items-center
+      gap-2 sm:gap-6 
+      px-4 sm:px-20 py-3
+      rounded-2xl sm:rounded-full
       border border-white/40
       shadow-[0_8px_30px_rgba(13,31,60,0.15)]
     "
@@ -56,19 +56,23 @@ export default function Hero({
   >
 
     {/* TITLE */}
-    <span className="text-[#0D1F3C] font-semibold text-base sm:text-lg whitespace-nowrap">
+    <span className="text-[#0D1F3C] font-semibold text-sm sm:text-lg whitespace-nowrap text-center">
       Our Global Presence
     </span>
 
     {/* COUNTRIES */}
-    <div className="flex items-center gap-4 sm:gap-6 text-[#0D1F3C]/80 text-lg flex-wrap justify-end">
+    <div className="
+      flex flex-wrap justify-center sm:justify-end
+      gap-3 sm:gap-5
+      text-[#0D1F3C]/80 text-xs sm:text-lg
+    ">
 
       {["India", "UAE", "Saudi Arabia", "USA", "Kuwait"].map((country, i) => (
-        <span key={i} className="flex items-center gap-2 ">
+        <span key={i} className="flex items-center gap-1.5">
 
-          <span className="w-2.5 h-2.5 rounded-full bg-[#0D1F3C] border border-[#2ABFBF]/40"></span>
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#0D1F3C] border border-[#2ABFBF]/40"></span>
 
-          <span className="font-medium transition">
+          <span className="font-medium">
             {country}
           </span>
 

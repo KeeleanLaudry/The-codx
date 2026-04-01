@@ -78,9 +78,9 @@ const Footer = () => {
           <img
             src={logo}
             alt="Logo"
-            className={`transition-all duration-500 ${
-              scrolled ? "h-12" : "h-20"
-            }`}
+            className={`w-auto transition-all duration-500 hover:scale-105 ${
+  scrolled ? "h-16" : "h-28 md:h-32"
+}`}
           />
         </div>
 
