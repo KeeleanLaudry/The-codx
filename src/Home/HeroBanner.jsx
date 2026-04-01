@@ -24,7 +24,7 @@ export default function Hero({
   }, [animateText, lines.length]);
 
   return (
-    <div className="relative w-full h-[95vh] overflow-hidden">
+    <div className="relative w-full h-[57vh] lg:h-[95vh] overflow-hidden">
 <video
   autoPlay
   loop
@@ -40,7 +40,7 @@ export default function Hero({
 
   <div
     className="
-      w-full max-w-3xl
+      w-full max-w-4xl
       flex flex-col sm:flex-row items-center
       gap-2 sm:gap-6 
       px-4 sm:px-20 py-3
@@ -56,7 +56,7 @@ export default function Hero({
   >
 
     {/* TITLE */}
-    <span className="text-[#0D1F3C] font-semibold text-sm sm:text-lg whitespace-nowrap text-center">
+    <span className=" leading-tight text-[#0D1F3C] lg:text-2xl font-semibold text-2xl sm:text-lg whitespace-nowrap text-center">
       Our Global Presence
     </span>
 
@@ -64,7 +64,7 @@ export default function Hero({
     <div className="
       flex flex-wrap justify-center sm:justify-end
       gap-3 sm:gap-5
-      text-[#0D1F3C]/80 text-xs sm:text-lg
+      text-[#0D1F3C] lg:text-2xl text-xs sm:text-lg
     ">
 
       {["India", "UAE", "Saudi Arabia", "USA", "Kuwait"].map((country, i) => (
@@ -72,7 +72,7 @@ export default function Hero({
 
           <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#0D1F3C] border border-[#2ABFBF]/40"></span>
 
-          <span className="font-medium">
+          <span className=" text-[#0D1F3C] font-medium">
             {country}
           </span>
 

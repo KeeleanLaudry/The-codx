@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code,
@@ -19,6 +19,7 @@ import development from "../assets/develop.png";
 export default function GlobalServices() {
   const [active, setActive] = useState("development");
   const [hoveredId, setHoveredId] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   const services = [
     {
@@ -62,77 +63,119 @@ export default function GlobalServices() {
       image: service,
     }
   ];
-  const [isPaused, setIsPaused] = useState(false);
-useEffect(() => {
-  if (isPaused) return;
 
-  const interval = setInterval(() => {
-    setActive(prev => {
-      const currentIndex = services.findIndex(s => s.id === prev);
-      const nextIndex = (currentIndex + 1) % services.length;
-      return services[nextIndex].id;
-    });
-  }, 3000);
+  useEffect(() => {
+    if (isPaused) return;
 
-  return () => clearInterval(interval);
-}, [isPaused]);
+    const interval = setInterval(() => {
+      setActive(prev => {
+        const currentIndex = services.findIndex(s => s.id === prev);
+        const nextIndex = (currentIndex + 1) % services.length;
+        return services[nextIndex].id;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, services]);
+
   const activeService = services.find(s => s.id === active);
 
   return (
-    <section className="px-6 py-10 relative overflow-hidden" style={{ backgroundColor: "#F7F3EE", color: "#0D1F3C" }}>
-
-      {/* BACKGROUND GLOW */}
-   
-
-      <div className="max-w-5xl mx-auto relative ">
-
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+    <section className="px-4 md:px-6 py-10 relative overflow-hidden" style={{ backgroundColor: "#F7F3EE", color: "#0D1F3C" }}>
+      <div className="max-w-5xl mx-auto relative">
+        
+        {/* Services Grid - Mobile: 1 column, Desktop: 5 columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-10">
           {services.map(service => {
             const Icon = service.icon;
             const isActive = active === service.id;
 
             return (
-              <motion.div
-                key={service.id}
-                whileHover={{ scale: 1.05 }}
-              onClick={() => {
-                setActive(service.id);
-                setIsPaused(true);
-
-                setTimeout(() => {
-                  setIsPaused(false);
-                }, 5000);
-              }}
-                              
-                className="cursor-pointer"
-              >
-                <div
-                  className={`flex flex-col items-center text-center p-6 rounded-2xl transition
-                  ${isActive
-                    ? "bg-white shadow-xl border"
-                    : "bg-white/60 hover:bg-white border border-transparent hover:border"}
-                  `}
-                  style={{
-                    borderColor: isActive ? "#2ABFBF" : undefined,
-                    borderColor: !isActive && hoveredId === service.id ? "#2ABFBF" : undefined
+              <div key={service.id} className="flex flex-col">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => {
+                    setActive(service.id);
+                    setIsPaused(true);
+                    setTimeout(() => {
+                      setIsPaused(false);
+                    }, 5000);
                   }}
-                  onMouseEnter={() => setHoveredId(service.id)}
-                  onMouseLeave={() => setHoveredId(null)}
+                  className="cursor-pointer"
                 >
+                  <div
+                    className={`flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300
+                    ${isActive
+                      ? "bg-white shadow-xl border-2"
+                      : "bg-white/60 hover:bg-white border border-transparent hover:border"}
+                    `}
+                    style={{
+                      borderColor: isActive ? "#2ABFBF" : undefined,
+                      borderColor: !isActive && hoveredId === service.id ? "#2ABFBF" : undefined
+                    }}
+                    onMouseEnter={() => setHoveredId(service.id)}
+                    onMouseLeave={() => setHoveredId(null)}
+                  >
                     <Icon
                       className="w-10 h-10 mb-3"
                       style={{ color: isActive ? "#2ABFBF" : "#0D1F3C" }}
                     />
-                  <p className="section-desc font-semibold" >
-                    {service.name}
-                  </p>
-                </div>
-              </motion.div>
+                    <p className=" text-base md:text-base" style={{ color: "#0D1F3C" }}>
+                      {service.name}
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Content directly below each card on mobile */}
+                <AnimatePresence mode="wait">
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="mt-6 md:hidden"
+                    >
+                      <div 
+                        className="rounded-2xl p-6 border" 
+                        style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}
+                      >
+                      <div className="relative h-30 w-auto">
+                        <img
+                          src={activeService.image}
+                          alt={activeService.name}
+                          className="h-full w-auto object-contain"
+                        />
+                      </div>
+                        <h2 className="section-heading" >
+                          {activeService.title}
+                        </h2>
+
+                        <p className="text-base leading-relaxed mb-6" >
+                          {activeService.desc}
+                        </p>
+
+                      
+                           <button 
+                            className="font-semibold px-5 py-2.5 rounded-full transition-all duration-300 flex items-center gap-2 text-sm"
+                            style={{ backgroundColor: "#0D1F3C", color: "#FFFFFF" }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#2ABFBF"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#0D1F3C"}
+                          >
+                            Learn more <ArrowRight size={14} />
+                          </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             );
           })}
         </div>
 
-        <AnimatePresence mode="wait">
+        {/* Desktop Content - Shows below all cards */}
+        <div className="hidden md:block">
+          <AnimatePresence mode="wait">
           <motion.div
             key={active}
             initial={{ opacity: 0, y: 50 }}
@@ -179,6 +222,8 @@ useEffect(() => {
             </div>
           </motion.div>
         </AnimatePresence>
+
+        </div>
 
       </div>
     </section>

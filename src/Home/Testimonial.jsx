@@ -33,6 +33,9 @@ const testimonials = [
   },
 ];
 
+// Each card now gets 100vh (one full screen scroll) instead of 150vh
+const VH_PER_CARD = 100;
+
 export default function TestimonialsSection() {
   const sectionRef = useRef(null);
   const stickyRef = useRef(null);
@@ -48,7 +51,6 @@ export default function TestimonialsSection() {
       const sectionHeight = section.offsetHeight;
       const windowHeight = window.innerHeight;
 
-      // How far we've scrolled into the section
       const scrolled = -rect.top;
       const scrollable = sectionHeight - windowHeight;
       const raw = scrolled / scrollable;
@@ -56,9 +58,8 @@ export default function TestimonialsSection() {
 
       setProgress(clamped);
 
-      // Each card occupies equal portion
       const cardProgress = clamped * (testimonials.length - 1);
-      const idx = Math.min(Math.round(cardProgress), testimonials.length - 1);
+      const idx = Math.min(Math.floor(cardProgress), testimonials.length - 1);
       setActiveIndex(idx);
     };
 
@@ -66,247 +67,191 @@ export default function TestimonialsSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Per-card local progress (0→1 as this card transitions out)
   const cardProgress = progress * (testimonials.length - 1);
-
-  // Color palette
-  const colors = {
-    cream: "#F7F3EE",
-    parchment: "#EDE7DF",
-    navy: "#0D1F3C",
-    teal: "#2ABFBF",
-    circleBg: "#EADECF",
-  };
 
   return (
     <>
-      <style>{`
-
-        
-        .blob-shape {
-          border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        }
-        .card-blob {
-          clip-path: polygon(
-            50% 0%, 63% 5%, 74% 3%, 83% 10%, 90% 20%,
-            97% 30%, 100% 42%, 97% 55%, 92% 65%, 85% 74%,
-            75% 82%, 64% 88%, 50% 92%, 36% 88%, 25% 82%,
-            15% 74%, 8% 65%, 3% 55%, 0% 42%, 3% 30%,
-            10% 20%, 17% 10%, 26% 3%, 37% 5%
-          );
-        }
-        .progress-dot {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glow-effect {
-          background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42, 191, 191, 0.08) 0%, transparent 70%);
-        }
-        
-        @media (max-width: 768px) {
-          .testi-card {
-            width: 85vw !important;
-            max-width: 340px !important;
-          }
-          .testi-card-blob {
-            width: 90vw !important;
-            max-width: 360px !important;
-            height: 90vw !important;
-            max-height: 360px !important;
-          }
-        }
-      `}</style>
-
-      {/* Tall section to drive scroll - responsive height */}
+      
+      {/* 
+        Total height = (cards - 1) * VH_PER_CARD + 100vh
+        The extra 100vh is for the sticky viewport itself.
+        With VH_PER_CARD = 100, each card advances on one full viewport of scroll.
+      */}
       <div
         ref={sectionRef}
         className="testi-section relative"
-        style={{ height: `${testimonials.length * 80 + 80}vh` }}
+        style={{ height: `${(testimonials.length - 1) * VH_PER_CARD + 100}vh` }}
       >
         {/* Sticky viewport */}
         <div
           ref={stickyRef}
           className="sticky top-0 h-screen flex items-center overflow-hidden"
-          style={{ background: colors.cream }}
+          style={{ background: "#F7F3EE" }}
         >
-          {/* Background ambient glow with teal accent */}
+          {/* Background ambient glow */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42, 191, 191, 0.08) 0%, transparent 70%)",
+              background:
+                "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(42,191,191,0.08) 0%, transparent 70%)",
             }}
           />
 
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
+          <div className="w-full max-w-7xl mx-auto px-10 flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
+            {/* LEFT — Static text */}
+            <div className="space-y-8">
               <div>
-                <div
-                  className="section-heading"
-                >
-                  Our Clients  And Testimonials
-                  
-                  
-                </div>
+             
+                <h2 className="section-heading"
+                    style={{ color: "#0D1F3C" }}>
+                  our clients and testimonials
+                  <br />
+                 
+                </h2>
               </div>
 
-              <p className="section-desc font-semibold">
+              <p
+                className="section-desc"
+              >
                 Listen to what one of our clients have to say about making us
-                their digital marketing partner. At CODX, we embrace better,
-                and we're at our proudest when we help other companies and
+                their digital marketing partner. At CODX, we embrace better, and
+                we're at our proudest when we help other companies and
                 organizations embrace better, too.
               </p>
+
+         
+              
             </div>
 
-            <div 
-              className="relative flex items-center justify-center" 
-              style={{ height: "auto", minHeight: 420 }}
+            {/* RIGHT — Stacked cards */}
+            <div
+              className="relative flex items-center justify-center"
+              style={{ height: 520 }}
             >
               {testimonials.map((t, i) => {
-                // How far this card has been "consumed" by scroll
                 const localP = Math.max(0, Math.min(1, cardProgress - i));
-                // Cards behind active: fanned out slightly
                 const isBehind = i > activeIndex;
                 const isActive = i === activeIndex;
                 const isPast = i < activeIndex;
 
-                // Responsive stacking offset
-                const getResponsiveOffset = () => {
-                  if (typeof window !== 'undefined' && window.innerWidth < 768) {
-                    return 12; // Smaller offset on mobile
-                  }
-                  return 18;
-                };
-                
-                const behindOffset = isBehind ? (i - activeIndex) * getResponsiveOffset() : 0;
-                const behindScale = isBehind ? Math.max(0.85, 1 - (i - activeIndex) * 0.05) : 1;
-                const behindRotate = isBehind ? Math.min(8, (i - activeIndex) * 3) : 0;
+                const behindOffset = isBehind ? (i - activeIndex) * 12 : 0;
+                const behindScale = isBehind ? 1 - (i - activeIndex) * 0.06 : 1;
+                const behindRotate = isBehind ? (i - activeIndex) * 4 : 0;
 
-                // Responsive slide distance
-                const getSlideDistance = () => {
-                  if (typeof window !== 'undefined' && window.innerWidth < 768) {
-                    return -60; // Smaller slide on mobile
-                  }
-                  return -120;
-                };
-                
-                const pastX = isPast ? getSlideDistance() : 0;
+                const localPclamped = Math.max(
+                  0,
+                  Math.min(1, cardProgress - i + 1),
+                );
+                const behindAdvanceX = isBehind
+                  ? -(i - activeIndex) * 12 * localPclamped
+                  : 0;
+                const behindAdvanceScale = isBehind
+                  ? (i - activeIndex) * 0.06 * localPclamped
+                  : 0;
+
+                const pastX = isPast ? -700 : 0;
                 const pastOpacity = isPast ? 0 : 1;
 
-                // Active card: start sliding left as localP increases past 0
-                const activeSlide = isActive ? localP * getSlideDistance() : 0;
-                const activeOpacity = isActive ? 1 - localP * 1.5 : 1;
-                const activeRotate = isActive ? localP * -5 : 0;
+                const activeSlide = isActive ? localP * -600 : 0;
+                const activeOpacity = isActive ? 1 - localP * 2.5 : 1;
+                const activeRotate = isActive ? localP * -15 : 0;
 
                 const translateX = isPast
                   ? pastX
                   : isActive
-                  ? activeSlide
-                  : behindOffset;
+                    ? activeSlide
+                    : behindOffset + behindAdvanceX;
 
-                const translateY = isBehind ? behindOffset * -0.5 : 0;
-                const scale = isBehind ? behindScale : 1;
+                const translateY = isBehind
+                  ? (behindOffset + behindAdvanceX) * -0.5
+                  : 0;
+                const scale = isBehind ? behindScale + behindAdvanceScale : 1;
                 const rotate = isActive
                   ? activeRotate
                   : isBehind
-                  ? behindRotate
-                  : 0;
-                const opacity = isPast ? pastOpacity : isActive ? Math.max(0, activeOpacity) : 1;
+                    ? behindRotate
+                    : 0;
+                const opacity = isPast
+                  ? pastOpacity
+                  : isActive
+                    ? Math.max(0, activeOpacity)
+                    : 1;
                 const zIndex = testimonials.length - i;
-
-                // Responsive card width
-                const getCardWidth = () => {
-                  if (typeof window !== 'undefined' && window.innerWidth < 640) {
-                    return 300;
-                  }
-                  if (typeof window !== 'undefined' && window.innerWidth < 768) {
-                    return 340;
-                  }
-                  return 420;
-                };
-
-                const cardWidth = getCardWidth();
 
                 return (
                   <div
                     key={i}
-                    className="absolute testi-card"
+                    className="absolute"
                     style={{
-                      width: cardWidth,
-                      maxWidth: "calc(100vw - 32px)",
+                     width: window.innerWidth < 768 ? 350 : 420,
                       zIndex,
                       transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,
                       opacity,
-                      transition: "transform 0.05s linear, opacity 0.05s linear",
+                      transition: "none",
                       willChange: "transform, opacity",
                     }}
                   >
-                    {/* Circle blob behind card */}
+                    {/* Teal blob behind card */}
                     <div
-                      className="absolute testi-card-blob"
+                      className="absolute"
                       style={{
-                        width: cardWidth + 20,
-                        height: cardWidth + 20,
-                        maxWidth: "calc(100vw - 12px)",
-                        maxHeight: "calc(100vw - 12px)",
+                        width: 440,
+                        height: 440,
                         top: "50%",
                         left: "50%",
                         transform: "translate(-50%, -50%)",
-                        background: colors.circleBg,
-                        borderRadius: "40% 60% 45% 55% / 50% 40% 60% 50%",
+                        background: "#EADECF",
+                        borderRadius: "30% 70% 55% 45% / 45% 35% 65% 55%",
                         zIndex: -1,
-                        opacity: isActive ? 0.8 : Math.max(0.3, 0.5 - (i - activeIndex) * 0.1),
-                        transition: "opacity 0.2s ease",
+                        opacity: isActive ? 1 : 0.6 - (i - activeIndex) * 0.15,
                       }}
                     />
 
                     {/* Card */}
                     <div
-                      className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-xl"
-                      style={{
-                        minHeight: "auto",
+                      className="relative rounded-3xl p-8 shadow-2xl"
+                      style={{ 
+                        minHeight: 340,
                         background: "white",
-                        border: "1px solid rgba(13, 31, 60, 0.08)",
-                        boxShadow: "0 20px 35px -12px rgba(13, 31, 60, 0.12)",
                       }}
                     >
-                      {/* Quote mark with teal accent */}
+                      {/* Quote mark */}
                       <div
-                        className="mb-2 sm:mb-3 lg:mb-4"
+                        className="mb-4"
                         style={{
-                          fontFamily: "'Playfair Display', serif",
-                          fontSize: "48px",
+                          fontSize: 72,
                           lineHeight: 1,
-                          marginTop: -12,
-                          color: colors.teal,
-                          opacity: 0.3,
+                          marginTop: -16,
+                          color: "#2ABFBF",
+                          opacity: 0.5,
                         }}
                       >
                         "
                       </div>
 
                       <p
-                        className="section-subtitle mb-10"
-                        style={{ color: colors.navy + "dd", fontWeight: 400, lineHeight: 1.6 }}
+                        className="text-gray-700 leading-relaxed mb-8 text-base"
+                        style={{ fontWeight: 300 }}
                       >
-                     {t.text}
+                        {t.text}
                       </p>
 
                       {/* Author */}
-                      <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="flex items-center gap-3">
                         <div
-                          className="w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-bold flex-shrink-0"
+                          className="w-11 h-11 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
                           style={{
-                            background: `linear-gradient(135deg, ${colors.teal}, ${colors.teal}dd)`,
+                            background: "linear-gradient(135deg, #2ABFBF, #1f9e9e)",
                           }}
                         >
                           {t.initials}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="section-desc font-semibold truncate" style={{ color: colors.navy }}>
+                        <div>
+                          <p className="text-base"
+                             style={{ color: "#0D1F3C" }}>
                             {t.name}
                           </p>
-                          <p className="text-xs truncate" style={{ color: colors.navy + "99" }}>
-                            {t.role}
-                          </p>
+                          <p className="text-gray-500 text-sm">{t.role}</p>
                         </div>
                       </div>
                     </div>

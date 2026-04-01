@@ -23,7 +23,8 @@ import Healthcare from "./Pages/healthcare";
 import BlogSection from "./about/BlogSection";
 import Blogdetail from "./about/BlogDetail";
 import ContactPage from "./ContactUs/Contactus";
-
+import TermsAndConditions from "./Home/Term-and-condition";
+import PrivacyPolicy from "./Home/PrivacyPolicy";
 function App() {
   return (
     <Routes>
@@ -58,7 +59,8 @@ function App() {
         <Route path="real-estate" element={<RealEstate />} />
         <Route path="business-consultancy" element={<BusinessConsultancy />} />
         <Route path="healthcare" element={<Healthcare />} />
-
+        <Route path="terms" element={<TermsAndConditions/>} />
+        <Route path="privacy" element={<PrivacyPolicy/>} />
       </Route>
     </Routes>
   );

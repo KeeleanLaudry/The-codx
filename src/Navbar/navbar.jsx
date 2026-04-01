@@ -406,8 +406,8 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
                   <div
                     ref={servicesRef}
                     onClick={(e) => e.stopPropagation()}
-                className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1100px] rounded-2xl shadow-2xl animate-fadeIn"              
-                 style={dropdownGlassStyle}
+                className=" bg-white/80 backdrop-blur-md absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1100px] rounded-2xl shadow-2xl animate-fadeIn"              
+                
                   >
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-1 p-4 border-b border-[#0D1F3C]/10 bg-[#EADECF]/30">
                       {Object.keys(services).map((category) => {
@@ -567,8 +567,8 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
                   <div
                     ref={industriesRef}
                     onClick={(e) => e.stopPropagation()}
-                    className="absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[95vw] max-w-[1050px] rounded-2xl shadow-2xl animate-fadeIn"
-                    style={dropdownGlassStyle}
+                    className="bg-white/80 backdrop-blur-md absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[95vw] max-w-[1050px] rounded-2xl shadow-2xl animate-fadeIn"
+                    // style={dropdownGlassStyle}
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 p-6 md:p-8">
                       <div className="col-span-1">

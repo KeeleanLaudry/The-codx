@@ -25,19 +25,23 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6  overflow-hidden" >
+    <section className="relative min-h-screen flex items-center justify-center  px-4 overflow-hidden" >
       <div className="max-w-5xl w-full relative ">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-          <div className="hidden md:block relative group">
-         
-            <img
-              src={Sir}
-              alt="contact character"
-              className="w-[380px] relative z-10 transform transition-transform duration-500 group-hover:scale-105"
-            />      
-          </div>
+     
+<div className="flex flex-col lg:flex-row items-center justify-center ">
+ <div className="flex items-center gap-3">
 
-          <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-2xl relative overflow-hidden">
+  <p className="text-xl md:text-4xl font-bold bg-gradient-to-r from-[#0D1F3C] to-[#2ABFBF80] bg-clip-text text-transparent">
+  Let’s Talk <br /> Coffee on Us
+</p>
+
+  <img
+  src={Sir}
+  alt="contact character"
+  className="h-72 md:h-64 lg:h-[420px] w-auto object-contain -mr-20 z-10"
+/>
+</div>
+          <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-xl ">
             <div className="mb-4">
               <h2 className="section-heading">
                 Let's Connect
@@ -46,7 +50,7 @@ const ContactSection = () => {
              
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-8">
               {/* Row 1 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
@@ -165,7 +169,7 @@ const ContactSection = () => {
                   name="project"
                   value={formData.project}
                   onChange={handleChange}
-                  rows="4"
+                  rows="1"
                   placeholder="Tell Us About Your Project"
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 transition-all duration-300 resize-none"
                   style={{ 
@@ -183,7 +187,7 @@ const ContactSection = () => {
                   type="submit"
                   className="primary-btn font-semibold"
                 >
-                  <span className="relative z-10">Send Message</span>
+                  <span className="relative z-10">send message</span>
                   <div className=" inset-0 bg-gradient-to-r from-[#2ABFBF] to-[#2ABFBF80] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               </div>
@@ -199,12 +203,7 @@ const ContactSection = () => {
           0%, 100% {
             transform: translate(0, 0) rotate(0deg);
           }
-          33% {
-            transform: translate(20px, -20px) rotate(5deg);
-          }
-          66% {
-            transform: translate(-15px, 15px) rotate(-5deg);
-          }
+         
         }
         
         .animate-float {

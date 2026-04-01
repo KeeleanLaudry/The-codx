@@ -23,7 +23,7 @@ export default function HeroBanner() {
   const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-[60vh] md:h-[90vh] overflow-hidden">
 
      <motion.video
   autoPlay
@@ -38,9 +38,9 @@ export default function HeroBanner() {
 
 <div className="absolute inset-0 bg-black/40"></div>
       {/* 🌈 Animated Gradient Overlay */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 max-w-5xl mx-auto">
+      {/* <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 max-w-5xl mx-auto">
 
-        {/* BUTTON */}
+        BUTTON
         <motion.button
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,13 +50,11 @@ export default function HeroBanner() {
           Speak to an expert
         </motion.button>
 
-        {/* 🧠 TYPING TEXT */}
         <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-semibold leading-tight">
           {displayText}
           <span className="animate-pulse">|</span>
         </h1>
 
-        {/* DESCRIPTION */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,9 +70,8 @@ export default function HeroBanner() {
           in a competitive digital landscape.
         </motion.p>
 
-      </div>
+      </div> */}
 
-      {/* 🔥 Gradient Animation CSS */}
       <style jsx>{`
         @keyframes gradientMove {
           0% { background-position: 0% 50%; }

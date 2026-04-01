@@ -83,10 +83,10 @@ export default function Home() {
 </div>
 </div>
 <Collabrator />
-<TestimonialSection/>
 <StatsSection />
 <TechnologiesSection/>
 <BlogSection/>
+<TestimonialSection/>
 <ContactSection/>
     </div>
     </div>

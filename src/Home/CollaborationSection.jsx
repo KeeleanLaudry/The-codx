@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence, useSpring } from "framer-motion";
 
 const data = [
@@ -28,7 +28,7 @@ function FloatingImage({ img, cardRef }) {
   const ySpring = useSpring(0, { stiffness: 110, damping: 18 });
   const lastX = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
 
@@ -37,7 +37,6 @@ function FloatingImage({ img, cardRef }) {
       const relX = e.clientX - rect.left;
       const relY = e.clientY - rect.top;
 
-      // Tilt based on horizontal mouse direction
       if (lastX.current !== null) {
         const dx = relX - lastX.current;
         const currentRotate = rotateSpring.get();
@@ -45,15 +44,14 @@ function FloatingImage({ img, cardRef }) {
         rotateSpring.set(Math.max(-22, Math.min(4, newRotate)));
       }
 
-      // Vertical float follows mouse Y within card
-      const normY = relY / rect.height; // 0..1
-      ySpring.set((normY - 0.5) * 55); // -27..+27 px
+      const normY = relY / rect.height;
+      ySpring.set((normY - 0.5) * 55);
 
       lastX.current = relX;
     };
 
     const onLeave = () => {
-      rotateSpring.set(-12); // reset to default tilt
+      rotateSpring.set(-12);
       ySpring.set(0);
       lastX.current = null;
     };
@@ -101,10 +99,33 @@ function FloatingImage({ img, cardRef }) {
 
 function Card({ item, index }) {
   const cardRef = useRef(null);
+  const [visible, setVisible] = useState(false);
   const [hovered, setHovered] = useState(false);
 
+  // Scroll-based trigger: image pops when card crosses into viewport
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        } else {
+          // Re-hide when card scrolls out so it re-animates on next scroll in
+          setVisible(false);
+        }
+      },
+      {
+        threshold: 0.55, // card must be 55% visible before popping the image
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    // Outer wrapper: overflow visible so image can hang off
     <div style={{ position: "relative", zIndex: hovered ? 10 : index }}>
       <motion.div
         ref={cardRef}
@@ -125,7 +146,7 @@ function Card({ item, index }) {
           cursor: "default",
         }}
       >
-        {/* Card face — clipped separately */}
+        {/* Card face */}
         <div
           style={{
             borderRadius: 18,
@@ -168,7 +189,6 @@ function Card({ item, index }) {
                 color: "#fff",
                 margin: 0,
                 minWidth: 200,
-
                 flexShrink: 0,
                 whiteSpace: "normal",
               }}
@@ -186,14 +206,14 @@ function Card({ item, index }) {
                   "linear-gradient(to bottom, transparent, rgba(42,191,191,0.28), transparent)",
               }}
             />
+
             <p
               style={{
-              
                 fontSize: 16,
                 color: "rgba(237,231,223,0.72)",
                 lineHeight: 1.7,
-width: 360,
-flexShrink: 0,
+                width: 360,
+                flexShrink: 0,
                 margin: 0,
                 flex: 1,
               }}
@@ -233,7 +253,7 @@ flexShrink: 0,
             </motion.div>
           </div>
 
-          {/* Bottom sweep line */}
+          {/* Bottom sweep line on hover */}
           <motion.div
             animate={{ width: hovered ? "100%" : "0%" }}
             transition={{ duration: 0.45 }}
@@ -248,12 +268,12 @@ flexShrink: 0,
           />
         </div>
 
-        {/* ─── FLOATING IMAGE ─────────────────────────────────────
-            Hangs off the right edge, like in the Colency screenshot.
-            Enters with a swing from bottom-right (transformOrigin: left center).
-        ──────────────────────────────────────────────────────── */}
+        {/* ── FLOATING IMAGE ──────────────────────────────────────
+            Now triggered by scroll (IntersectionObserver) instead of hover.
+            Swings in from bottom-right when card scrolls into view.
+        ─────────────────────────────────────────────────────── */}
         <AnimatePresence>
-          {hovered && (
+          {visible && (
             <motion.div
               key="img"
               initial={{
@@ -281,12 +301,13 @@ flexShrink: 0,
                 type: "spring",
                 stiffness: 200,
                 damping: 20,
+                delay: index * 0.08, // stagger slightly per card
               }}
               style={{
                 position: "absolute",
-                right: -115, // hangs off right edge
+                right: -115,
                 top: "50%",
-                marginTop: -115, // vertically centered
+                marginTop: -115,
                 width: 230,
                 height: 230,
                 borderRadius: 14,
@@ -295,7 +316,7 @@ flexShrink: 0,
                   "0 24px 70px rgba(0,0,0,0.55), 0 0 0 1.5px rgba(42,191,191,0.22)",
                 pointerEvents: "none",
                 zIndex: 30,
-                transformOrigin: "left center", // swings from the card edge
+                transformOrigin: "left center",
               }}
             >
               <FloatingImage img={item.img} cardRef={cardRef} />
@@ -317,15 +338,15 @@ export default function CollaborationSection() {
 
       <section style={{ background: "#F7F3EE", padding: "20px 0px" }}>
         <div style={{ maxWidth: 1500, margin: "0 auto" }}>
-<motion.h2
-  initial={{ opacity: 0, y: 36 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.75 }}
-  className="section-heading mb-10 px-5 lg:px-0"
->
-  Strong Collaboration With
-</motion.h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75 }}
+            className="section-heading mb-10 px-5 lg:px-0"
+          >
+            Strong Collaboration With
+          </motion.h2>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 14, paddingRight: 120 }}>
             {data.map((item, i) => (
@@ -337,4 +358,3 @@ export default function CollaborationSection() {
     </>
   );
 }
-
