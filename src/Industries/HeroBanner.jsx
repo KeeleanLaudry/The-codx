@@ -10,7 +10,7 @@ const BeautyHeroSection = ({
     <div className="w-full  rounded-2xl overflow-hidden">
 
       {/* HERO SECTION */}
-      <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[57vh] lg:h-[95vh] flex items-center justify-center overflow-hidden">
 
         {/* VIDEO BACKGROUND */}
         <video

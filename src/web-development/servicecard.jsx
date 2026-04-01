@@ -4,27 +4,39 @@ export default function Services({ services, title = "Our Services" }) {
 
   const scrollRef = useRef(null);
 
-  useEffect(() => {
-    const container = scrollRef.current;
+ useEffect(() => {
+  const container = scrollRef.current;
+  let animationFrame;
+  let isTouching = false;
 
-    const scroll = () => {
-      if (container) {
-        container.scrollLeft += 1;
+  const scroll = () => {
+    if (!isTouching && container) {
+      container.scrollLeft += 0.5;
 
-        if (
-          container.scrollLeft + container.clientWidth >=
-          container.scrollWidth
-        ) {
-          container.scrollLeft = 0;
-        }
+      if (
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth
+      ) {
+        container.scrollLeft = 0;
       }
-    };
+    }
+    animationFrame = requestAnimationFrame(scroll);
+  };
 
-    const interval = setInterval(scroll, 20);
+  const handleTouchStart = () => (isTouching = true);
+  const handleTouchEnd = () => (isTouching = false);
 
-    return () => clearInterval(interval);
-  }, []);
+  container.addEventListener("touchstart", handleTouchStart);
+  container.addEventListener("touchend", handleTouchEnd);
 
+  animationFrame = requestAnimationFrame(scroll);
+
+  return () => {
+    cancelAnimationFrame(animationFrame);
+    container.removeEventListener("touchstart", handleTouchStart);
+    container.removeEventListener("touchend", handleTouchEnd);
+  };
+}, []);
   return (
     <div className="max-w-5xl mx-auto relative px-4 ">
 
@@ -34,7 +46,7 @@ export default function Services({ services, title = "Our Services" }) {
 
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth px-10 pb-6 hide-scrollbar"
+       className="flex gap-6 overflow-x-auto scroll-smooth px-4 pb-6 hide-scrollbar touch-pan-x"
       >
 
         {services.map((service, index) => (

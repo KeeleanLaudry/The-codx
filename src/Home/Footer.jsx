@@ -114,7 +114,7 @@ const industries = [
 
       {/* BOTTOM BAR */}
       <div className="border-t border-[#EDE7DF] mt-12 pt-4 text-center text-lg font-semibold text-[#0D1F3C] relative z-10">
-        © Codx Softwares 2025 / All rights reserved.
+        © The Codx Softwares 2026 / All rights reserved.
       </div>
     </footer>
   );

@@ -64,7 +64,7 @@ export default function Hero({
     <div className="
       flex flex-wrap justify-center sm:justify-end
       gap-3 sm:gap-5
-      text-[#0D1F3C] lg:text-2xl text-xs sm:text-lg
+      text-[#0D1F3C] lg:text-2xl text-lg sm:text-lg
     ">
 
       {["India", "UAE", "Saudi Arabia", "USA", "Kuwait"].map((country, i) => (

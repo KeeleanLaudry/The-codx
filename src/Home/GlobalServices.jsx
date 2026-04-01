@@ -128,46 +128,44 @@ export default function GlobalServices() {
 
                 {/* Content directly below each card on mobile */}
                 <AnimatePresence mode="wait">
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
-                      className="mt-6 md:hidden"
-                    >
-                      <div 
-                        className="rounded-2xl p-6 border" 
-                        style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}
-                      >
-                      <div className="relative h-30 w-auto">
-                        <img
-                          src={activeService.image}
-                          alt={activeService.name}
-                          className="h-full w-auto object-contain"
-                        />
-                      </div>
-                        <h2 className="section-heading" >
-                          {activeService.title}
-                        </h2>
+  {isActive && (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.25 }}
+      className="mt-4 md:hidden min-h-[250px]"
+    >
+      <div 
+        className="rounded-2xl p-6 border" 
+        style={{ backgroundColor: "#EDE7DF", borderColor: "#0D1F3C10" }}
+      >
+        <div className="relative h-28 w-auto flex justify-center">
+          <img
+            src={activeService.image}
+            alt={activeService.name}
+            className="h-full w-40 md:w-52 object-contain"
+          />
+        </div>
 
-                        <p className="text-base leading-relaxed mb-6" >
-                          {activeService.desc}
-                        </p>
+        <h2 className="section-heading">
+          {activeService.title}
+        </h2>
 
-                      
-                           <button 
-                            className="font-semibold px-5 py-2.5 rounded-full transition-all duration-300 flex items-center gap-2 text-sm"
-                            style={{ backgroundColor: "#0D1F3C", color: "#FFFFFF" }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#2ABFBF"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#0D1F3C"}
-                          >
-                            Learn more <ArrowRight size={14} />
-                          </button>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+        <p className="text-base leading-relaxed mb-6">
+          {activeService.desc}
+        </p>
+
+        <button 
+          className="font-semibold px-5 py-2.5 rounded-full flex items-center gap-2 text-sm"
+          style={{ backgroundColor: "#0D1F3C", color: "#FFFFFF" }}
+        >
+          Learn more <ArrowRight size={14} />
+        </button>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
               </div>
             );
           })}

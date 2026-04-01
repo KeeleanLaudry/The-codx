@@ -37,18 +37,35 @@ const stats = [
 const StatsSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { amount: 0.5 }); 
-  const [activeIndex, setActiveIndex] = useState(0);
+const [activeIndex, setActiveIndex] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
-  
-  useEffect(() => {
-    if (!isInView || isHovered) return;
+  const [isMobile, setIsMobile] = useState(false);
 
-    const interval = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % stats.length);
-    }, 1200);
 
-    return () => clearInterval(interval);
-  }, [isInView, isHovered, stats.length]);
+// detect mobile
+useEffect(() => {
+  const checkScreen = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  checkScreen();
+  window.addEventListener("resize", checkScreen);
+
+  return () => window.removeEventListener("resize", checkScreen);
+}, []);
+
+// auto animation (desktop only)
+useEffect(() => {
+  if (!isInView || isHovered || isMobile) return;
+
+  const interval = setInterval(() => {
+    setActiveIndex(prev =>
+      prev === null ? 0 : (prev + 1) % stats.length
+    );
+  }, 1200);
+
+  return () => clearInterval(interval);
+}, [isInView, isHovered, isMobile]);
   
   return (
     <div ref={sectionRef} className="relative px-6  overflow-hidden ">
@@ -61,17 +78,26 @@ const StatsSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto z-10 items-start">
         {stats.map((item, index) => (
-          <div
-            key={index}
-            onMouseEnter={() => {
-              setIsHovered(true);
-              setActiveIndex(index); 
-            }}
-            onMouseLeave={() => {
-              setIsHovered(false); 
-            }}
-            className="group relative"
-          >
+         <div
+  key={index}
+  onClick={() => {
+    if (isMobile) {
+      setActiveIndex(index === activeIndex ? null : index);
+    }
+  }}
+  onMouseEnter={() => {
+    if (!isMobile) {
+      setIsHovered(true);
+      setActiveIndex(index);
+    }
+  }}
+  onMouseLeave={() => {
+    if (!isMobile) {
+      setIsHovered(false);
+    }
+  }}
+  className="group relative cursor-pointer"
+>
           <div 
   className={`group relative bg-white rounded-2xl shadow-lg border transition-all duration-500 hover:scale-105 overflow-hidden ${
     activeIndex === index
@@ -101,13 +127,15 @@ const StatsSection = () => {
                   {item.text}
                 </h3>                
                 <div 
-                  className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                    activeIndex === index
-                      ? "max-h-40 opacity-100 mt-2"
-                      : "max-h-0 opacity-0"
-                  }`}
+               
+  className={`transition-all duration-500 ease-in-out overflow-hidden ${
+    activeIndex === index
+      ? "max-h-40 opacity-100 mt-2"
+      : "max-h-0 opacity-0"
+  }`}
+
                 >
-                  <p className="section-desc">
+                  <p className="section-desc ">
                     {item.desc}
                   </p>
                 </div>
