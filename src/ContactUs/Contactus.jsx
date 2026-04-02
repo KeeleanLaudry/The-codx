@@ -92,8 +92,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 md:py-24">
-     
+<section className="relative overflow-hidden py-24 md:py-24 lg:py-32">     
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -180,7 +179,7 @@ export default function ContactPage() {
        <ContactSection/>
         </section>
 
-         <section className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+         <section className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 py-10 md:py-0">
 
       {/* 🔘 Buttons */}
      <div className="flex justify-center gap-3 sm:gap-4 mb-6 flex-wrap">

@@ -45,7 +45,7 @@ export default function CodxNavbar() {
   const industriesButtonRef = useRef(null);
   const navbarRef = useRef(null);
   const mobileMenuRef = useRef(null);
-const navigate = useNavigate();
+  const navigate = useNavigate();
  
 
   useEffect(() => {
@@ -406,7 +406,7 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
                   <div
                     ref={servicesRef}
                     onClick={(e) => e.stopPropagation()}
-                className=" bg-white/80 backdrop-blur-md absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1100px] rounded-2xl shadow-2xl animate-fadeIn"              
+                className=" bg-white/80 backdrop-blur-md absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[1100px] rounded-2xl shadow-2xl "              
                 
                   >
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-1 p-4 border-b border-[#0D1F3C]/10 bg-[#EADECF]/30">
@@ -567,7 +567,7 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
                   <div
                     ref={industriesRef}
                     onClick={(e) => e.stopPropagation()}
-                    className="bg-white/80 backdrop-blur-md absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[95vw] max-w-[1050px] rounded-2xl shadow-2xl animate-fadeIn"
+                    className="bg-white/80 backdrop-blur-md absolute left-1/2 -translate-x-1/2 mt-4 top-full w-[95vw] max-w-[1050px] rounded-2xl shadow-2xl "
                     // style={dropdownGlassStyle}
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 p-6 md:p-8">
@@ -631,26 +631,30 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
             className="flex items-center gap-2 rounded-full px-3 xl:px-4 py-2 transition-all duration-500"
             style={pillGlassStyle}
           >
-            <button
-  onClick={() => navigate("/contact-us")}
-  className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-xs xl:text-sm font-semibold px-3 xl:px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md whitespace-nowrap"
->
-  Speak to an expert
-</button>
+     <button
+      onClick={() => navigate("/contact-us")}
+      className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-xs xl:text-sm font-semibold px-3 xl:px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md whitespace-nowrap"
+    >
+      speak to an expert
+    </button>
             <div className="w-px h-5 bg-[#0D1F3C]/20 mx-1"></div>
             <div className="flex items-center gap-1.5">
-              <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-7 h-7 xl:w-8 xl:h-8 cursor-pointer transition-all duration-300 group">
-                <Phone
-                  size={12}
-                  className="group-hover:scale-110 transition-transform"
-                />
-              </div>
-              <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-7 h-7 xl:w-8 xl:h-8 cursor-pointer transition-all duration-300 group">
-                <Mail
-                  size={12}
-                  className="group-hover:scale-110 transition-transform"
-                />
-              </div>
+             <a href="tel:+971502852701">
+  <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-7 h-7 xl:w-8 xl:h-8 cursor-pointer transition-all duration-300 group">
+    <Phone
+      size={12}
+      className="group-hover:scale-110 transition-transform"
+    />
+  </div>
+</a>
+              <a
+  href="mailto:Singh@codxsoftwares.com"
+className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-7 h-7 xl:w-8 xl:h-8 cursor-pointer transition-all duration-300 group"  onClick={(e) => {
+    e.stopPropagation();
+  }}
+>
+  <Mail size={12} />
+</a>
             </div>
           </div>
         </div>
@@ -778,16 +782,34 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
 
                 {/* Mobile CTA Buttons */}
                 <div className="pt-4 space-y-3">
-                  <button className="w-full rounded-full bg-[#0D1F3C] text-white text-sm font-medium px-5 py-2.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md">
-                    Speak to an expert
-                  </button>
+             <button
+  type="button"
+  onClick={(e) => {
+    e.stopPropagation();   // 🔥 IMPORTANT
+    navigate("/contact-us");
+  }}
+  className="relative overflow-hidden rounded-full bg-[#0D1F3C] text-white text-sm xl:text-sm font-semibold px-3 xl:px-5 py-1.5 hover:bg-[#2ABFBF] transition-all duration-300 shadow-md whitespace-nowrap"
+>
+  speak to an expert
+</button>
                   <div className="flex gap-3 justify-center pt-2">
-                    <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 w-10 h-10 cursor-pointer transition-all">
-                      <Phone size={16} />
-                    </div>
-                    <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 w-10 h-10 cursor-pointer transition-all">
-                      <Mail size={16} />
-                    </div>
+                 <a href="tel:+971502852701">
+  <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-7 h-7 xl:w-8 xl:h-8 cursor-pointer transition-all duration-300 group">
+    <Phone
+      size={12}
+      className="group-hover:scale-110 transition-transform"
+    />
+  </div>
+</a>
+<a
+  href="mailto:Singh@codxsoftwares.com?subject=Inquiry&body=Hello Codx Team,"
+  className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 w-10 h-10 transition-all relative z-50"
+  onClick={(e) => {
+    e.stopPropagation();
+  }}
+>
+  <Mail size={16} />
+</a>
                   </div>
                 </div>
               </div>

@@ -17,7 +17,7 @@ import advertising from "../assets/advertising.png";
 import development from "../assets/develop.png";
 
 export default function GlobalServices() {
-  const [active, setActive] = useState("development");
+const [active, setActive] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -63,21 +63,27 @@ export default function GlobalServices() {
       image: service,
     }
   ];
+useEffect(() => {
+  if (window.innerWidth > 768) {
+    setActive("development"); // ✅ desktop default open
+  }
+}, []);
+ useEffect(() => {
+  // ✅ mobile check (sabse important)
+  if (window.innerWidth <= 768) return;
 
-  useEffect(() => {
-    if (isPaused) return;
+  if (isPaused) return;
 
-    const interval = setInterval(() => {
-      setActive(prev => {
-        const currentIndex = services.findIndex(s => s.id === prev);
-        const nextIndex = (currentIndex + 1) % services.length;
-        return services[nextIndex].id;
-      });
-    }, 3000);
+  const interval = setInterval(() => {
+    setActive(prev => {
+      const currentIndex = services.findIndex(s => s.id === prev);
+      const nextIndex = (currentIndex + 1) % services.length;
+      return services[nextIndex].id;
+    });
+  }, 3000);
 
-    return () => clearInterval(interval);
-  }, [isPaused, services]);
-
+  return () => clearInterval(interval);
+}, [isPaused]);
   const activeService = services.find(s => s.id === active);
 
   return (
@@ -94,13 +100,14 @@ export default function GlobalServices() {
               <div key={service.id} className="flex flex-col">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  onClick={() => {
-                    setActive(service.id);
-                    setIsPaused(true);
-                    setTimeout(() => {
-                      setIsPaused(false);
-                    }, 5000);
-                  }}
+                 onClick={() => {
+  setActive(prev => (prev === service.id ? null : service.id));
+
+  setIsPaused(true);
+  setTimeout(() => {
+    setIsPaused(false);
+  }, 5000);
+}}
                   className="cursor-pointer"
                 >
                   <div
@@ -128,7 +135,7 @@ export default function GlobalServices() {
 
                 {/* Content directly below each card on mobile */}
                 <AnimatePresence mode="wait">
-  {isActive && (
+ {isActive && activeService && (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -173,6 +180,7 @@ export default function GlobalServices() {
 
         {/* Desktop Content - Shows below all cards */}
         <div className="hidden md:block">
+  {activeService && (
           <AnimatePresence mode="wait">
           <motion.div
             key={active}
@@ -220,6 +228,7 @@ export default function GlobalServices() {
             </div>
           </motion.div>
         </AnimatePresence>
+)}
 
         </div>
 

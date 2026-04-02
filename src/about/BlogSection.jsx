@@ -296,7 +296,7 @@ export default function BlogSection() {
 
         <div className="max-w-5xl mx-auto relative z-10">
           {/* Heading */}
-          <div className=" mb-5">
+          <div className=" mb-5 ">
             <h2
               className="section-heading"
             >

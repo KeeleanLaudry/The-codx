@@ -45,35 +45,11 @@ const timeline = [
 
 export default function OurStory() {
   return (
-    <section className="relative py-10 px-6 md:px-16 overflow-hidden" style={{ backgroundColor: "#F7F3EE" }}>
+    <section className="relative py-10 px-4 md:px-16 overflow-hidden" style={{ backgroundColor: "#F7F3EE" }}>
       
-      {/* Floating decorative circles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(25)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full animate-float"
-            style={{
-              width: `${Math.random() * 200 + 50}px`,
-              height: `${Math.random() * 200 + 50}px`,
-              background: `radial-gradient(circle at center, ${
-                ["#2ABFBF", "#EDE7DF", "#EADECF", "#0D1F3C"][i % 4]
-              }08, transparent 70%)`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${12 + Math.random() * 8}s`,
-              filter: 'blur(40px)'
-            }}
-          />
-        ))}
-      </div>
-
       {/* Header Section */}
-      <div className="relative text-center mb-10">
-      
-        
-        <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "#0D1F3C" }}>
+      <div className="relative text-center mb-8 md:mb-10">
+        <h2 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: "#0D1F3C" }}>
           Our{" "}
           <span style={{ color: "#2ABFBF" }}>
             Story
@@ -83,71 +59,64 @@ export default function OurStory() {
 
       {/* Main timeline */}
       <div className="relative max-w-5xl mx-auto">
-        {/* Timeline center line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full" style={{ backgroundColor: `${"#2ABFBF"}30` }} />
+        {/* Timeline center line - hidden on mobile */}
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full" style={{ backgroundColor: `${"#2ABFBF"}30` }} />
         
         {/* Timeline items */}
-        <div className="relative ">
+        <div className="relative">
           {timeline.map((item, index) => {
             const isEven = index % 2 === 0;
             
             return (
               <div
                 key={index}
-                className={`relative flex items-center ${
-                  isEven ? 'flex-row' : 'flex-row-reverse'
+                className={`relative flex flex-col md:flex-row md:items-center mb-12 md:mb-0 ${
+                  isEven ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
-                {/* Content side */}
-                <div className={`w-1/2 ${isEven ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
+                {/* Content side - Mobile */}
+                <div className={`w-full md:w-1/2 px-5 md:px-0 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'} mb-4 md:mb-0`}>
                   <div
                     className="transform transition-all duration-500 hover:scale-105 group"
                     style={{
                       animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
                     }}
                   >
-                    {/* Wrap year + title */}
-<div className={`flex flex-col ${isEven ? 'items-end' : 'items-start'}`}>
-  
-  {/* Year tag */}
-  <div
-    className="mb-2 px-5 py-2 rounded-full"
-    style={{ 
-      backgroundColor: `${"#2ABFBF"}15`,
-      border: `1px solid ${"#2ABFBF"}30`
-    }}
-  >
-    <span className="font-mono text-sm font-bold" style={{ color: "#2ABFBF" }}>
-      {item.year}
-    </span>
-  </div>
+                    <div className={`flex flex-col ${isEven ? 'md:items-end' : 'md:items-start'} items-start`}>
+                      {/* Year tag */}
+                      <div
+                        className="mb-2 px-4 md:px-5 py-2 rounded-full"
+                        style={{ 
+                          backgroundColor: `${"#2ABFBF"}15`,
+                          border: `1px solid ${"#2ABFBF"}30`
+                        }}
+                      >
+                        <span className="font-mono text-xs md:text-sm font-bold" style={{ color: "#2ABFBF" }}>
+                          {item.year}
+                        </span>
+                      </div>
 
-  {/* Title */}
-  <h3 
-    className="text-xl md:text-2xl font-bold mb-3 relative inline-block"
-    style={{ color: "#0D1F3C" }}
-  >
-    {item.title}
-    <span
-      className={`absolute bottom-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full ${
-        isEven ? 'right-0' : 'left-0'
-      }`}
-      style={{ backgroundColor: "#2ABFBF" }}
-    />
-  </h3>
-
-</div>
+                      {/* Title */}
+                      <h3 
+                        className="text-lg md:text-2xl font-bold mb-2 md:mb-3 relative inline-block"
+                        style={{ color: "#0D1F3C" }}
+                      >
+                        {item.title}
+                        <span
+                          className={`absolute bottom-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full left-0 md:${isEven ? 'right-0' : 'left-0'}`}
+                          style={{ backgroundColor: "#2ABFBF" }}
+                        />
+                      </h3>
+                    </div>
                     
-                    <p className="text-base leading-relaxed max-w-md mx-auto" style={{ color: "#0D1F3C" }}>
+                    <p className="text-sm md:text-base leading-relaxed max-w-full md:max-w-md md:mx-auto" style={{ color: "#0D1F3C" }}>
                       {item.desc}
                     </p>
-                   
                   </div>
                 </div>
 
-                {/* Center marker */}
-                <div className="relative flex items-center justify-center w-16">
-                  {/* Glowing dot */}
+                {/* Center marker - Hidden on mobile */}
+                <div className="hidden md:flex relative items-center justify-center w-16">
                   <div className="relative">
                     <div 
                       className="w-4 h-4 rounded-full shadow-lg animate-pulse"
@@ -162,7 +131,6 @@ export default function OurStory() {
                     />
                   </div>
                   
-                  {/* Decorative circle around dot */}
                   <div 
                     className="absolute w-12 h-12 rounded-full -z-10 animate-spin-slow"
                     style={{ 
@@ -172,7 +140,27 @@ export default function OurStory() {
                   />
                 </div>
 
-                <div className="w-1/2"></div>
+                <div className="hidden md:block w-1/2"></div>
+                
+                {/* Mobile Timeline Dot */}
+                <div className="md:hidden absolute left-0 top-0 transform -translate-x-1/2">
+                  <div className="relative">
+                    <div 
+                      className="w-3 h-3 rounded-full shadow-lg"
+                      style={{ 
+                        backgroundColor: "#2ABFBF",
+                        boxShadow: `0 0 10px ${"#2ABFBF"}80`
+                      }}
+                    />
+                    <div 
+                      className="absolute inset-0 w-3 h-3 rounded-full animate-ping opacity-20"
+                      style={{ backgroundColor: "#2ABFBF" }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Mobile vertical line */}
+                <div className="md:hidden absolute left-0 top-6 w-0.5 h-full -translate-x-1/2" style={{ backgroundColor: `${"#2ABFBF"}30` }} />
               </div>
             );
           })}
@@ -188,18 +176,6 @@ export default function OurStory() {
           to {
             opacity: 1;
             transform: translateY(0);
-          }
-        }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0) translateX(0);
-          }
-          33% {
-            transform: translateY(-15px) translateX(10px);
-          }
-          66% {
-            transform: translateY(10px) translateX(-10px);
           }
         }
         
@@ -221,10 +197,6 @@ export default function OurStory() {
             opacity: 0.3;
             transform: scale(1.05);
           }
-        }
-        
-        .animate-float {
-          animation: float 15s ease-in-out infinite;
         }
         
         .animate-pulse {
@@ -251,6 +223,14 @@ export default function OurStory() {
         
         ::-webkit-scrollbar-thumb:hover {
           background: #0D1F3C;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+          .section {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
         }
       `}</style>
     </section>

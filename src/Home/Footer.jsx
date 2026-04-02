@@ -5,7 +5,7 @@ const Footer = () => {
   const links = [
   { name: "About Us", path: "/about" },
   { name: "Our Work", path: "/our-work" },
-  { name: "Blogs", path: "/blogs" },
+  { name: "Blogs", path: "/#" },
   { name: "Contact Us", path: "/contact-us" },
   { name: "Terms & Conditions", path: "/terms" },
   { name: "Privacy Policy", path: "/privacy" },
