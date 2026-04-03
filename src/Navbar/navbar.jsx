@@ -792,25 +792,34 @@ className="flex items-center justify-center rounded-full border border-[#0D1F3C]
 >
   speak to an expert
 </button>
-                  <div className="flex gap-3 justify-center pt-2">
-                 <a href="tel:+971502852701">
-  <div className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 w-7 h-7 xl:w-8 xl:h-8 cursor-pointer transition-all duration-300 group">
-    <Phone
-      size={12}
-      className="group-hover:scale-110 transition-transform"
-    />
-  </div>
-</a>
-<a
-  href="mailto:Singh@codxsoftwares.com?subject=Inquiry&body=Hello Codx Team,"
-  className="flex items-center justify-center rounded-full border border-[#0D1F3C]/20 text-[#0D1F3C] hover:bg-[#2ABFBF]/10 w-10 h-10 transition-all relative z-50"
-  onClick={(e) => {
-    e.stopPropagation();
-  }}
->
-  <Mail size={16} />
-</a>
-                  </div>
+               <div className="flex gap-3  pt-2">
+  
+  {/* Phone */}
+  <a href="tel:+971502852701">
+    <div className="flex items-center justify-center 
+      rounded-full border border-[#0D1F3C]/20 
+      text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 
+      w-8 h-8 md:w-10 md:h-10 
+      cursor-pointer transition-all duration-300 group">
+      
+      <Phone size={16} className="group-hover:scale-110 transition-transform" />
+    </div>
+  </a>
+
+  {/* Mail */}
+  <a
+    href="mailto:Singh@codxsoftwares.com?subject=Inquiry&body=Hello Codx Team,"
+    className="flex items-center justify-center 
+      rounded-full border border-[#0D1F3C]/20 
+      text-[#0D1F3C] hover:bg-[#2ABFBF]/10 hover:border-[#2ABFBF]/40 
+      w-8 h-8 md:w-10 md:h-10 
+      transition-all duration-300 group"
+    onClick={(e) => e.stopPropagation()}
+  >
+    <Mail size={16} className="group-hover:scale-110 transition-transform" />
+  </a>
+
+</div>
                 </div>
               </div>
             </div>

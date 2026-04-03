@@ -56,6 +56,11 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
 .section-subheading {
   font-size: 24px;
   font-weight: 600;

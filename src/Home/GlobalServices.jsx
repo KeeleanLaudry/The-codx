@@ -17,7 +17,7 @@ import advertising from "../assets/advertising.png";
 import development from "../assets/develop.png";
 
 export default function GlobalServices() {
-const [active, setActive] = useState(null);
+const [active, setActive] = useState('development');
   const [hoveredId, setHoveredId] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -63,11 +63,7 @@ const [active, setActive] = useState(null);
       image: service,
     }
   ];
-useEffect(() => {
-  if (window.innerWidth > 768) {
-    setActive("development"); // ✅ desktop default open
-  }
-}, []);
+
  useEffect(() => {
   // ✅ mobile check (sabse important)
   if (window.innerWidth <= 768) return;
@@ -101,8 +97,7 @@ useEffect(() => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                  onClick={() => {
-  setActive(prev => (prev === service.id ? null : service.id));
-
+setActive(service.id);
   setIsPaused(true);
   setTimeout(() => {
     setIsPaused(false);
@@ -164,10 +159,10 @@ useEffect(() => {
         </p>
 
         <button 
-          className="font-semibold px-5 py-2.5 rounded-full flex items-center gap-2 text-sm"
-          style={{ backgroundColor: "#0D1F3C", color: "#FFFFFF" }}
+          className="primary-btn"
+        
         >
-          Learn more <ArrowRight size={14} />
+          Learn more
         </button>
       </div>
     </motion.div>

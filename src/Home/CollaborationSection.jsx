@@ -161,7 +161,7 @@ function Card({ item, index }) {
               display: "flex",
               alignItems: "center",
               padding: "30px 44px",
-              gap: 36,
+              gap: window.innerWidth < 768 ? 12 : 36,
               minHeight: 108,
             }}
           >
