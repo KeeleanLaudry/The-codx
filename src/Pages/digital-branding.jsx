@@ -16,6 +16,7 @@ import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
 import DifferenceSection from '../web-development/DifferenceDeliver';
+import { Helmet } from "react-helmet-async";
 
 import {
   FaMapMarkedAlt,
@@ -140,6 +141,24 @@ const services = [
   }
 ];
   return (
+    <>
+     <Helmet>
+            <title>
+            Effective Branding Services in UAE | Branding Services in Dubai - Codx Softwares
+            </title>
+        
+            <meta
+              name="description"
+              content="Our branding services use technology to refine your company image and build a strong internal culture that resonates with your audience."
+            />
+        
+            <meta
+              name="keywords"
+              content="Effective Branding Services in UAE, Branding Services in Dubai "
+            />
+        
+            <meta name="robots" content="index, follow" />
+          </Helmet>
     <div>
         <HeroBanner
        title="Build a Powerful Brand
@@ -277,5 +296,6 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
 <BrandsGrid title="Trusted by 350+ Clients Worldwide" />
 <ContactSection/>
     </div>
+    </>
   )
 }

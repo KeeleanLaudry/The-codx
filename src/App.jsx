@@ -26,7 +26,7 @@ import Blogdetail from "./about/BlogDetail";
 import ContactPage from "./ContactUs/Contactus";
 import TermsAndConditions from "./Home/Term-and-condition";
 import PrivacyPolicy from "./Home/PrivacyPolicy";
-
+import { HelmetProvider } from "react-helmet-async";
 import Loader from "./Home/Loader"; // ✅ correct
 
 function App() {
@@ -42,7 +42,8 @@ function App() {
   }, []);
 
   return (
-    <>
+ 
+     <HelmetProvider>
       {/* 🔥 Loader */}
       {loading && <Loader />}
 
@@ -88,7 +89,8 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </>
+      </HelmetProvider>
+   
   );
 }
 

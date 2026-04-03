@@ -15,6 +15,7 @@ import TechnologiesSection from '../web-development/technologiesweuse';
 import TestimonialSection from '../Home/Testimonial';
 import BlogSection from '../about/BlogSection';
 import ContactSection from '../Contact/contactForm';
+import { Helmet } from "react-helmet-async";
 export default function Home() {
    const portalData = [
   {
@@ -49,6 +50,24 @@ export default function Home() {
   }
 ];
   return (
+    <>
+  <Helmet>
+    <title>
+      Branding Company In Dubai | Online Marketing Dubai - Codx Softwares
+    </title>
+
+    <meta
+      name="description"
+      content="Codx Softwares is the best software development company in Dubai offering a wide spectrum of services and helps to build robust and secure software."
+    />
+
+    <meta
+      name="keywords"
+      content="Digital Marketing Agency Dubai, Online Marketing Dubai"
+    />
+
+    <meta name="robots" content="index, follow" />
+  </Helmet>
     <div>
    <HeroBanner
   title="CODX! Digitally yours"
@@ -90,5 +109,6 @@ export default function Home() {
 <ContactSection/>
     </div>
     </div>
+    </>
   )
 }

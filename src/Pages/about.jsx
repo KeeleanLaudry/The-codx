@@ -6,8 +6,28 @@ import enterprises from "../assets/enterprises.jpg";
 import HeroBanner from "../Home/HeroBanner";
 import OurStory from "../about/OurStory";
 import Services from "../about/services"
+import { Helmet } from "react-helmet-async";
+
 export default function services() {
   return (
+    <>
+     <Helmet>
+        <title>
+         About Us - Best Digital Marketing Company UAE | Codx Softwares
+        </title>
+    
+        <meta
+          name="description"
+          content="Codx Softwaresis a custom software development company in UAE delivers IT solutions, web development, e-commerce and digital marketing services."
+        />
+    
+        <meta
+          name="keywords"
+          content="Best Digital Marketing Company UAE"
+        />
+    
+        <meta name="robots" content="index, follow" />
+      </Helmet>
     <div>
 <HeroBanner
   title="Innovate, Scale, Succeed - CODX"
@@ -33,5 +53,6 @@ linesSize="text-lg sm:text-xl md:text-xl"
       <Services/>
       <OurStory/>
     </div>
+    </>
   )
 }

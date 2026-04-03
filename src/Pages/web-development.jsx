@@ -14,6 +14,8 @@ import TechnologiesSection from '../web-development/technologiesweuse';
 import Services from '../web-development/servicecard';
 import ContactSection from '../Contact/contactForm';
 import PlatformTypes from "../mobile-app-development/platform"
+import { Helmet } from "react-helmet-async";
+
 import {
   FaGraduationCap,
   FaUsers,
@@ -150,6 +152,24 @@ const services = [ { title: "Digital Marketing",
   }
  ];
   return (
+    <>
+       <Helmet>
+            <title>
+             Web Development Services | Web Development Agency in Dubai - Codx Softwares
+            </title>
+        
+            <meta
+              name="description"
+              content="Codx Softwares is one of the best web development companies in UAE offering all kinds of web portals and web application development. We specialize in technologies such as PHP, HTML, CSS, Nodejs, Laravel, WordPress, Magento, Opencart, Shopify, and more."
+            />
+        
+            <meta
+              name="keywords"
+              content="Web Development Services in Dubai, Web Development Agency in Dubai"
+            />
+        
+            <meta name="robots" content="index, follow" />
+          </Helmet>
     <div>
       <HeroBanner
   title="Your Vision, Our Expertise A Perfect Digital Blend"
@@ -280,5 +300,6 @@ linesSize="text-lg sm:text-xl md:text-xl"
 
 <ContactSection/>
     </div>
+    </>
   )
 }

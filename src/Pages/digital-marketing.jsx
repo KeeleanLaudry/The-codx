@@ -20,6 +20,7 @@ import { SiMeta } from "react-icons/si";
 import { MdOutlineCampaign } from "react-icons/md";
 import { FaBuilding, FaLaptopCode, FaAppStoreIos } from "react-icons/fa";
 import DifferenceSection from '../web-development/DifferenceDeliver';
+import { Helmet } from "react-helmet-async";
 
 export default function mobileappdevelopment() {
      const industries = [
@@ -133,6 +134,24 @@ const services = [
   }
 ];
   return (
+    <>
+    <Helmet>
+            <title>
+             Best Digital Marketing Agency Dubai | Seo Services In Dubai - Codx Softwares
+            </title>
+        
+            <meta
+              name="description"
+              content="We are a top internet marketing agency Dubai offering digital marketing services. As a digital marketing agency UAE, we can maximize the ROI for your company."
+            />
+        
+            <meta
+              name="keywords"
+              content="Best Digital Marketing Agency Dubai, Seo Services In Dubai"
+            />
+        
+            <meta name="robots" content="index, follow" />
+          </Helmet>
     <div>
         <HeroBanner
        title="Elevate Your Brand with
@@ -271,5 +290,6 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
 <BrandsGrid title="Trusted by 350+ Clients Worldwide" />
 <ContactSection/>
     </div>
+    </>
   )
 }

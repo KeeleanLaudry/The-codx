@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ContactSection from "../Contact/contactForm";
+import { Helmet } from "react-helmet-async";
 import {
   MapPin,
   Phone,
@@ -90,6 +91,29 @@ export default function ContactPage() {
   ];
 
   return (
+    <>
+       <Helmet>
+      <title>Contact Us - Digital Marketing Company Abu Dhabi | Codx Softwares</title>
+
+      <meta
+        name="description"
+        content="Codx SOftwares is a Design and Marketing agency helping clients in effectively communicating theie brand online."
+      />
+
+      <meta
+        name="keywords"
+        content="Digital Marketing Company Abu Dhabi"
+      />
+
+      <meta name="robots" content="index, follow" />
+
+      {/* 🔥 Social SEO */}
+      <meta property="og:title" content="Contact Codx Softwares" />
+      <meta property="og:description" content="Contact Codx for digital solutions and business growth." />
+      <meta property="og:url" content="https://thecodx.com/contact-us" />
+      <meta property="og:type" content="website" />
+    </Helmet>
+
     <div className="min-h-screen ">
       {/* Hero Section */}
 <section className="relative overflow-hidden py-24 md:py-24 lg:py-32">     
@@ -230,5 +254,6 @@ export default function ContactPage() {
     </section>
   
     </div>
+    </>
   );
 }

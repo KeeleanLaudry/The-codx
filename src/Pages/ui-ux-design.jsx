@@ -16,6 +16,7 @@ import Appsection from "../mobile-app-development/appproject";
 import PlatformTypes from '../mobile-app-development/platform';
 import Services from '../web-development/servicecard';
 import DifferenceSection from '../web-development/DifferenceDeliver';
+import { Helmet } from "react-helmet-async";
 
 import {
   FaChartPie,
@@ -149,6 +150,26 @@ const services = [
   }
 ];
   return (
+     <>
+      <Helmet>
+             <title>
+              UI and UX Design Services in UAE | Graphic Design Services in Dubai - Codx Softwares
+             </title>
+         
+             <meta
+               name="description"
+               content="The graphic designers at Codx build a simple yet elegant interface, to present you with
+a radiant digital product. Along with giving each application a different style, our UI/UX design services in
+Chandigarh present a top-notch practice to users."
+             />
+         
+             <meta
+               name="keywords"
+               content="UI and UX Design Services in UAE,Graphic Design Services in Dubai"
+             />
+         
+             <meta name="robots" content="index, follow" />
+           </Helmet>
     <div>
         <HeroBanner
        title="Designs That Delight. Experiences That Convert."
@@ -286,5 +307,6 @@ linesSize="text-lg sm:text-xl md:text-xl"/>
 <BrandsGrid title="Trusted by 350+ Clients Worldwide" />
 <ContactSection/>
     </div>
+    </>
   )
 }
