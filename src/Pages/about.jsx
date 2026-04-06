@@ -7,6 +7,7 @@ import HeroBanner from "../Home/HeroBanner";
 import OurStory from "../about/OurStory";
 import Services from "../about/services"
 import { Helmet } from "react-helmet-async";
+import ImageCardSection from "../about/Image";
 
 export default function services() {
   return (
@@ -52,6 +53,7 @@ linesSize="text-lg sm:text-xl md:text-xl"
       />
       <Services/>
       <OurStory/>
+      <ImageCardSection/>
     </div>
     </>
   )

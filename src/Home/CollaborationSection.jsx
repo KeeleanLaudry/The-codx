@@ -188,8 +188,8 @@ function Card({ item, index }) {
                 fontWeight: 600,
                 color: "#fff",
                 margin: 0,
-                minWidth: 200,
-                flexShrink: 0,
+               minWidth: window.innerWidth < 768 ? "auto" : 200,
+flexShrink: window.innerWidth < 768 ? 1 : 0,
                 whiteSpace: "normal",
               }}
             >
@@ -207,20 +207,21 @@ function Card({ item, index }) {
               }}
             />
 
-            <p
-              style={{
-                fontSize: 16,
-                color: "rgba(237,231,223,0.72)",
-                lineHeight: 1.7,
-                width: 360,
-                flexShrink: 0,
-                margin: 0,
-                flex: 1,
-              }}
-            >
-              {item.desc}
-            </p>
-
+            {window.innerWidth >= 768 && (
+  <p
+    style={{
+      fontSize: 16,
+      color: "rgba(237,231,223,0.72)",
+      lineHeight: 1.7,
+      width: 360,
+      flexShrink: 0,
+      margin: 0,
+      flex: 1,
+    }}
+  >
+    {item.desc}
+  </p>
+)}
             {/* Arrow */}
             <motion.div
               animate={{
