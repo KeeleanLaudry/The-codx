@@ -7,7 +7,7 @@ const data = [
   {
     title: "Mission.",
     image: mission,
-    desc: "To create transformative digital solutions that fuse strategy, technology, and creativity, empowering businesses with innovation, precision, and long-term impact. ",
+    desc: "To create transformative digital solutions that fuse strategy, technology, and creativity, empowering businesses with innovation, precision, and long-term impact.",
   },
   {
     title: "Vision.",
@@ -24,44 +24,42 @@ const data = [
 export default function OurApproach() {
   return (
     <section className="max-w-5xl mx-auto px-5">
-      <h2
-        className="section-heading"
-      >
+      <h2 className="section-heading text-center mb-10">
         Our Approach
       </h2>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 px-6 py-10">
-        {data.map((item, i) => (
-          <div key={i} className="group perspective text-center">
-            {/* CARD */}
-            <div className="relative h-[420px] w-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-              {/* FRONT */}
-              <div className="absolute inset-0 backface-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover rounded-xl"
-                />
-              </div>
+      {data.map((item, i) => (
+  <div key={i} className="group perspective text-center">
 
-              {/* BACK */}
-              <div
-                className="absolute inset-0 rotate-y-180 backface-hidden 
-      bg-gradient-to-r from-[#EADECF]  to-[#EADECF]
-      text-[#0D1F3C] flex items-center justify-center text-center p-6 rounded-xl"
-              >
-                <p className="section-desc">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
+    {/* CARD */}
+    <div className="relative h-[420px] w-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
 
-            {/* TITLE BELOW CARD */}
-            <h3 className=" gradient-text mt-5 text-xl font-semibold text-white">
-              {item.title}
-            </h3>
-          </div>
-        ))}
+      {/* FRONT */}
+      <div className="absolute inset-0 backface-hidden">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover rounded-xl"
+        />
+      </div>
+
+      {/* BACK */}
+      <div className="absolute inset-0 backface-hidden rotate-y-180 bg-[#EADECF] text-[#0D1F3C] flex items-center justify-center p-6 rounded-xl">
+        <p className="text-base font-semibold leading-relaxed text-center">
+          {item.desc}
+        </p>
+      </div>
+
+    </div>
+
+    {/* ✅ TITLE BELOW CARD */}
+    <h3 className="mt-4 text-lg font-semibold text-blue">
+      {item.title}
+    </h3>
+
+  </div>
+))}
       </div>
     </section>
   );
