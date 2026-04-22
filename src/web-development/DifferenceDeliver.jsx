@@ -90,7 +90,7 @@ export default function DifferenceSection({
       </div>
 
       {/* Animations */}
-      <style jsx>{`
+      <style >{`
         @keyframes float {
           0%, 100% {
             transform: translate(0, 0) scale(1);

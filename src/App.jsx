@@ -28,11 +28,11 @@ import TermsAndConditions from "./Home/Term-and-condition";
 import PrivacyPolicy from "./Home/PrivacyPolicy";
 import { HelmetProvider } from "react-helmet-async";
 import Loader from "./Home/Loader"; // ✅ correct
-
+import CaseStudyDetail from "./our-work/CaseStudy";
 function App() {
+  console.log("Current Path:", window.location.pathname);
   const [loading, setLoading] = useState(true);
 
-  // auto hide loader
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -42,55 +42,57 @@ function App() {
   }, []);
 
   return (
- 
-     <HelmetProvider>
-      {/* 🔥 Loader */}
-      {loading && <Loader />}
+    <HelmetProvider>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div
+            className={`transition-all duration-700 ${
+              loading ? "opacity-0 scale-95" : "opacity-100 scale-100"
+            }`}
+          >
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
 
-      {/* 🔥 Main App */}
-      <div
-        className={`transition-all duration-700 ${
-          loading ? "opacity-0 scale-95" : "opacity-100 scale-100"
-        }`}
-      >
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="contact-us" element={<ContactPage />} />
+                <Route path="our-work" element={<OurWork />} />
+              <Route path="case-study/:id" element={<CaseStudyDetail />} />
+                <Route path="web-development" element={<Webdevelopment />} />
+                <Route path="mobile-app-development" element={<Mobileappdevelopment />} />
+                <Route path="ecommerce-website" element={<Ecomerce />} />
+                <Route path="ui-ux-design" element={<Uiux />} />
 
-            <Route path="about" element={<About />} />
-            <Route path="contact-us" element={<ContactPage />} />
-            <Route path="our-work" element={<OurWork />} />
+                <Route path="social-media-marketing" element={<SocialMarketingSection />} />
+                <Route path="digital-marketing" element={<DigitalMarketingSection />} />
+                <Route path="digital-branding" element={<DigitalBrandingSection />} />
 
-            <Route path="web-development" element={<Webdevelopment />} />
-            <Route path="mobile-app-development" element={<Mobileappdevelopment />} />
-            <Route path="ecommerce-website" element={<Ecomerce />} />
-            <Route path="ui-ux-design" element={<Uiux />} />
+                <Route path="blogs" element={<BlogSection />} />
+                <Route path="blog/:id" element={<Blogdetail />} />
 
-            <Route path="social-media-marketing" element={<SocialMarketingSection />} />
-            <Route path="digital-marketing" element={<DigitalMarketingSection />} />
-            <Route path="digital-branding" element={<DigitalBrandingSection />} />
+                <Route path="ads" element={<AdsSection />} />
+                <Route path="video-production" element={<Videoproductionsection />} />
+                <Route path="erp-solutions" element={<Erpsection />} />
+                <Route path="it-resources" element={<Itresourcesection />} />
 
-            <Route path="blogs" element={<BlogSection />} />
-            <Route path="blog/:id" element={<Blogdetail />} />
+                <Route path="beauty-wellness" element={<BeautyHeroSection />} />
+                <Route path="ecommerce" element={<Ecommerce />} />
+                <Route path="real-estate" element={<RealEstate />} />
+                <Route path="business-consultancy" element={<BusinessConsultancy />} />
+                <Route path="healthcare" element={<Healthcare />} />
 
-            <Route path="ads" element={<AdsSection />} />
-            <Route path="video-production" element={<Videoproductionsection />} />
-            <Route path="erp-solutions" element={<Erpsection />} />
-            <Route path="it-resources" element={<Itresourcesection />} />
+                <Route path="terms" element={<TermsAndConditions />} />
+                <Route path="privacy" element={<PrivacyPolicy />} />
 
-            <Route path="beauty-wellness" element={<BeautyHeroSection />} />
-            <Route path="ecommerce" element={<Ecommerce />} />
-            <Route path="real-estate" element={<RealEstate />} />
-            <Route path="business-consultancy" element={<BusinessConsultancy />} />
-            <Route path="healthcare" element={<Healthcare />} />
-
-            <Route path="terms" element={<TermsAndConditions />} />
-            <Route path="privacy" element={<PrivacyPolicy />} />
-          </Route>
-        </Routes>
-      </div>
-      </HelmetProvider>
-   
+                <Route path="*" element={<div>Page Not Found</div>} />
+              </Route>
+            </Routes>
+          </div>
+        </>
+      )}
+    </HelmetProvider>
   );
 }
 

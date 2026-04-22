@@ -200,7 +200,7 @@ export default function Services() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style >{`
         .perspective-1000 {
           perspective: 2000px;
         }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sir from "../assets/Sir.png";
-
+import emailjs from "@emailjs/browser";
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,11 +18,31 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  emailjs.send(
+    "service_ynhfc5c",     // from EmailJS
+    "template_wwm5u9f",    // from EmailJS
+    {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      contactNo: formData.contactNo,
+      connectUs: formData.connectUs,
+      project: formData.project,
+    },
+    "8lgEoHKr09wxTAcwn"      // from EmailJS
+  )
+  .then((result) => {
+    alert("✅ Message sent successfully!");
+    console.log(result.text);
+  })
+  .catch((error) => {
+    alert("❌ Failed to send message");
+    console.error(error.text);
+  });
+};
 
   return (
     <section className="relative min-h-screen flex items-center justify-center  px-4 overflow-hidden" >
@@ -198,7 +218,7 @@ const ContactSection = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style >{`
         @keyframes float {
           0%, 100% {
             transform: translate(0, 0) rotate(0deg);

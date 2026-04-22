@@ -39,7 +39,7 @@ const industries = [
 <img 
   src={logo} 
   alt="logo" 
-  className="h-[7rem] md:h-20 lg:h-24 object-contain" 
+  className="h-[7rem] md:h-20 lg:h-32 object-contain" 
 />
           <h3 className="text-[#0D1F3C] text-xl font-semibold mb-4 border-l-2 border-[#2ABFBF] pl-2">
             Contact Us

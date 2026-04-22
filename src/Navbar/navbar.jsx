@@ -374,7 +374,7 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
               style={pillGlassStyle}
             >
               <Link
-                to="/about"
+                to="/about" 
                 className="relative group py-0.5 text-[#0D1F3C] font-medium text-sm xl:text-[17px] "
               >
                 <span className="hover:text-[#2ABFBF] transition-colors">
@@ -485,7 +485,7 @@ className="w-60 sm:w-56 md:w-[420px] lg:w-[250px] h-auto drop-shadow-sm cursor-p
 
                       <div className="space-y-4">
                         <Link
-                          to={servicePageLinks[activeService] || "#"}
+                          to={servicePageLinks[activeService]}
                            onClick={() => setServicesOpen(false)}
                           className="inline-flex items-center gap-2 text-base md:text-lg font-semibold text-[#0D1F3C] hover:text-[#2ABFBF] transition-colors group"
                         >
@@ -723,9 +723,10 @@ className="flex items-center justify-center rounded-full border border-[#0D1F3C]
                             {services[category].map((service) => (
                               <Link
                                 key={service}
-                                to={servicePageLinks[service] || "#"}
+                                to={servicePageLinks[service] }
                                 className="block py-1.5 text-sm text-[#0D1F3C]/70 hover:text-[#2ABFBF] transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
+                                
                               >
                                 {service}
                               </Link>

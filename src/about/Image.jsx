@@ -21,7 +21,7 @@ const team = [
    { name: "Gargi Guru", role: "Social Media Coordinator", img: Gargi, gradient: "from-[#0D1F3C]/10 to-[#2ABFBF]/10" },
   { name: "Alaina Shoeb", role: "Front-end Developer", img: Alaina, gradient: "from-[#0D1F3C]/10 to-[#2ABFBF]/10" },
   { name: "Sayali Chavan", role: "Front-end Developer", img: Sayali, gradient: "from-[#2ABFBF]/20 to-[#2ABFBF]/5" },
-    { name: "Samiya Zaidi", role: "App Developer", img: Samiya, gradient: "from-[#2ABFBF]/20 to-[#2ABFBF]/5" },
+    { name: "Samiya Zaidi", role: "Mobile App Developer", img: Samiya, gradient: "from-[#2ABFBF]/20 to-[#2ABFBF]/5" },
   { name: "Superna Choudhary", role: "Graphic Designer", img: Suparna, gradient: "from-[#0D1F3C]/10 to-[#2ABFBF]/10" },
   { name: "Vedanti Gabhane", role: "UI UX Designer", img: Vedanti, gradient: "from-[#2ABFBF]/20 to-[#2ABFBF]/5" },
 ];
@@ -141,7 +141,7 @@ export default function TeamSection() {
 
         {/* First Row - 2 Cards (Mentor & CEO) */}
      {/* First Row - 2 Cards */}
-<div className="grid grid-cols-1 sm:grid-cols-2 place-items-center gap-y-32 sm:gap-y-28 mb-28 sm:mb-36">
+<div className="grid grid-cols-1 sm:grid-cols-2 place-items-center gap-y-32 sm:gap-y-28 mb-28 sm:mb-34">
     {team.slice(0, 2).map((member, index) => (
     <TeamCard key={index} {...member} index={index} />
   ))}
