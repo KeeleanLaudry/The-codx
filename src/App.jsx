@@ -29,7 +29,7 @@ import PrivacyPolicy from "./Home/PrivacyPolicy";
 import { HelmetProvider } from "react-helmet-async";
 import Loader from "./Home/Loader"; // ✅ correct
 import CaseStudyDetail from "./our-work/CaseStudy";
- 
+ import AllBlogs from "./about/allBlogs";
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -64,7 +64,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-
+            <Route path="/blogs" element={<AllBlogs />} />
             <Route path="about" element={<About />} />
             <Route path="contact-us" element={<ContactPage />} />
             <Route path="our-work" element={<OurWork />} />
@@ -91,7 +91,7 @@ function App() {
             />
 
             <Route path="blogs" element={<BlogSection />} />
-            <Route path="blog/:id" element={<Blogdetail />} />
+            <Route path="blog/:slug" element={<Blogdetail />} />
 
             <Route path="ads" element={<AdsSection />} />
             <Route

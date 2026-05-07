@@ -4,6 +4,7 @@ export const brandApi = createApi({
   reducerPath: "brandApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.thecodx.com/api",
+    // baseUrl:"http://localhost:5000/api",
   }),
   endpoints: (builder) => ({
 

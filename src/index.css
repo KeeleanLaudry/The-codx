@@ -134,3 +134,107 @@ body {
 .backface-hidden {
   backface-visibility: hidden;
 }
+/* index.css mein add karo - Tailwind ke baad */
+
+/* Blog content list styling */
+.prose ul li {
+  position: relative;
+  padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+  background: #f8f7f4;
+  border-radius: 10px;
+  border: 0.5px solid #e8e4de;
+  list-style: none !important;
+  margin-bottom: 0.5rem;
+}
+
+.prose ul li::before {
+  content: '' !important;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  background: #2ABFBF;
+  border-radius: 50%;
+}
+
+.prose ul li::marker {
+  display: none !important;
+  color: transparent !important;
+}
+
+/* Blockquote dark styling */
+.prose blockquote {
+  background: #0D1F3C !important;
+  border-left-color: #2ABFBF !important;
+  color: white;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem !important;
+}
+.prose blockquote strong{
+  color: white;
+}
+.prose blockquote p {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-style: italic;
+  margin: 0 !important;
+}
+
+/* Images full width */
+.prose img {
+  width: 100% !important;
+  height: auto;
+  border-radius: 12px !important;
+  margin: 1.5rem 0 !important;
+}
+
+/* H2 left border teal */
+.prose h2 {
+  border-left: 3px solid #2ABFBF;
+  padding-left: 1rem;
+  margin-top: 2.5rem !important;
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animate-scroll {
+  animation: scroll 1.5s ease-in-out infinite;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}

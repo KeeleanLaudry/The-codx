@@ -26,5 +26,8 @@ export default {
   },
   plugins: [
   require('tailwindcss-3d'),
+  
+    require('@tailwindcss/typography'),
+
   ],
 }
